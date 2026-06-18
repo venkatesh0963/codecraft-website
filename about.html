@@ -1,936 +1,687 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
   <title>About CodeCraft | Learn Programming, Web Development & Coding Skills</title>
-<meta name="description"
-content="Learn about CodeCraft, an online programming learning platform offering tutorials in HTML, CSS, JavaScript, Python, Java, C++, SQL, MongoDB, web development, and software engineering.">
-
-<meta name="keywords"
-content="CodeCraft, learn programming, coding tutorials, web development, software development, HTML, CSS, JavaScript, Python, Java, SQL, MongoDB">
-
-<meta name="robots" content="index, follow">
-<meta property="og:title" content="About CodeCraft">
-<meta property="og:description" content="Learn programming through structured tutorials, coding projects, and career-focused learning paths.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.codecraft.com/about.html">
-<meta property="og:image" content="https://www.codecraft.com/images/about-banner.jpg">
-<meta name="author" content="CodeCraft">
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet">
+  
+  <meta name="description" content="Learn about CodeCraft, an online programming learning platform offering tutorials in HTML, CSS, JavaScript, Python, Java, C++, SQL, MongoDB, web development, and software engineering.">
+  <meta name="keywords" content="CodeCraft, learn programming, coding tutorials, web development, software development, HTML, CSS, JavaScript, Python, Java, SQL, MongoDB">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="About CodeCraft">
+  <meta property="og:description" content="Learn programming through structured tutorials, coding projects, and career-focused learning paths.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.codecraft.com/about.html">
+  <meta property="og:image" content="https://www.codecraft.com/images/about-banner.jpg">
+  <meta name="author" content="CodeCraft">
+  
+  <!-- GOOGLE FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
+    /* Neo-brutalism Variables */
+    :root {
+      /* Light Mode Colors */
+      --bg-color: #fdfaf6;
+      --text-color: #0f0f0f;
+      --border-color: #0f0f0f;
+      --shadow-color: #0f0f0f;
+      --surface-color: #ffffff;
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Poppins', sans-serif;
+      --primary: #ff5e5b;    /* Red/Pink */
+      --secondary: #ffed66;  /* Yellow */
+      --tertiary: #00cecb;   /* Teal/Cyan */
+      --quaternary: #8338ec; /* Purple */
+      
+      --border-width: 4px;
+      --border-radius: 12px;
+      --section-margin: 100px auto; /* EQUAL MARGINS */
     }
 
-    html,body{
-      overflow-x:hidden;
-      scroll-behavior:smooth;
+    body.dark-mode {
+      /* Dark Mode Colors */
+      --bg-color: #1a1a1d;
+      --text-color: #fdfaf6;
+      --border-color: #fdfaf6;
+      --shadow-color: #fdfaf6;
+      --surface-color: #26262a;
+
+      --primary: #ff4a47;
+      --secondary: #ebd800;
+      --tertiary: #00b3b0;
+      --quaternary: #9d50ff;
     }
 
-/* ================= LIGHT TECH BACKGROUND ================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
 
-body{
-  background-color:#f7f9fc;
+    html, body {
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
 
-  /* Purple + Blue Grid */
-  background-image:
-    linear-gradient(rgba(127,0,255,0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(26,115,232,0.07) 1px, transparent 1px);
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      background-image: radial-gradient(var(--border-color) 1px, transparent 1px);
+      background-size: 30px 30px;
+      background-position: 0 0, 15px 15px;
+    }
 
-  background-size:50px 50px;
+    h1, h2, h3, h4, h5, h6, b, strong {
+      font-weight: 800;
+      color: var(--text-color);
+    }
+    
+    p, span, div {
+      color: var(--text-color);
+    }
 
-  position:relative;
+    /* Neo-brutalism Utilities */
+    .neo-box {
+      background-color: var(--surface-color);
+      border: var(--border-width) solid var(--border-color);
+      box-shadow: 8px 8px 0px var(--shadow-color);
+      border-radius: var(--border-radius);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+    }
+    .neo-box:hover {
+      transform: translate(4px, 4px);
+      box-shadow: 4px 4px 0px var(--shadow-color);
+    }
 
-  overflow-x:hidden;
-}
+    .neo-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 28px;
+      background-color: var(--primary);
+      color: #0f0f0f !important;
+      border: var(--border-width) solid var(--border-color);
+      box-shadow: 6px 6px 0px var(--shadow-color);
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 16px;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+    body.dark-mode .neo-btn {
+      color: var(--bg-color) !important;
+    }
+    .neo-btn:hover {
+      transform: translate(3px, 3px);
+      box-shadow: 3px 3px 0px var(--shadow-color);
+      background-color: var(--secondary);
+    }
 
-/* TOP GLOW */
-body::before{
-  content:"";
-
-  position:fixed;
-
-  top:-120px;
-  left:-120px;
-
-  width:450px;
-  height:450px;
-
-  background:
-  radial-gradient(circle,
-  rgba(127,0,255,0.18),
-  transparent 70%);
-
-  z-index:-1;
-
-  animation:moveGlow1 8s ease-in-out infinite alternate;
-}
-
-/* BOTTOM GLOW */
-body::after{
-  content:"";
-
-  position:fixed;
-
-  bottom:-150px;
-  right:-150px;
-
-  width:500px;
-  height:500px;
-
-  background:
-  radial-gradient(circle,
-  rgba(26,115,232,0.18),
-  transparent 70%);
-
-  z-index:-1;
-
-  animation:moveGlow2 10s ease-in-out infinite alternate;
-}
-
-/* FLOATING ANIMATION */
-
-@keyframes moveGlow1{
-
-  0%{
-    transform:translate(0,0);
-  }
-
-  100%{
-    transform:translate(80px,40px);
-  }
-
-}
-
-@keyframes moveGlow2{
-
-  0%{
-    transform:translate(0,0);
-  }
-
-  100%{
-    transform:translate(-60px,-50px);
-  }
-
-}
+    .section {
+      width: 90%;
+      max-width: 1400px;
+      margin: var(--section-margin);
+    }
 
     /* ================= HEADER ================= */
-
-    header{
-      width:100%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-
-      padding:18px 50px;
-
-      background:linear-gradient(135deg,#141e30,#243b55);
-
-      position:sticky;
-      top:0;
-      z-index:1000;
-
-      box-shadow:0 4px 20px rgba(0,0,0,0.15);
+    header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: var(--bg-color);
+      border-bottom: var(--border-width) solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .header-logo {
+      width: 60px;
+      height: 60px;
+      border: var(--border-width) solid var(--border-color);
+      background-color: var(--tertiary);
+      color: #0f0f0f;
+      border-radius: var(--border-radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      font-weight: 900;
+      box-shadow: 4px 4px 0px var(--shadow-color);
+    }
+    body.dark-mode .header-logo {
+      color: var(--bg-color);
+    }
+    .brand-text h2 {
+      font-size: 32px;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .brand-text p {
+      font-size: 14px;
+      font-weight: 700;
+      margin-top: 5px;
+    }
+    .right {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    .theme-toggle {
+      background-color: var(--quaternary);
+      padding: 14px;
+      font-size: 20px;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
     }
 
-    /* LEFT */
-
-    .left{
-      display:flex;
-      align-items:center;
-      gap:15px;
+    /* ================= HERO SECTION ================= */
+    .hero {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .hero h1 {
+      font-size: 80px;
+      line-height: 1.1;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+      text-shadow: 4px 4px 0px var(--tertiary);
+      letter-spacing: -1px;
+    }
+    body.dark-mode .hero h1 {
+      text-shadow: 4px 4px 0px rgba(0, 179, 176, 0.5);
+    }
+    .hero h1 span {
+      display: inline-block;
+      margin-top: 10px;
+      background-color: var(--primary);
+      color: #0f0f0f;
+      padding: 5px 20px;
+      border: var(--border-width) solid var(--border-color);
+      box-shadow: 6px 6px 0px var(--shadow-color);
+      transform: rotate(-1deg);
+    }
+    body.dark-mode .hero h1 span {
+      color: var(--bg-color);
+    }
+    .hero p {
+      max-width: 900px;
+      margin: 30px auto;
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 1.8;
+      background-color: var(--surface-color);
+      padding: 30px;
+      border: var(--border-width) solid var(--border-color);
+      box-shadow: 8px 8px 0px var(--shadow-color);
+      border-radius: var(--border-radius);
     }
 
-    .header-logo{
-      width:60px;
-      height:60px;
-
-      border-radius:18px;
-
-      background:linear-gradient(135deg,#7f00ff,#1a73e8);
-
-      color:white;
-
-      display:flex;
-      align-items:center;
-      justify-content:center;
-
-      font-size:26px;
-      font-weight:bold;
-
-      box-shadow:0 8px 20px rgba(127,0,255,0.35);
+    /* ================= STATS SECTION ================= */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+    }
+    .stat-box {
+      padding: 40px 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .stat-box h2 {
+      font-size: 55px;
+      color: var(--primary);
+      text-shadow: 2px 2px 0px var(--border-color);
+    }
+    .stat-box p {
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
     }
 
-    .brand-text h2{
-      color:white;
-      font-size:28px;
-      font-weight:800;
-      line-height:1;
+    /* ================= SEO CONTENT SECTION ================= */
+    .seo-content {
+      padding: 50px;
+      background-color: var(--secondary);
+    }
+    .seo-content h2 {
+      font-size: 40px;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      color: #0f0f0f;
+    }
+    body.dark-mode .seo-content h2 {
+      color: var(--bg-color);
+    }
+    .seo-content p {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      color: #0f0f0f;
+    }
+    body.dark-mode .seo-content p {
+      color: var(--bg-color);
+    }
+    .seo-content strong {
+      background-color: var(--tertiary);
+      padding: 2px 8px;
+      border: 2px solid var(--border-color);
+      box-shadow: 2px 2px 0px var(--shadow-color);
+      color: #0f0f0f;
+    }
+    body.dark-mode .seo-content strong {
+      color: var(--bg-color);
     }
 
-    .brand-text p{
-      color:#d1d5db;
-      font-size:12px;
-      margin-top:5px;
-      line-height:1.5;
+    /* ================= ABOUT CARDS ================= */
+    .about {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 35px;
+    }
+    .card {
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .card h3 {
+      font-size: 28px;
+      text-transform: uppercase;
+      border-bottom: var(--border-width) solid var(--border-color);
+      padding-bottom: 15px;
+    }
+    .card p {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.7;
+    }
+    
+    .bg-1 { background-color: var(--tertiary); color: #0f0f0f; }
+    body.dark-mode .bg-1 { color: var(--bg-color); }
+    body.dark-mode .bg-1 h3 { color: var(--bg-color); }
+    body.dark-mode .bg-1 p { color: var(--bg-color); }
+    
+    .bg-2 { background-color: var(--primary); color: #0f0f0f; }
+    body.dark-mode .bg-2 { color: var(--bg-color); }
+    body.dark-mode .bg-2 h3 { color: var(--bg-color); }
+    body.dark-mode .bg-2 p { color: var(--bg-color); }
+
+    .bg-3 { background-color: var(--quaternary); color: #fdfaf6; }
+    body.dark-mode .bg-3 { color: #fdfaf6; }
+    body.dark-mode .bg-3 h3 { color: #fdfaf6; }
+    body.dark-mode .bg-3 p { color: #fdfaf6; }
+
+    /* ================= FAQ SECTION ================= */
+    .faq-section {
+      padding: 60px;
+    }
+    .faq-section h2 {
+      font-size: 45px;
+      text-align: center;
+      margin-bottom: 50px;
+      text-transform: uppercase;
+    }
+    .faq-item {
+      border-bottom: var(--border-width) solid var(--border-color);
+      padding: 30px 0;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-item h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .faq-item h3::before {
+      content: "Q";
+      background-color: var(--quaternary);
+      color: #0f0f0f;
+      padding: 5px 15px;
+      border: var(--border-width) solid var(--border-color);
+      border-radius: 8px;
+      box-shadow: 3px 3px 0px var(--shadow-color);
+    }
+    body.dark-mode .faq-item h3::before {
+      color: var(--bg-color);
+    }
+    .faq-item p {
+      font-size: 20px;
+      font-weight: 600;
+      margin-left: 70px;
     }
 
-    /* RIGHT */
-
-    .right{
-      display:flex;
-      gap:15px;
+    /* ================= FOOTER ================= */
+    footer {
+      border-top: var(--border-width) solid var(--border-color);
+      background-color: var(--surface-color);
+      padding: 80px 50px 30px;
+    }
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 50px;
+      margin-bottom: 50px;
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .footer-box {
+      flex: 1;
+      min-width: 280px;
+    }
+    .footer-box h3 {
+      font-size: 28px;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+      background-color: var(--primary);
+      color: #0f0f0f;
+      display: inline-block;
+      padding: 8px 16px;
+      border: var(--border-width) solid var(--border-color);
+      box-shadow: 4px 4px 0px var(--shadow-color);
+    }
+    body.dark-mode .footer-box h3 {
+      color: var(--bg-color);
+    }
+    .footer-box p {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+    .footer-box a {
+      display: block;
+      font-size: 20px;
+      font-weight: 700;
+      text-decoration: none;
+      margin-bottom: 15px;
+      transition: transform 0.2s;
+    }
+    .footer-box a:hover {
+      transform: translateX(8px);
+      text-decoration: underline;
+    }
+    .social-icons {
+      display: flex;
+      gap: 20px;
+    }
+    .social-icons a {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      border: var(--border-width) solid var(--border-color);
+      box-shadow: 5px 5px 0px var(--shadow-color);
+      border-radius: var(--border-radius);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+    }
+    .social-icons a:hover {
+      transform: translate(3px, 3px);
+      box-shadow: 2px 2px 0px var(--shadow-color);
+      background-color: var(--secondary);
+    }
+    .footer-bottom {
+      text-align: center;
+      font-weight: 800;
+      font-size: 18px;
+      border-top: var(--border-width) dashed var(--border-color);
+      padding-top: 30px;
+      max-width: 1400px;
+      margin: 0 auto;
     }
 
-    .right button{
-      padding:10px 18px;
-
-      border:none;
-      border-radius:8px;
-
-      background:linear-gradient(135deg,#1a73e8,#7f00ff);
-
-      color:white;
-
-      cursor:pointer;
-
-      transition:0.3s;
-
-      font-size:14px;
+    /* ================= SCROLL TO TOP ================= */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      width: 70px;
+      height: 70px;
+      border: var(--border-width) solid var(--border-color);
+      box-shadow: 6px 6px 0px var(--shadow-color);
+      border-radius: var(--border-radius);
+      background-color: var(--primary);
+      color: #0f0f0f;
+      font-size: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: transform 0.2s, box-shadow 0.2s, opacity 0.3s;
+      z-index: 9999;
+    }
+    body.dark-mode #scrollTopBtn {
+      color: var(--bg-color);
+    }
+    #scrollTopBtn.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    #scrollTopBtn:hover {
+      transform: translate(3px, 3px);
+      box-shadow: 3px 3px 0px var(--shadow-color);
+      background-color: var(--secondary);
     }
 
-    .right button:hover{
-      background:#00e5ff;
-      color:#111;
-      transform:translateY(-2px);
+    /* ================= RESPONSIVE ================= */
+    @media(max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+      }
+      .hero h1 {
+        font-size: 50px;
+      }
+      .footer-container {
+        flex-direction: column;
+      }
     }
-
-
-    /* HERO */
-    .hero{
-      text-align:center;
-      padding:90px 20px 50px;
-    }
-
-    .hero h1{
-      font-size:60px;
-      font-weight:700;
-    }
-
-    .gradient{
-  background: linear-gradient(90deg, #1a73e8, #7f00ff);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-}
-
-    .hero p{
-      max-width:800px;
-      margin:20px auto;
-      font-size:18px;
-      color:#555;
-      line-height:1.8;
-    }
-
-    /* STATS */
-    .stats{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-      gap:20px;
-      width:90%;
-      margin:50px auto;
-    }
-
-    .stat-box{
-      background:white;
-      padding:30px;
-      border-radius:20px;
-      text-align:center;
-      box-shadow:0 10px 30px rgba(0,0,0,0.05);
-      transition:0.3s;
-    }
-
-    .stat-box:hover{
-      transform:translateY(-5px);
-    }
-
-    .stat-box h2{
-      font-size:40px;
-      color:#1a73e8;
-    }
-
-    .stat-box p{
-      color:#666;
-      margin-top:10px;
-    }
-
-    /* ABOUT SECTION */
-    .about{
-      width:90%;
-      margin:60px auto;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-      gap:30px;
-    }
-
-    .card{
-      background:white;
-      padding:30px;
-      border-radius:24px;
-      box-shadow:0 10px 30px rgba(0,0,0,0.05);
-      transition:0.3s;
-    }
-
-    .card:hover{
-      transform:translateY(-8px);
-    }
-
-    .card h3{
-      margin-bottom:15px;
-      color:#111827;
-    }
-
-    .card p{
-      color:#666;
-      line-height:1.7;
-    }
-
-    /* FOOTER */
-.footer-container{
-  display:flex;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:30px;
-  padding:45px 40px;
-}
-
-.footer-box{
-  flex:1;
-  min-width:220px;
-}
-
-.footer-box h3{
-  margin-bottom:15px;
-  color:#00e5ff;
-  font-size:22px;
-}
-
-.footer-box p,
-.footer-box a{
-  color:#d1d1d1;
-  text-decoration:none;
-  display:block;
-  margin:8px 0;
-  transition:0.3s;
-}
-
-.footer-box a:hover{
-  color:#00e5ff;
-  transform:translateX(5px);
-}
-
-.social-icons{
-  display:flex;
-  gap:15px;
-  margin-top:15px;
-}
-
-.social-icons a{
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:rgba(255,255,255,0.1);
-  color:white;
-  transition:0.3s;
-}
-
-.social-icons a:hover{
-  transform:scale(1.15);
-}
-
-.instagram:hover{
-  background:#e1306c;
-}
-
-.facebook:hover{
-  background:#1877f2;
-}
-
-.whatsapp:hover{
-  background:#25d366;
-}
-
-.footer-bottom{
-  text-align:center;
-  padding:15px;
-  border-top:1px solid rgba(255,255,255,0.1);
-  color:#aaa;
-}
-footer{
-  margin-top:70px;
-  background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
-  color:white;
-}
-/* ================= SEO CONTENT SECTION ================= */
-
-.seo-content{
-  width:90%;
-  max-width:1200px;
-
-  margin:60px auto;
-
-  background:white;
-
-  padding:45px;
-
-  border-radius:24px;
-
-  box-shadow:0 10px 30px rgba(0,0,0,0.06);
-
-  position:relative;
-
-  overflow:hidden;
-}
-
-/* TOP ACCENT BAR */
-
-.seo-content::before{
-  content:"";
-
-  position:absolute;
-
-  top:0;
-  left:0;
-
-  width:100%;
-  height:5px;
-
-  background:linear-gradient(
-    90deg,
-    #1a73e8,
-    #7f00ff
-  );
-}
-
-/* HEADING */
-
-.seo-content h2{
-  font-size:38px;
-
-  color:#111827;
-
-  margin-bottom:25px;
-
-  line-height:1.4;
-}
-
-/* PARAGRAPHS */
-
-.seo-content p{
-  font-size:17px;
-
-  color:#555;
-
-  line-height:1.9;
-
-  margin-bottom:18px;
-}
-
-/* KEYWORD HIGHLIGHT */
-
-.seo-content strong{
-  color:#1a73e8;
-  font-weight:600;
-}
-
-/* HOVER EFFECT */
-
-.seo-content:hover{
-  transform:translateY(-3px);
-
-  transition:0.3s ease;
-
-  box-shadow:0 15px 40px rgba(0,0,0,0.08);
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-  .seo-content{
-    padding:30px 25px;
-  }
-
-  .seo-content h2{
-    font-size:28px;
-  }
-
-  .seo-content p{
-    font-size:16px;
-  }
-
-}
-/* ================= FAQ SECTION ================= */
-
-.faq-section{
-  width:90%;
-  max-width:1200px;
-
-  margin:80px auto;
-
-  background:white;
-
-  padding:45px;
-
-  border-radius:24px;
-
-  box-shadow:0 10px 30px rgba(0,0,0,0.06);
-}
-
-/* TITLE */
-
-.faq-section h2{
-  text-align:center;
-
-  font-size:38px;
-
-  color:#111827;
-
-  margin-bottom:40px;
-
-  position:relative;
-}
-
-.faq-section h2::after{
-  content:"";
-
-  width:90px;
-  height:4px;
-
-  background:linear-gradient(
-    90deg,
-    #1a73e8,
-    #7f00ff
-  );
-
-  display:block;
-
-  margin:15px auto 0;
-
-  border-radius:10px;
-}
-
-/* FAQ ITEMS */
-
-.faq-section h3{
-  font-size:22px;
-
-  color:#1a73e8;
-
-  margin-top:25px;
-  margin-bottom:12px;
-
-  padding-left:15px;
-
-  border-left:4px solid #7f00ff;
-}
-
-.faq-section p{
-  color:#555;
-
-  font-size:17px;
-
-  line-height:1.8;
-
-  margin-left:20px;
-
-  margin-bottom:25px;
-}
-
-/* HOVER EFFECT */
-
-.faq-section h3:hover{
-  color:#7f00ff;
-  transition:0.3s ease;
-}
-
-/* OPTIONAL CARD STYLE */
-
-.faq-section h3,
-.faq-section p{
-  background:#f8fafc;
-
-  padding:15px 20px;
-
-  border-radius:12px;
-}
-
-.faq-section h3{
-  margin-bottom:0;
-}
-
-.faq-section p{
-  margin-top:8px;
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-  .faq-section{
-    padding:30px 20px;
-  }
-
-  .faq-section h2{
-    font-size:30px;
-  }
-
-  .faq-section h3{
-    font-size:18px;
-  }
-
-  .faq-section p{
-    font-size:15px;
-    margin-left:0;
-  }
-
-}
-.nav-btn{
-  padding:10px 18px;
-
-  border-radius:8px;
-
-  background:linear-gradient(135deg,#1a73e8,#7f00ff);
-
-  color:white;
-
-  text-decoration:none;
-
-  font-size:14px;
-
-  transition:0.3s;
-}
-
-.nav-btn:hover{
-  background:#00e5ff;
-  color:#111;
-  transform:translateY(-2px);
-}
-/* ================= SCROLL TO TOP BUTTON ================= */
-
-#scrollTopBtn {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  width: 50px;
-  height: 50px;
-
-  border: none;
-  border-radius: 50%;
-
-  background: linear-gradient(135deg, #1a73e8, #7f00ff);
-  color: white;
-
-  font-size: 18px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  cursor: pointer;
-
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-
-  opacity: 0;
-  visibility: hidden;
-
-  transition: 0.3s;
-  z-index: 9999;
-}
-
-#scrollTopBtn:hover {
-  transform: translateY(-4px);
-  background: #00e5ff;
-  color: #111;
-}
-
-/* show button */
-#scrollTopBtn.show {
-  opacity: 1;
-  visibility: visible;
-}
   </style>
 </head>
 
 <body>
 
-<div class="glow"></div>
-
-<!-- HEADER -->
+  <!-- ================= HEADER ================= -->
   <header>
-
     <div class="left">
-
-      <div class="header-logo">
-        &lt;/&gt;
-      </div>
-
+      <div class="header-logo">&lt;/&gt;</div>
       <div class="brand-text">
-
         <h2>CODECRAFT</h2>
-
-        <p>
-          Code Today. Build Tomorrow.
-          Innovate Forever.
-        </p>
-
+        <p>Code Today. Build Tomorrow.</p>
       </div>
-
     </div>
-
-<div class="right">
-
-  <a href="index.html" class="nav-btn">Home</a>
-
-  <a href="index.html#languages" class="nav-btn">Languages</a>
-
-  <a href="index.html#contact" class="nav-btn">Contact</a>
-
-</div>
-
+    <div class="right">
+      <a href="index.html" class="neo-btn">Home</a>
+      <a href="index.html#languages" class="neo-btn">Languages</a>
+      <a href="contact.html" class="neo-btn">Contact</a>
+      <!-- Dark Mode Toggle -->
+      <button id="themeToggle" class="neo-btn theme-toggle">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </div>
   </header>
 
-<!-- HERO -->
-<main>
-<section class="hero">
-  <h1>About CodeCraft<br> <span class="gradient">Learn Programming & Web Development Online</span></h1>
-  <p>
-    CodeCraft is a next-generation programming learning platform designed to help students,
-    developers, and professionals master coding skills through structured, project-based learning.
-    We focus on real-world skills, modern tech stacks, and industry-ready development.
-  </p>
-</section>
-
-<!-- STATS -->
-<section class="stats">
-
-  <div class="stat-box">
-    <h2>10K+</h2>
-    <p>Students Learning</p>
-  </div>
-
-  <div class="stat-box">
-    <h2>6+</h2>
-    <p>Programming Languages</p>
-  </div>
-
-  <div class="stat-box">
-    <h2>200+</h2>
-    <p>Structured Modules</p>
-  </div>
-
-  <div class="stat-box">
-    <h2>50+</h2>
-    <p>Real Projects</p>
-  </div>
-
-</section>
-<!-- SCROLL TO TOP BUTTON -->
-<button id="scrollTopBtn" onclick="scrollToTop()">
-  <i class="fa-solid fa-arrow-up"></i>
-</button>
-<!-- ABOUT CARDS -->
- <section class="seo-content">
-
-  <h2>Learn Programming and Web Development with CodeCraft</h2>
-
-  <p>
-    CodeCraft is an online learning platform dedicated to teaching programming,
-    web development, software engineering, database management, and modern
-    technology skills.
-  </p>
-
-  <p>
-    Our tutorials cover HTML, CSS, JavaScript, Python, Java, C, C++, SQL,
-    MongoDB, Data Structures and Algorithms, and full-stack web development.
-  </p>
-
-  <p>
-    Whether you are a beginner learning your first programming language or an
-    experienced developer improving your skills, CodeCraft provides structured
-    learning paths and practical coding projects.
-  </p>
-<p>
-  CodeCraft is an online learning platform dedicated to teaching
-  <strong>programming</strong>,
-  <strong>web development</strong>,
-  <strong>software engineering</strong>,
-  database management, and modern technology skills.
-</p>
-
-<p>
-  Our tutorials cover
-  <strong>HTML</strong>,
-  <strong>CSS</strong>,
-  <strong>JavaScript</strong>,
-  <strong>Python</strong>,
-  <strong>Java</strong>,
-  <strong>C++</strong>,
-  <strong>SQL</strong>,
-  and <strong>MongoDB</strong>.
-</p>
-</section>
-<section class="about">
-
-  <div class="card">
-    <h3>🚀 Our Mission</h3>
-    <p>
-      To make coding education accessible, practical, and industry-ready.
-      We eliminate confusion by teaching structured roadmaps instead of random tutorials.
-    </p>
-  </div>
-
-  <div class="card">
-    <h3>💡 What We Offer</h3>
-    <p>
-      Full structured courses in C, C++, Java, Python, JavaScript, SQL, and MongoDB
-      with real-world project-based learning experience.
-    </p>
-  </div>
-
-  <div class="card">
-    <h3>🏆 Why CodeCraft?</h3>
-    <p>
-      Because we focus on clarity, depth, and job-ready skills.
-      No fluff — only real programming knowledge used in companies.
-    </p>
-  </div>
-
-</section>
-<section class="faq-section">
-
-<h2>Frequently Asked Questions</h2>
-
-<h3>What is CodeCraft?</h3>
-<p>
-CodeCraft is an online programming and web development learning platform.
-</p>
-
-<h3>Which programming languages can I learn?</h3>
-<p>
-HTML, CSS, JavaScript, Python, Java, C, C++, SQL, and MongoDB.
-</p>
-
-<h3>Does CodeCraft provide project-based learning?</h3>
-<p>
-Yes. Students learn through real-world coding projects and practical exercises.
-</p>
-
-<h3>Is CodeCraft suitable for beginners?</h3>
-<p>
-Yes. Our structured tutorials are designed for beginners and advanced learners.
-</p>
-
-</section>
-</main>
-<!-- FOOTER -->
-<footer>
-
-  <div class="footer-container">
-
-    <div class="footer-box">
-
-      <h3>CODECRAFT</h3>
-
+  <main>
+    <!-- ================= HERO ================= -->
+    <section class="section hero">
+      <h1>About CodeCraft <br> <span>Learn Programming</span></h1>
       <p>
-        We create modern coding experiences
-        for future developers.
+        CodeCraft is a next-generation programming learning platform designed to help students, developers, and professionals master coding skills through structured, project-based learning. We focus on real-world skills, modern tech stacks, and industry-ready development.
       </p>
+    </section>
 
-    </div>
+    <!-- ================= STATS ================= -->
+    <section class="section stats">
+      <div class="stat-box neo-box">
+        <h2>10K+</h2>
+        <p>Students Learning</p>
+      </div>
+      <div class="stat-box neo-box">
+        <h2>6+</h2>
+        <p>Programming Languages</p>
+      </div>
+      <div class="stat-box neo-box">
+        <h2>200+</h2>
+        <p>Structured Modules</p>
+      </div>
+      <div class="stat-box neo-box">
+        <h2>50+</h2>
+        <p>Real Projects</p>
+      </div>
+    </section>
 
-    <div class="footer-box">
+    <!-- ================= SEO CONTENT ================= -->
+    <section class="section seo-content neo-box">
+      <h2>Learn Programming and Web Development</h2>
+      <p>CodeCraft is an online learning platform dedicated to teaching <strong>programming</strong>, <strong>web development</strong>, <strong>software engineering</strong>, database management, and modern technology skills.</p>
+      <p>Our tutorials cover <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, <strong>Python</strong>, <strong>Java</strong>, <strong>C++</strong>, <strong>SQL</strong>, and <strong>MongoDB</strong>.</p>
+      <p>Whether you are a beginner learning your first programming language or an experienced developer improving your skills, CodeCraft provides structured learning paths and practical coding projects.</p>
+    </section>
 
-      <h3>Quick Links</h3>
+    <!-- ================= ABOUT CARDS ================= -->
+    <section class="section about">
+      <div class="card neo-box bg-1">
+        <h3>🚀 Our Mission</h3>
+        <p>To make coding education accessible, practical, and industry-ready. We eliminate confusion by teaching structured roadmaps instead of random tutorials.</p>
+      </div>
+      <div class="card neo-box bg-2">
+        <h3>💡 What We Offer</h3>
+        <p>Full structured courses in C, C++, Java, Python, JavaScript, SQL, and MongoDB with real-world project-based learning experience.</p>
+      </div>
+      <div class="card neo-box bg-3">
+        <h3>🏆 Why CodeCraft?</h3>
+        <p>Because we focus on clarity, depth, and job-ready skills. No fluff — only real programming knowledge used in companies.</p>
+      </div>
+    </section>
 
-      <a href="index.html">Home</a>
+    <!-- ================= FAQ SECTION ================= -->
+    <section class="section faq-section neo-box">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h3>What is CodeCraft?</h3>
+        <p>CodeCraft is an online programming and web development learning platform.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Which programming languages can I learn?</h3>
+        <p>HTML, CSS, JavaScript, Python, Java, C, C++, SQL, and MongoDB.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Does CodeCraft provide project-based learning?</h3>
+        <p>Yes. Students learn through real-world coding projects and practical exercises.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Is CodeCraft suitable for beginners?</h3>
+        <p>Yes. Our structured tutorials are designed for beginners and advanced learners.</p>
+      </div>
+    </section>
+  </main>
 
-      <a href="index.html#languages">Languages</a>
+  <!-- SCROLL TO TOP BUTTON -->
+  <button id="scrollTopBtn" onclick="scrollToTop()">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
 
-      <a href="contact.html">Contact</a>
-
-      <a href="about.html">About</a>
-
-    </div>
-
-    <div class="footer-box">
-
-      <h3>Follow Us</h3>
-
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-box">
+        <h3>CODECRAFT</h3>
+        <p>We create modern coding experiences for future developers.</p>
+      </div>
+      <div class="footer-box">
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="index.html#languages">Languages</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+      </div>
+      <div class="footer-box">
+        <h3>Follow Us</h3>
         <div class="social-icons">
-
-          <a href="https://www.instagram.com/thecodecraft.dev?igsh=bjhzZzhnNmZrZ3l2" target="_blank" class="instagram">
-            <i class="fa-brands fa-instagram"></i>
-          </a>
-
-          <!-- <a href="#" class="facebook">
-            <i class="fa-brands fa-facebook"></i>
-          </a> -->
-
-          <a href="https://whatsapp.com/channel/0029VbCpE1Z0QeadMS6voR17" target="_blank" class="whatsapp">
-            <i class="fa-brands fa-whatsapp"></i>
-          </a>
-
+          <a href="https://www.instagram.com/thecodecraft.dev?igsh=bjhzZzhnNmZrZ3l2" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://whatsapp.com/channel/0029VbCpE1Z0QeadMS6voR17" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
-
+      </div>
     </div>
+    <div class="footer-bottom">
+      © 2026 CODECRAFT | All Rights Reserved
+    </div>
+  </footer>
 
-  </div>
+  <script>
+    // Scroll to Top logic
+    const scrollBtn = document.getElementById("scrollTopBtn");
 
-  <div class="footer-bottom">
-    © 2026 CODECRAFT | All Rights Reserved
-  </div>
-
-</footer>
-
-<script>
-  const scrollBtn = document.getElementById("scrollTopBtn");
-
-  // Show button when user scrolls down
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-      scrollBtn.classList.add("show");
-    } else {
-      scrollBtn.classList.remove("show");
-    }
-  });
-
-  // Scroll to top function
-  function scrollToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        scrollBtn.classList.add("show");
+      } else {
+        scrollBtn.classList.remove("show");
+      }
     });
-  }
-</script>
+
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    // Theme Toggle Logic
+    const themeToggleBtn = document.getElementById("themeToggle");
+    const body = document.body;
+    const themeIcon = themeToggleBtn.querySelector("i");
+
+    // Check localStorage for preferred theme
+    const savedTheme = localStorage.getItem("codecraft-theme");
+    if (savedTheme === "dark") {
+      body.classList.add("dark-mode");
+      themeIcon.classList.replace("fa-moon", "fa-sun");
+    }
+
+    themeToggleBtn.addEventListener("click", () => {
+      body.classList.toggle("dark-mode");
+      
+      if (body.classList.contains("dark-mode")) {
+        themeIcon.classList.replace("fa-moon", "fa-sun");
+        localStorage.setItem("codecraft-theme", "dark");
+      } else {
+        themeIcon.classList.replace("fa-sun", "fa-moon");
+        localStorage.setItem("codecraft-theme", "light");
+      }
+    });
+  </script>
 </body>
 </html>
