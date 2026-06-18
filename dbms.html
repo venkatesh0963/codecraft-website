@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Learn Database Management Systems (DBMS) Tutorial | CodeCraft</title>
+  
+  <meta name="description" content="Learn DBMS concepts from beginner to advanced. Master relational databases, NoSQL, ER modeling, SQL, normalization, transactions, concurrency, and database architecture.">
+  <meta name="keywords" content="DBMS Tutorial, Database Management System, SQL, NoSQL, ER Diagram, Normalization, Database Architecture, Transaction Management, Data Modeling">
+
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- GOOGLE FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* Neo-brutalism Variables */
+    :root {
+      /* Light Mode Colors */
+      --bg-color: #fdfaf6;
+      --text-color: #0f0f0f;
+      --border-color: #0f0f0f;
+      --shadow-color: #0f0f0f;
+      --surface-color: #ffffff;
+
+      --primary: #ff5e5b;    /* Red/Pink */
+      --secondary: #ffed66;  /* Yellow */
+      --tertiary: #00cecb;   /* Teal/Cyan */
+      --quaternary: #8338ec; /* Purple */
+      
+      --border-width: 4px;
+      --border-radius: 12px;
+      --section-margin: 100px auto; /* EQUAL MARGINS */
+    }
+
+    body.dark-mode {
+      /* Dark Mode Colors */
+      --bg-color: #1a1a1d;
+      --text-color: #fdfaf6;
+      --border-color: #fdfaf6;
+      --shadow-color: #fdfaf6;
+      --surface-color: #26262a;
+
+      --primary: #ff4a47;
+      --secondary: #ebd800;
+      --tertiary: #00b3b0;
+      --quaternary: #9d50ff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    html, body {
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      background-image: radial-gradient(var(--border-color) 1px, transparent 1px);
+      background-size: 30px 30px;
+      background-position: 0 0, 15px 15px;
+    }
+
+    h1, h2, h3, h4, h5, h6, b, strong {
+      font-weight: 800;
+      color: var(--text-color);
+    }
+    
+    p, span, div, li, ul {
+      color: var(--text-color);
+    }
+
+    /* Neo-brutalism Utilities */
+    .neo-box {
+      background-color: var(--surface-color);
+      border: var(--border-width) solid var(--border-color);
+      box-shadow: 8px 8px 0px var(--shadow-color);
+      border-radius: var(--border-radius);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+    }
+    .neo-box:hover {
+      transform: translate(4px, 4px);
+      box-shadow: 4px 4px 0px var(--shadow-color);
+    }
+
+    .neo-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 28px;
+      background-color: var(--primary);
+      color: #0f0f0f !important;
+      border: var(--border-width) solid var(--border-color);
+      box-shadow: 6px 6px 0px var(--shadow-color);
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 16px;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+    body.dark-mode .neo-btn {
+      color: var(--bg-color) !important;
+    }
+    .neo-btn:hover {
+      transform: translate(3px, 3px);
+      box-shadow: 3px 3px 0px var(--shadow-color);
+      background-color: var(--secondary);
+    }
+
+    .section {
+      width: 90%;
+      max-width: 1400px;
+      margin: var(--section-margin);
+    }
+
+    /* ================= HEADER ================= */
+    header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: var(--bg-color);
+      border-bottom: var(--border-width) solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .header-logo {
+      width: 60px;
+      height: 60px;
+      border: var(--border-width) solid var(--border-color);
+      background-color: var(--tertiary);
+      color: #0f0f0f;
+      border-radius: var(--border-radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      font-weight: 900;
+      box-shadow: 4px 4px 0px var(--shadow-color);
+    }
+    body.dark-mode .header-logo {
+      color: var(--bg-color);
+    }
+    .brand-text h2 {
+      font-size: 32px;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .brand-text p {
+      font-size: 14px;
+      font-weight: 700;
+      margin-top: 5px;
+    }
+    .right {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    .theme-toggle {
+      background-color: var(--quaternary);
+      padding: 14px;
+      font-size: 20px;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+    }
+
+    /* ================= HERO SECTION ================= */
+    .hero {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .hero h1 {
+      font-size: 80px;
+      line-height: 1.1;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+      text-shadow: 4px 4px 0px var(--tertiary);
+      letter-spacing: -1px;
+    }
+    body.dark-mode .hero h1 {
+      text-shadow: 4px 4px 0px rgba(0, 179, 176, 0.5);
+    }
+    .hero h1 span {
+      display: inline-block;
+      margin-top: 10px;
+      background-color: var(--primary);
+      color: #0f0f0f;
+      padding: 5px 20px;
+      border: var(--border-width) solid var(--border-color);
+      box-shadow: 6px 6px 0px var(--shadow-color);
+      transform: rotate(-1deg);
+    }
+    body.dark-mode .hero h1 span {
+      color: var(--bg-color);
+    }
+    .hero p {
+      max-width: 900px;
+      margin: 30px auto;
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 1.8;
+      background-color: var(--surface-color);
+      padding: 30px;
+      border: var(--border-width) solid var(--border-color);
+      box-shadow: 8px 8px 0px var(--shadow-color);
+      border-radius: var(--border-radius);
+    }
+
+    /* ================= SEO CONTENT SECTION ================= */
+    .seo-content {
+      padding: 50px;
+      background-color: var(--secondary);
+    }
+    .seo-content h2 {
+      font-size: 40px;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      color: #0f0f0f;
+    }
+    body.dark-mode .seo-content h2 {
+      color: var(--bg-color);
+    }
+    .seo-content p {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      color: #0f0f0f;
+    }
+    body.dark-mode .seo-content p {
+      color: var(--bg-color);
+    }
+
+    /* ================= PDF DOWNLOAD SECTION ================= */
+    .pdf-download-section {
+      padding: 50px;
+      text-align: center;
+      background-color: var(--tertiary);
+    }
+    .pdf-download-section h2 {
+      font-size: 40px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      color: #0f0f0f;
+    }
+    body.dark-mode .pdf-download-section h2 {
+      color: var(--bg-color);
+    }
+    .pdf-download-section p {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 30px;
+      color: #0f0f0f;
+    }
+    body.dark-mode .pdf-download-section p {
+      color: var(--bg-color);
+    }
+    .pdf-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    /* ================= COURSE GRID ================= */
+    .course-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 35px;
+    }
+    .course-card {
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .course-card h2 {
+      font-size: 24px;
+      text-transform: uppercase;
+      border-bottom: var(--border-width) solid var(--border-color);
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+    }
+    .course-card ul {
+      list-style-type: square;
+      padding-left: 20px;
+    }
+    .course-card li {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    /* ================= FAQ SECTION ================= */
+    .faq-section {
+      padding: 60px;
+    }
+    .faq-section h2 {
+      font-size: 45px;
+      text-align: center;
+      margin-bottom: 50px;
+      text-transform: uppercase;
+    }
+    .faq-item {
+      border-bottom: var(--border-width) solid var(--border-color);
+      padding: 30px 0;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-item h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .faq-item h3::before {
+      content: "Q";
+      background-color: var(--quaternary);
+      color: #0f0f0f;
+      padding: 5px 15px;
+      border: var(--border-width) solid var(--border-color);
+      border-radius: 8px;
+      box-shadow: 3px 3px 0px var(--shadow-color);
+    }
+    body.dark-mode .faq-item h3::before {
+      color: var(--bg-color);
+    }
+    .faq-item p {
+      font-size: 20px;
+      font-weight: 600;
+      margin-left: 70px;
+    }
+
+    /* ================= RELATED COURSES ================= */
+    .related-courses {
+      padding: 60px;
+      text-align: center;
+      background-color: var(--quaternary);
+    }
+    .related-courses h2 {
+      font-size: 40px;
+      margin-bottom: 40px;
+      color: #fdfaf6;
+      text-transform: uppercase;
+    }
+    body.dark-mode .related-courses h2 {
+      color: #fdfaf6;
+    }
+    .related-courses a {
+      margin: 10px;
+      background-color: var(--primary);
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      border-top: var(--border-width) solid var(--border-color);
+      background-color: var(--surface-color);
+      padding: 80px 50px 30px;
+    }
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 50px;
+      margin-bottom: 50px;
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .footer-box {
+      flex: 1;
+      min-width: 280px;
+    }
+    .footer-box h3 {
+      font-size: 28px;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+      background-color: var(--primary);
+      color: #0f0f0f;
+      display: inline-block;
+      padding: 8px 16px;
+      border: var(--border-width) solid var(--border-color);
+      box-shadow: 4px 4px 0px var(--shadow-color);
+    }
+    body.dark-mode .footer-box h3 {
+      color: var(--bg-color);
+    }
+    .footer-box p {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+    .footer-box a {
+      display: block;
+      font-size: 20px;
+      font-weight: 700;
+      text-decoration: none;
+      margin-bottom: 15px;
+      transition: transform 0.2s;
+    }
+    .footer-box a:hover {
+      transform: translateX(8px);
+      text-decoration: underline;
+    }
+    .social-icons {
+      display: flex;
+      gap: 20px;
+    }
+    .social-icons a {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      border: var(--border-width) solid var(--border-color);
+      box-shadow: 5px 5px 0px var(--shadow-color);
+      border-radius: var(--border-radius);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+    }
+    .social-icons a:hover {
+      transform: translate(3px, 3px);
+      box-shadow: 2px 2px 0px var(--shadow-color);
+      background-color: var(--secondary);
+    }
+    .footer-bottom {
+      text-align: center;
+      font-weight: 800;
+      font-size: 18px;
+      border-top: var(--border-width) dashed var(--border-color);
+      padding-top: 30px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* ================= SCROLL TO TOP ================= */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      width: 70px;
+      height: 70px;
+      border: var(--border-width) solid var(--border-color);
+      box-shadow: 6px 6px 0px var(--shadow-color);
+      border-radius: var(--border-radius);
+      background-color: var(--primary);
+      color: #0f0f0f;
+      font-size: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: transform 0.2s, box-shadow 0.2s, opacity 0.3s;
+      z-index: 9999;
+    }
+    body.dark-mode #scrollTopBtn {
+      color: var(--bg-color);
+    }
+    #scrollTopBtn.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    #scrollTopBtn:hover {
+      transform: translate(3px, 3px);
+      box-shadow: 3px 3px 0px var(--shadow-color);
+      background-color: var(--secondary);
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media(max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+      }
+      .hero h1 {
+        font-size: 50px;
+      }
+      .footer-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header>
+    <div class="left">
+      <div class="header-logo">&lt;/&gt;</div>
+      <div class="brand-text">
+        <h2>CODECRAFT</h2>
+        <p>Code Today. Build Tomorrow.</p>
+      </div>
+    </div>
+    <div class="right">
+      <a href="index.html" class="neo-btn">Home</a>
+      <a href="index.html#languages" class="neo-btn">Languages</a>
+      <a href="contact.html" class="neo-btn">Contact</a>
+      <!-- Dark Mode Toggle -->
+      <button id="themeToggle" class="neo-btn theme-toggle">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= HERO ================= -->
+    <section class="section hero">
+      <h1>Learn <span>DBMS</span> <br>Concepts</h1>
+      <p>
+        Master Database Management Systems from the ground up. Learn data models, relational algebra, SQL, normalization, transaction management, and system architecture.
+      </p>
+    </section>
+
+    <!-- ================= SEO CONTENT ================= -->
+    <section class="section seo-content neo-box">
+      <h2>Why Learn Database Management Systems (DBMS)?</h2>
+      <p>A Database Management System (DBMS) is the foundation of any application that stores, retrieves, and processes data. Understanding how databases work under the hood is critical for software engineers, backend developers, and data architects.</p>
+      <p>This comprehensive guide dives deep into database theory and practice. You'll move beyond simple SQL queries and understand how to architect databases, handle complex data relationships using Entity-Relationship modeling, guarantee data integrity through normalization, and optimize high-concurrency environments using transaction management and locks.</p>
+    </section>
+
+    <!-- ================= PDF DOWNLOAD SECTION ================= -->
+    <section class="section pdf-download-section neo-box" aria-label="Download DBMS Tutorial PDF">
+      <h2>Download Complete DBMS Tutorial PDF</h2>
+      <p>Get our comprehensive DBMS guide in PDF format. Perfect for offline reading, quick reference, and mastering database engineering at your own pace.</p>
+      <div class="pdf-buttons">
+        <a href="dbms-tutorial.pdf" target="_blank" rel="noopener noreferrer" class="neo-btn" aria-label="Open DBMS Tutorial PDF in new tab" title="Open PDF">
+          <i class="fa-solid fa-file-pdf"></i> Open PDF
+        </a>
+        <a href="dbms-tutorial.pdf" download="CodeCraft_DBMS_Tutorial.pdf" class="neo-btn" style="background-color: var(--secondary);" aria-label="Download DBMS Tutorial PDF" title="Download PDF">
+          <i class="fa-solid fa-download"></i> Download PDF
+        </a>
+      </div>
+    </section>
+
+    <!-- ================= DBMS COURSE MODULES ================= -->
+    <section class="section course-container">
+      <div class="course-card neo-box">
+        <h2>📘 Module 1: Introduction to DBMS</h2>
+        <ul>
+          <li>File System vs DBMS</li>
+          <li>Characteristics of DBMS</li>
+          <li>Users and Administrators</li>
+          <li>Advantages & Disadvantages</li>
+        </ul>
+      </div>
+
+      <div class="course-card neo-box">
+        <h2>🏗️ Module 2: Architecture</h2>
+        <ul>
+          <li>1-Tier, 2-Tier, & 3-Tier Architecture</li>
+          <li>Data Abstraction & Schemas</li>
+          <li>Data Independence</li>
+          <li>DBMS Components</li>
+        </ul>
+      </div>
+
+      <div class="course-card neo-box">
+        <h2>📐 Module 3: Data Models</h2>
+        <ul>
+          <li>Hierarchical Model</li>
+          <li>Network Model</li>
+          <li>Relational Model</li>
+          <li>Object-Oriented Model</li>
+        </ul>
+      </div>
+
+      <div class="course-card neo-box">
+        <h2>📊 Module 4: Entity-Relationship Model</h2>
+        <ul>
+          <li>Entities and Attributes</li>
+          <li>Types of Relationships</li>
+          <li>Cardinality Ratios</li>
+          <li>Drawing ER Diagrams</li>
+        </ul>
+      </div>
+
+      <div class="course-card neo-box">
+        <h2>🔑 Module 5: Relational Model</h2>
+        <ul>
+          <li>Relational Algebra</li>
+          <li>Primary, Foreign, & Candidate Keys</li>
+          <li>Integrity Constraints</li>
+          <li>Domain Constraints</li>
+        </ul>
+      </div>
+
+      <div class="course-card neo-box">
+        <h2>🧩 Module 6: Normalization</h2>
+        <ul>
+          <li>Functional Dependencies</li>
+          <li>First Normal Form (1NF)</li>
+          <li>Second Normal Form (2NF)</li>
+          <li>Third Normal Form (3NF) & BCNF</li>
+        </ul>
+      </div>
+
+      <div class="course-card neo-box">
+        <h2>💻 Module 7: SQL Foundations</h2>
+        <ul>
+          <li>DDL, DML, DCL, TCL</li>
+          <li>Creating Tables & Views</li>
+          <li>Basic CRUD Operations</li>
+          <li>Aggregate Functions</li>
+        </ul>
+      </div>
+
+      <div class="course-card neo-box">
+        <h2>🔍 Module 8: Advanced SQL</h2>
+        <ul>
+          <li>Inner, Left, Right & Full Joins</li>
+          <li>Correlated Subqueries</li>
+          <li>Stored Procedures</li>
+          <li>Database Triggers</li>
+        </ul>
+      </div>
+
+      <div class="course-card neo-box">
+        <h2>🔁 Module 9: Transaction Management</h2>
+        <ul>
+          <li>ACID Properties</li>
+          <li>Transaction States</li>
+          <li>Schedules & Serializability</li>
+          <li>Recoverability</li>
+        </ul>
+      </div>
+
+      <div class="course-card neo-box">
+        <h2>🚦 Module 10: Concurrency Control</h2>
+        <ul>
+          <li>Lock-Based Protocols</li>
+          <li>Timestamp Ordering</li>
+          <li>Deadlocks & Prevention</li>
+          <li>Two-Phase Locking (2PL)</li>
+        </ul>
+      </div>
+
+      <div class="course-card neo-box">
+        <h2>📂 Module 11: File Organization</h2>
+        <ul>
+          <li>Sequential vs Direct Access</li>
+          <li>Indexing Structures</li>
+          <li>B-Trees and B+ Trees</li>
+          <li>Static & Dynamic Hashing</li>
+        </ul>
+      </div>
+
+      <div class="course-card neo-box">
+        <h2>🛡️ Module 12: Recovery Systems</h2>
+        <ul>
+          <li>Failure Classifications</li>
+          <li>Log-Based Recovery</li>
+          <li>Checkpoints</li>
+          <li>Shadow Paging</li>
+        </ul>
+      </div>
+
+      <div class="course-card neo-box">
+        <h2>🌐 Module 13: Distributed Databases</h2>
+        <ul>
+          <li>Distributed Architecture</li>
+          <li>Data Fragmentation</li>
+          <li>Replication Strategies</li>
+          <li>CAP Theorem Basics</li>
+        </ul>
+      </div>
+
+      <div class="course-card neo-box">
+        <h2>🍃 Module 14: NoSQL Databases</h2>
+        <ul>
+          <li>Why NoSQL?</li>
+          <li>Document Stores (MongoDB)</li>
+          <li>Key-Value Stores (Redis)</li>
+          <li>Graph Databases (Neo4j)</li>
+        </ul>
+      </div>
+
+      <div class="course-card neo-box">
+        <h2>📈 Module 15: Big Data & DW</h2>
+        <ul>
+          <li>Data Warehousing Concepts</li>
+          <li>OLAP vs OLTP</li>
+          <li>Data Mining Basics</li>
+          <li>Hadoop Ecosystem Overview</li>
+        </ul>
+      </div>
+
+      <div class="course-card neo-box">
+        <h2>🚀 Module 16: Interview & System Design</h2>
+        <ul>
+          <li>Database Scaling (Sharding)</li>
+          <li>Master-Slave Architecture</li>
+          <li>Common DBMS Interview Questions</li>
+          <li>Query Optimization Plans</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= FAQ SECTION ================= -->
+    <section class="section faq-section neo-box">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h3>What is a DBMS?</h3>
+        <p>A Database Management System (DBMS) is software designed to store, retrieve, define, and manage data in a database.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What is the difference between DBMS and RDBMS?</h3>
+        <p>While a DBMS stores data as files, an RDBMS (Relational Database Management System) stores data in tabular form (rows and columns) and enforces relationships between these tables.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Why is Normalization important?</h3>
+        <p>Normalization organizes data to reduce redundancy and improve data integrity. It ensures that databases use storage efficiently and avoids update anomalies.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Which is better: SQL or NoSQL?</h3>
+        <p>Neither is objectively better; it depends on the use case. SQL (RDBMS) is best for complex queries and strict ACID compliance. NoSQL is ideal for unstructured data, horizontal scaling, and rapid development.</p>
+      </div>
+    </section>
+
+    <!-- ================= RELATED COURSES ================= -->
+    <section class="section related-courses neo-box">
+      <h2>Explore More Programming Tutorials</h2>
+      <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+        <a href="sql.html" class="neo-btn" title="Learn SQL Tutorial">Learn SQL</a>
+        <a href="mongodb.html" class="neo-btn" title="Learn MongoDB Tutorial">Learn MongoDB</a>
+        <a href="fullstack.html" class="neo-btn" title="Learn Full Stack Development">Learn Full Stack</a>
+        <a href="python.html" class="neo-btn" title="Learn Python Tutorial">Learn Python</a>
+        <a href="java.html" class="neo-btn" title="Learn Java Tutorial">Learn Java</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- SCROLL TO TOP BUTTON -->
+  <button id="scrollTopBtn" onclick="scrollToTop()">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-box">
+        <h3>CODECRAFT</h3>
+        <p>We create modern coding experiences for future developers.</p>
+      </div>
+      <div class="footer-box">
+        <h3>Quick Links</h3>
+        <a href="index.html" title="CodeCraft Home Page">Home</a>
+        <a href="index.html#languages" title="Programming Languages Tutorials">Languages</a>
+        <a href="contact.html" title="Contact CodeCraft">Contact</a>
+        <a href="about.html" title="About CodeCraft">About</a>
+      </div>
+      <div class="footer-box">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/thecodecraft.dev?igsh=bjhzZzhnNmZrZ3l2" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://whatsapp.com/channel/0029VbCpE1Z0QeadMS6voR17" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 CODECRAFT | All Rights Reserved
+    </div>
+  </footer>
+
+  <script>
+    // Scroll to Top logic
+    const scrollBtn = document.getElementById("scrollTopBtn");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        scrollBtn.classList.add("show");
+      } else {
+        scrollBtn.classList.remove("show");
+      }
+    });
+
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    // Theme Toggle Logic
+    const themeToggleBtn = document.getElementById("themeToggle");
+    const body = document.body;
+    const themeIcon = themeToggleBtn.querySelector("i");
+
+    // Check localStorage for preferred theme
+    const savedTheme = localStorage.getItem("codecraft-theme");
+    if (savedTheme === "dark") {
+      body.classList.add("dark-mode");
+      themeIcon.classList.replace("fa-moon", "fa-sun");
+    }
+
+    themeToggleBtn.addEventListener("click", () => {
+      body.classList.toggle("dark-mode");
+      
+      if (body.classList.contains("dark-mode")) {
+        themeIcon.classList.replace("fa-moon", "fa-sun");
+        localStorage.setItem("codecraft-theme", "dark");
+      } else {
+        themeIcon.classList.replace("fa-sun", "fa-moon");
+        localStorage.setItem("codecraft-theme", "light");
+      }
+    });
+  </script>
+</body>
+</html>
