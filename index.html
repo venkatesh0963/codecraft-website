@@ -4,1911 +4,1080 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
- <title>CodeCraft - Learn Programming, Web Development & Coding Tutorials</title>
+  <title>CodeCraft - Learn Programming, Web Development & Coding Tutorials</title>
 
-<meta name="description" content="Learn HTML, CSS, JavaScript, Python, Java, C, C++, SQL, and MongoDB with beginner-friendly tutorials, coding projects, and career-focused learning paths.">
-
-<meta name="keywords" content="learn coding, programming tutorials, HTML tutorial, CSS tutorial, JavaScript tutorial, Python course, Java programming, SQL tutorial, web development, coding for beginners">
-
-<meta name="author" content="CodeCraft">
-
-<meta name="robots" content="index, follow">
-<meta property="og:title" content="CodeCraft - Learn Programming & Web Development">
-<meta property="og:description" content="Master coding with HTML, CSS, JavaScript, Python, Java, C++, SQL and more.">
-<meta property="og:image" content="https://www.codecraft.com/images/codecraft-banner.jpg">
-<meta property="og:url" content="https://www.codecraft.com">
-<meta property="og:type" content="website">
-<link rel="canonical" href="https://www.codecraft.com/">
+  <meta name="description" content="Learn HTML, CSS, JavaScript, Python, Java, C, C++, SQL, and MongoDB with beginner-friendly tutorials, coding projects, and career-focused learning paths.">
+  <meta name="keywords" content="learn coding, programming tutorials, HTML tutorial, CSS tutorial, JavaScript tutorial, Python course, Java programming, SQL tutorial, web development, coding for beginners">
+  <meta name="author" content="CodeCraft">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="CodeCraft - Learn Programming & Web Development">
+  <meta property="og:description" content="Master coding with HTML, CSS, JavaScript, Python, Java, C++, SQL and more.">
+  <meta property="og:image" content="https://www.codecraft.com/images/codecraft-banner.jpg">
+  <meta property="og:url" content="https://www.codecraft.com">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://www.codecraft.com/">
 
   <!-- GOOGLE FONT -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <!-- FONT AWESOME -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
- 
+
   <style>
+    /* Neo-brutalism Variables */
+    :root {
+      /* Light Mode Colors */
+      --bg-color: #fdfaf6;
+      --text-color: #0f0f0f;
+      --border-color: #0f0f0f;
+      --shadow-color: #0f0f0f;
+      --surface-color: #ffffff;
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Poppins', sans-serif;
+      --primary: #ff5e5b;    /* Red/Pink */
+      --secondary: #ffed66;  /* Yellow */
+      --tertiary: #00cecb;   /* Teal/Cyan */
+      --quaternary: #8338ec; /* Purple */
+      
+      --border-width: 4px;
+      --border-radius: 12px;
+      --section-margin: 100px auto; /* Equal margins for all sections */
     }
 
-    html,body{
-      overflow-x:hidden;
-      scroll-behavior:smooth;
+    body.dark-mode {
+      /* Dark Mode Colors */
+      --bg-color: #1a1a1d;
+      --text-color: #fdfaf6;
+      --border-color: #fdfaf6;
+      --shadow-color: #fdfaf6;
+      --surface-color: #26262a;
+
+      --primary: #ff4a47;
+      --secondary: #ebd800;
+      --tertiary: #00b3b0;
+      --quaternary: #9d50ff;
     }
 
-/* ================= LIGHT TECH BACKGROUND ================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
 
-body{
-  background-color:#f7f9fc;
+    html, body {
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
 
-  /* Purple + Blue Grid */
-  background-image:
-    linear-gradient(rgba(127,0,255,0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(26,115,232,0.07) 1px, transparent 1px);
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      background-image: radial-gradient(var(--border-color) 1px, transparent 1px);
+      background-size: 30px 30px;
+      background-position: 0 0, 15px 15px;
+      opacity: 0.99; /* Fix for z-index issues with pseudo-elements if any */
+    }
 
-  background-size:50px 50px;
+    h1, h2, h3, h4, h5, h6, b, strong {
+      font-weight: 800;
+      color: var(--text-color);
+    }
+    
+    p, span, div {
+      color: var(--text-color);
+    }
 
-  position:relative;
+    /* Neo-brutalism Utilities */
+    .neo-box {
+      background-color: var(--surface-color);
+      border: var(--border-width) solid var(--border-color);
+      box-shadow: 8px 8px 0px var(--shadow-color);
+      border-radius: var(--border-radius);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+    }
+    .neo-box:hover {
+      transform: translate(4px, 4px);
+      box-shadow: 4px 4px 0px var(--shadow-color);
+    }
 
-  overflow-x:hidden;
-}
+    .neo-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 28px;
+      background-color: var(--primary);
+      color: #0f0f0f !important; /* Forces black text in buttons for contrast */
+      border: var(--border-width) solid var(--border-color);
+      box-shadow: 6px 6px 0px var(--shadow-color);
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 16px;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+    body.dark-mode .neo-btn {
+      color: var(--bg-color) !important;
+    }
+    .neo-btn:hover {
+      transform: translate(3px, 3px);
+      box-shadow: 3px 3px 0px var(--shadow-color);
+      background-color: var(--secondary);
+    }
 
-/* TOP GLOW */
-body::before{
-  content:"";
-
-  position:fixed;
-
-  top:-120px;
-  left:-120px;
-
-  width:450px;
-  height:450px;
-
-  background:
-  radial-gradient(circle,
-  rgba(127,0,255,0.18),
-  transparent 70%);
-
-  z-index:-1;
-
-  animation:moveGlow1 8s ease-in-out infinite alternate;
-}
-
-/* BOTTOM GLOW */
-body::after{
-  content:"";
-
-  position:fixed;
-
-  bottom:-150px;
-  right:-150px;
-
-  width:500px;
-  height:500px;
-
-  background:
-  radial-gradient(circle,
-  rgba(26,115,232,0.18),
-  transparent 70%);
-
-  z-index:-1;
-
-  animation:moveGlow2 10s ease-in-out infinite alternate;
-}
-
-/* FLOATING ANIMATION */
-
-@keyframes moveGlow1{
-
-  0%{
-    transform:translate(0,0);
-  }
-
-  100%{
-    transform:translate(80px,40px);
-  }
-
-}
-
-@keyframes moveGlow2{
-
-  0%{
-    transform:translate(0,0);
-  }
-
-  100%{
-    transform:translate(-60px,-50px);
-  }
-
-}
+    /* Section Global Utility */
+    .section {
+      width: 90%;
+      max-width: 1400px;
+      margin: var(--section-margin);
+    }
 
     /* ================= HEADER ================= */
-
-    header{
-      width:100%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-
-      padding:18px 50px;
-
-      background:linear-gradient(135deg,#141e30,#243b55);
-
-      position:sticky;
-      top:0;
-      z-index:1000;
-
-      box-shadow:0 4px 20px rgba(0,0,0,0.15);
+    header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: var(--bg-color);
+      border-bottom: var(--border-width) solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-
-    /* LEFT */
-
-    .left{
-      display:flex;
-      align-items:center;
-      gap:15px;
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
     }
-
-    .header-logo{
-      width:60px;
-      height:60px;
-
-      border-radius:18px;
-
-      background:linear-gradient(135deg,#7f00ff,#1a73e8);
-
-      color:white;
-
-      display:flex;
-      align-items:center;
-      justify-content:center;
-
-      font-size:26px;
-      font-weight:bold;
-
-      box-shadow:0 8px 20px rgba(127,0,255,0.35);
+    .header-logo {
+      width: 60px;
+      height: 60px;
+      border: var(--border-width) solid var(--border-color);
+      background-color: var(--tertiary);
+      color: #0f0f0f;
+      border-radius: var(--border-radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      font-weight: 900;
+      box-shadow: 4px 4px 0px var(--shadow-color);
     }
-
-    .brand-text h2{
-      color:white;
-      font-size:28px;
-      font-weight:800;
-      line-height:1;
+    body.dark-mode .header-logo {
+      color: var(--bg-color);
     }
-
-    .brand-text p{
-      color:#d1d5db;
-      font-size:12px;
-      margin-top:5px;
-      line-height:1.5;
+    .brand-text h2 {
+      font-size: 32px;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
-
-    /* RIGHT */
-
-    .right{
-      display:flex;
-      gap:15px;
+    .brand-text p {
+      font-size: 14px;
+      font-weight: 700;
+      margin-top: 5px;
     }
-
-    .right button{
-      padding:10px 18px;
-
-      border:none;
-      border-radius:8px;
-
-      background:linear-gradient(135deg,#1a73e8,#7f00ff);
-
-      color:white;
-
-      cursor:pointer;
-
-      transition:0.3s;
-
-      font-size:14px;
+    .right {
+      display: flex;
+      gap: 20px;
+      align-items: center;
     }
-
-    .right button:hover{
-      background:#00e5ff;
-      color:#111;
-      transform:translateY(-2px);
+    .theme-toggle {
+      background-color: var(--quaternary);
+      padding: 14px;
+      font-size: 20px;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
     }
-
+    
     /* ================= HERO SECTION ================= */
-
-    .hero-section{
-      width:90%;
-      max-width:1400px;
-
-      margin:70px auto;
-
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-
-      gap:60px;
+    .hero-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 60px;
+    }
+    .hero-left {
+      flex: 1;
+    }
+    .hero-text h1 {
+      font-size: 80px;
+      line-height: 1.1;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+      text-shadow: 4px 4px 0px var(--tertiary);
+      letter-spacing: -1px;
+    }
+    body.dark-mode .hero-text h1 {
+      text-shadow: 4px 4px 0px rgba(0, 179, 176, 0.5); /* Adjusted for dark mode */
+    }
+    .hero-text p {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 40px;
+      line-height: 1.6;
+      border-left: 6px solid var(--primary);
+      padding-left: 20px;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+    .feature-card {
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .feature-card i {
+      font-size: 36px;
+      background-color: var(--secondary);
+      color: #0f0f0f;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: var(--border-width) solid var(--border-color);
+      border-radius: 8px;
+      box-shadow: 3px 3px 0px var(--shadow-color);
+    }
+    body.dark-mode .feature-card i {
+      color: var(--bg-color);
+    }
+    .feature-card h3 {
+      font-size: 20px;
+      text-transform: uppercase;
+    }
+    .feature-card span {
+      font-size: 16px;
+      font-weight: 600;
+    }
+    
+    .hero-right {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .hero-image {
+      width: 100%;
+      max-width: 550px;
+      border: var(--border-width) solid var(--border-color);
+      box-shadow: 16px 16px 0px var(--shadow-color);
+      border-radius: var(--border-radius);
+      object-fit: cover;
+      background-color: #fff;
     }
 
-    /* LEFT */
-
-    .hero-left{
-      flex:1;
+    /* ================= EXPLORE DIVIDER ================= */
+    .explore-divider {
+      text-align: center;
+      font-size: 28px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 6px;
+      background-color: var(--secondary);
+      color: #0f0f0f;
+      padding: 20px 0;
+      border-top: var(--border-width) solid var(--border-color);
+      border-bottom: var(--border-width) solid var(--border-color);
+      margin: 80px 0;
+      width: 100%;
+      box-shadow: 0px 8px 0px var(--shadow-color);
+    }
+    body.dark-mode .explore-divider {
+      color: var(--bg-color);
     }
 
-    .hero-text h1{
-      font-size:75px;
-      line-height:1.1;
-      font-weight:800;
-      color:#0d0d26;
+    /* ================= SEO CONTENT ================= */
+    .seo-content {
+      padding: 50px;
+      background-color: var(--tertiary);
+    }
+    .seo-content h2 {
+      font-size: 40px;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+      color: #0f0f0f;
+    }
+    .seo-content p {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      color: #0f0f0f;
+    }
+    body.dark-mode .seo-content h2, body.dark-mode .seo-content p {
+      color: var(--bg-color);
     }
 
-    .blue{
-      color:#1a73e8;
+    /* ================= TOPICS SECTION ================= */
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 35px;
+    }
+    .topic-card {
+      padding: 35px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .topic-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .icon-box {
+      width: 70px;
+      height: 70px;
+      border: var(--border-width) solid var(--border-color);
+      box-shadow: 5px 5px 0px var(--shadow-color);
+      border-radius: var(--border-radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      color: #0f0f0f;
+      font-weight: bold;
+    }
+    body.dark-mode .icon-box {
+      color: var(--bg-color);
+    }
+    .topic-content h3 {
+      font-size: 26px;
+      text-transform: uppercase;
+    }
+    .topic-content p {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    
+    /* Neobrutalist Colors for Topics */
+    .bg-1 { background-color: #ff5722; }
+    .bg-2 { background-color: #1a73e8; }
+    .bg-3 { background-color: #ffd600; }
+    .bg-4 { background-color: #3776ab; }
+    .bg-5 { background-color: #f44336; }
+    .bg-6 { background-color: #8c9eff; }
+    .bg-7 { background-color: #b388ff; }
+    .bg-8 { background-color: #1de9b6; }
+    .bg-9 { background-color: #00e676; }
+
+    /* ================= FEATURE CTA SECTION ================= */
+    .top-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      margin-bottom: 50px;
+    }
+    .feature-item {
+      flex: 1;
+      min-width: 260px;
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+    }
+    .feature-item i {
+      font-size: 40px;
+      color: var(--quaternary);
+    }
+    .feature-item h3 {
+      font-size: 20px;
+      text-transform: uppercase;
+      border-bottom: 3px solid var(--primary);
+      padding-bottom: 5px;
+    }
+    .feature-item p {
+      font-size: 16px;
+      font-weight: 600;
+    }
+    
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 35px;
+    }
+    .cta-card {
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      background-color: var(--secondary);
+    }
+    .cta-card h2, .cta-card span {
+      color: #0f0f0f;
+    }
+    body.dark-mode .cta-card h2, body.dark-mode .cta-card span {
+      color: var(--bg-color);
+    }
+    .cta-image img {
+      width: 280px;
+      border: var(--border-width) solid var(--border-color);
+      box-shadow: 10px 10px 0px var(--shadow-color);
+      border-radius: var(--border-radius);
+      background-color: #ffffff;
+    }
+    .cta-content h2 {
+      font-size: 40px;
+      line-height: 1.4;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+    }
+    
+    .quote-card {
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-color: var(--primary);
+    }
+    .quote-card .quote-mark {
+      font-size: 100px;
+      line-height: 1;
+      margin-bottom: 10px;
+      color: #0f0f0f;
+    }
+    body.dark-mode .quote-card .quote-mark, body.dark-mode .quote-card p, body.dark-mode .quote-card span {
+      color: var(--bg-color);
+    }
+    .quote-card p {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 25px;
+      color: #0f0f0f;
+    }
+    .quote-card span {
+      font-size: 18px;
+      font-weight: 900;
+      align-self: flex-end;
+      color: #0f0f0f;
     }
 
-    /* .gradient{
-      background:linear-gradient(90deg,#1a73e8,#7f00ff);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    } */
-     .gradient{
-  background: linear-gradient(90deg, #1a73e8, #7f00ff);
-  background-clip: text;
-  -webkit-background-clip: text;
-
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-
-  display: inline-block;
-}
-
-    .separator{
-      width:120px;
-      height:4px;
-      background:#ddd;
-      border-radius:10px;
-      margin:30px 0;
+    /* ================= FAQ SECTION ================= */
+    .faq-section {
+      padding: 60px;
     }
-
-    .hero-text p{
-      font-size:20px;
-      color:#5f6368;
-      line-height:1.8;
-      max-width:650px;
+    .faq-section h2 {
+      font-size: 45px;
+      text-align: center;
+      margin-bottom: 50px;
+      text-transform: uppercase;
     }
-
-    /* FEATURE GRID */
-
-    .feature-grid{
-      margin-top:50px;
-
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-
-      gap:20px;
+    .faq-item {
+      border-bottom: var(--border-width) solid var(--border-color);
+      padding: 30px 0;
     }
-
-    .feature-card{
-      background:white;
-
-      border-radius:18px;
-
-      padding:25px 35px;
-
-      box-shadow:0 10px 25px rgba(0,0,0,0.07);
-
-      transition:0.3s;
+    .faq-item:last-child {
+      border-bottom: none;
     }
-
-    .feature-card:hover{
-      transform:translateY(-8px);
+    .faq-item h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
     }
-
-    .feature-card i{
-      font-size:30px;
-      margin-bottom:15px;
+    .faq-item h3::before {
+      content: "Q";
+      background-color: var(--quaternary);
+      color: #0f0f0f;
+      padding: 5px 15px;
+      border: var(--border-width) solid var(--border-color);
+      border-radius: 8px;
+      box-shadow: 3px 3px 0px var(--shadow-color);
     }
-
-    .feature-card h3{
-      font-size:14px;
-      margin-bottom:10px;
-      color:#111827;
+    body.dark-mode .faq-item h3::before {
+      color: var(--bg-color);
     }
-
-    .feature-card span{
-      color:#666;
-      font-size:14px;
-      line-height:1.5;
-    }
-
-    .purple{
-      color:#7f00ff;
-    }
-
-    .green{
-      color:#0abf53;
-    }
-
-    .yellow{
-      color:#ffb300;
-    }
-
-    .blue-icon{
-      color:#1a73e8;
-    }
-
-    /* ================= HERO RIGHT IMAGE ================= */
-
-    .hero-right{
-      flex:1;
-      position:relative;
-
-      display:flex;
-      justify-content:center;
-      align-items:center;
-    }
-
-    /* IMAGE */
-
-    .hero-image{
-      width:100%;
-      max-width:600px;
-
-      border-radius:30px;
-
-      object-fit:cover;
-
-      box-shadow:0 15px 40px rgba(0,0,0,0.15);
-
-      animation:floatImage 4s ease-in-out infinite;
-    }
-
-    @keyframes floatImage{
-
-      0%{
-        transform:translateY(0px);
-      }
-
-      50%{
-        transform:translateY(-15px);
-      }
-
-      100%{
-        transform:translateY(0px);
-      }
-
-    }
-
-    /* MINI BADGE */
-
-    .mini-badge{
-      position:absolute;
-
-      top:20px;
-      right:20px;
-
-      background:white;
-
-      border-radius:20px;
-
-      padding:15px 20px;
-
-      display:flex;
-      align-items:center;
-
-      gap:12px;
-
-      box-shadow:0 10px 25px rgba(0,0,0,0.08);
-
-      z-index:10;
-    }
-
-    .mini-badge i{
-      color:#7f00ff;
-      font-size:22px;
-    }
-
-    .mini-badge b{
-      color:#1a73e8;
-    }
-
-    /* ================= EXPLORE ================= */
-
-    .explore{
-      text-align:center;
-      margin:40px 0 80px;
-
-      font-weight:bold;
-
-      color:#1a237e;
-
-      letter-spacing:2px;
+    .faq-item p {
+      font-size: 20px;
+      font-weight: 600;
+      margin-left: 70px;
     }
 
     /* ================= CONTACT SECTION ================= */
-
-    .contact-section{
-      width:90%;
-      max-width:1200px;
-
-      margin:60px auto;
-
-      display:flex;
-      gap:30px;
-
-      flex-wrap:wrap;
+    .contact-section {
+      padding: 60px;
+      background-color: var(--tertiary);
     }
-
-    /* LEFT */
-
-    .contact-left{
-      flex:1;
-      min-width:320px;
-
-      background:white;
-
-      padding:35px;
-
-      border-radius:18px;
-
-      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    .contact-section h2 {
+      font-size: 45px;
+      text-align: center;
+      margin-bottom: 50px;
+      text-transform: uppercase;
+      color: #0f0f0f;
     }
-
-    .contact-left h2{
-      margin-bottom:10px;
-      font-size:32px;
+    body.dark-mode .contact-section h2 {
+      color: var(--bg-color);
     }
-
-    .contact-left p{
-      color:#666;
-      margin-bottom:25px;
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
     }
-
-    .contact-form{
-      display:flex;
-      flex-direction:column;
-      gap:18px;
+    .info-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      gap: 20px;
+      text-decoration: none;
+      background-color: var(--surface-color);
     }
-
-    .contact-form input,
-    .contact-form textarea{
-      width:100%;
-
-      padding:14px;
-
-      border:1px solid #ccc;
-
-      border-radius:10px;
-
-      outline:none;
+    .info-box i {
+      font-size: 50px;
+      color: var(--primary);
     }
-
-    .contact-form button{
-      padding:14px;
-
-      border:none;
-
-      background:#1a73e8;
-
-      color:white;
-
-      border-radius:10px;
-
-      cursor:pointer;
-
-      transition:0.3s;
-    }
-
-    .contact-form button:hover{
-      background:#0d47a1;
-    }
-
-    /* RIGHT */
-
-    .contact-right{
-      flex:1;
-      min-width:320px;
-
-      background:#111827;
-
-      color:white;
-
-      padding:35px;
-
-      border-radius:18px;
-
-      box-shadow:0 10px 25px rgba(0,0,0,0.08);
-    }
-
-    .contact-right h2{
-      text-align:center;
-      margin-bottom:30px;
-      font-size:30px;
-    }
-
-    .contact-grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:20px;
-    }
-
-    .info-box{
-      text-decoration:none;
-      color:white;
-
-      background:#1f2937;
-
-      padding:25px;
-
-      border-radius:16px;
-
-      text-align:center;
-
-      transition:0.3s;
-    }
-
-    .info-box:hover{
-      background:#1a73e8;
-      transform:translateY(-5px);
-    }
-
-    .info-box i{
-      font-size:30px;
-      margin-bottom:10px;
-      display:block;
+    .info-box span {
+      font-size: 22px;
+      font-weight: 800;
     }
 
     /* ================= FOOTER ================= */
-
-    footer{
-      margin-top:70px;
-
-      background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
-
-      color:white;
+    footer {
+      border-top: var(--border-width) solid var(--border-color);
+      background-color: var(--surface-color);
+      padding: 80px 50px 30px;
+    }
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 50px;
+      margin-bottom: 50px;
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .footer-box {
+      flex: 1;
+      min-width: 280px;
+    }
+    .footer-box h3 {
+      font-size: 28px;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+      background-color: var(--primary);
+      color: #0f0f0f;
+      display: inline-block;
+      padding: 8px 16px;
+      border: var(--border-width) solid var(--border-color);
+      box-shadow: 4px 4px 0px var(--shadow-color);
+    }
+    body.dark-mode .footer-box h3 {
+      color: var(--bg-color);
+    }
+    .footer-box p {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+    .footer-box a {
+      display: block;
+      font-size: 20px;
+      font-weight: 700;
+      text-decoration: none;
+      margin-bottom: 15px;
+      transition: transform 0.2s;
+    }
+    .footer-box a:hover {
+      transform: translateX(8px);
+      text-decoration: underline;
+    }
+    .social-icons {
+      display: flex;
+      gap: 20px;
+    }
+    .social-icons a {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      border: var(--border-width) solid var(--border-color);
+      box-shadow: 5px 5px 0px var(--shadow-color);
+      border-radius: var(--border-radius);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+    }
+    .social-icons a:hover {
+      transform: translate(3px, 3px);
+      box-shadow: 2px 2px 0px var(--shadow-color);
+      background-color: var(--secondary);
+    }
+    .footer-bottom {
+      text-align: center;
+      font-weight: 800;
+      font-size: 18px;
+      border-top: var(--border-width) dashed var(--border-color);
+      padding-top: 30px;
+      max-width: 1400px;
+      margin: 0 auto;
     }
 
-    .footer-container{
-      display:flex;
-      justify-content:space-between;
-      flex-wrap:wrap;
-
-      gap:30px;
-
-      padding:45px 40px;
+    /* ================= SCROLL TO TOP ================= */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      width: 70px;
+      height: 70px;
+      border: var(--border-width) solid var(--border-color);
+      box-shadow: 6px 6px 0px var(--shadow-color);
+      border-radius: var(--border-radius);
+      background-color: var(--primary);
+      color: #0f0f0f;
+      font-size: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: transform 0.2s, box-shadow 0.2s, opacity 0.3s;
+      z-index: 9999;
     }
-
-    .footer-box{
-      flex:1;
-      min-width:220px;
+    body.dark-mode #scrollTopBtn {
+      color: var(--bg-color);
     }
-
-    .footer-box h3{
-      margin-bottom:15px;
-      color:#00e5ff;
-      font-size:22px;
+    #scrollTopBtn.show {
+      opacity: 1;
+      visibility: visible;
     }
-
-    .footer-box p,
-    .footer-box a{
-      color:#d1d1d1;
-
-      text-decoration:none;
-
-      display:block;
-
-      margin:8px 0;
-
-      transition:0.3s;
-    }
-
-    .footer-box a:hover{
-      color:#00e5ff;
-      transform:translateX(5px);
-    }
-
-    /* SOCIAL */
-
-    .social-icons{
-      display:flex;
-      gap:15px;
-      margin-top:15px;
-    }
-
-    .social-icons a{
-      width:42px;
-      height:42px;
-
-      border-radius:50%;
-
-      display:flex;
-      align-items:center;
-      justify-content:center;
-
-      background:rgba(255,255,255,0.1);
-
-      color:white;
-
-      transition:0.3s;
-    }
-
-    .social-icons a:hover{
-      transform:scale(1.15);
-    }
-
-    .instagram:hover{
-      background:#e1306c;
-    }
-
-    .facebook:hover{
-      background:#1877f2;
-    }
-
-    .whatsapp:hover{
-      background:#25d366;
-    }
-
-    .footer-bottom{
-      text-align:center;
-
-      padding:15px;
-
-      border-top:1px solid rgba(255,255,255,0.1);
-
-      color:#aaa;
+    #scrollTopBtn:hover {
+      transform: translate(3px, 3px);
+      box-shadow: 3px 3px 0px var(--shadow-color);
+      background-color: var(--secondary);
     }
 
     /* ================= RESPONSIVE ================= */
-
-    @media(max-width:1100px){
-
-      .hero-section{
-        flex-direction:column;
+    @media(max-width: 1100px) {
+      .hero-section {
+        flex-direction: column;
       }
-
-      .feature-grid{
-        grid-template-columns:repeat(2,1fr);
+      .bottom-grid {
+        grid-template-columns: 1fr;
       }
-
-    }
-
-    @media(max-width:768px){
-
-      header{
-        flex-direction:column;
-        gap:15px;
-      }
-
-      .hero-text h1{
-        font-size:48px;
-      }
-
-      .feature-grid{
-        grid-template-columns:1fr;
-      }
-
-      .contact-grid{
-        grid-template-columns:1fr;
-      }
-
-      .footer-container{
-        flex-direction:column;
-      }
-
-    }
-/* ================= FEATURE + CTA SECTION ================= */
-
-.feature-cta-section{
-  width:90%;
-  max-width:1400px;
-  margin:80px auto;
-}
-
-/* ================= TOP FEATURES ================= */
-
-.top-features{
-  display:flex;
-  justify-content:space-between;
-
-  background:white;
-
-  border-radius:20px;
-
-  padding:30px;
-
-  box-shadow:0 10px 30px rgba(0,0,0,0.06);
-
-  margin-bottom:35px;
-
-  flex-wrap:wrap;
-}
-
-.feature-item{
-  flex:1;
-  min-width:220px;
-
-  display:flex;
-  gap:18px;
-
-  padding:10px 20px;
-
-  border-right:1px solid #ececec;
-}
-
-.no-border{
-  border-right:none;
-}
-
-.feature-item i{
-  font-size:35px;
-  margin-top:5px;
-}
-
-.feature-item h3{
-  font-size:18px;
-  color:#111827;
-  margin-bottom:6px;
-}
-
-.feature-item p{
-  color:#666;
-  font-size:14px;
-  line-height:1.6;
-}
-
-/* ICON COLORS */
-
-.green-icon{
-  color:#0abf53;
-}
-
-.blue-icon{
-  color:#1a73e8;
-}
-
-.purple-icon{
-  color:#7f00ff;
-}
-
-.orange-icon{
-  color:#ff9800;
-}
-
-/* ================= BOTTOM GRID ================= */
-
-.bottom-grid{
-  display:grid;
-  grid-template-columns:2fr 1fr;
-  gap:25px;
-}
-
-/* CTA CARD */
-
-.cta-card{
-  background:linear-gradient(
-    135deg,
-    rgba(26,115,232,0.08),
-    rgba(127,0,255,0.08)
-  );
-
-  border-radius:24px;
-
-  padding:40px;
-
-  display:flex;
-  align-items:center;
-  gap:40px;
-
-  box-shadow:0 10px 30px rgba(0,0,0,0.05);
-}
-
-/* IMAGE */
-
-.cta-image img{
-  width:260px;
-  animation:floatCoder 4s ease-in-out infinite;
-}
-
-@keyframes floatCoder{
-
-  0%{
-    transform:translateY(0px);
-  }
-
-  50%{
-    transform:translateY(-12px);
-  }
-
-  100%{
-    transform:translateY(0px);
-  }
-
-}
-
-/* CONTENT */
-
-.cta-content h2{
-  font-size:34px;
-  line-height:1.5;
-  color:#111827;
-  margin-bottom:25px;
-}
-
-.cta-content span{
-  color:#1a73e8;
-  font-weight:700;
-}
-
-/* BUTTON */
-
-.cta-content button{
-  padding:16px 28px;
-
-  border:none;
-
-  border-radius:10px;
-
-  background:linear-gradient(
-    135deg,
-    #1a73e8,
-    #7f00ff
-  );
-
-  color:white;
-
-  font-size:15px;
-  font-weight:600;
-
-  cursor:pointer;
-
-  transition:0.3s;
-}
-
-.cta-content button:hover{
-  transform:translateY(-4px);
-  box-shadow:0 12px 25px rgba(26,115,232,0.3);
-}
-
-/* ================= QUOTE CARD ================= */
-
-.quote-card{
-  background:white;
-
-  border-radius:24px;
-
-  padding:40px 35px;
-
-  box-shadow:0 10px 30px rgba(0,0,0,0.05);
-
-  position:relative;
-
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-}
-
-.quote-mark{
-  font-size:90px;
-  color:#7f00ff;
-  line-height:1;
-  margin-bottom:10px;
-}
-
-.quote-card p{
-  font-size:24px;
-  line-height:1.7;
-  color:#1f2937;
-
-  margin-bottom:25px;
-}
-
-.quote-card span{
-  color:#666;
-  font-size:15px;
-  text-align:right;
-}
-
-/* ================= RESPONSIVE ================= */
-
-@media(max-width:1100px){
-
-  .bottom-grid{
-    grid-template-columns:1fr;
-  }
-
-  .cta-card{
-    flex-direction:column;
-    text-align:center;
-  }
-
-}
-
-@media(max-width:768px){
-
-  .top-features{
-    flex-direction:column;
-  }
-
-  .feature-item{
-    border-right:none;
-    border-bottom:1px solid #ececec;
-    padding:20px 0;
-  }
-
-  .feature-item:last-child{
-    border-bottom:none;
-  }
-
-  .cta-content h2{
-    font-size:26px;
-  }
-
-  .quote-card p{
-    font-size:20px;
-  }
-
-}
-/* SECTION */
-
-.topics-section{
-  width:90%;
-  margin:70px auto;
-}
-
-/* GRID */
-
-.topics-grid{
-  display:grid;
-
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-
-  gap:20px;
-}
-
-/* CARD */
-
-.topic-card{
-  background:white;
-
-  border-radius:20px;
-
-  padding:25px;
-
-  display:flex;
-
-  gap:18px;
-
-  align-items:flex-start;
-
-  box-shadow:0 5px 20px rgba(0,0,0,0.08);
-
-  transition:0.3s;
-}
-
-.topic-card:hover{
-  transform:translateY(-8px);
-}
-
-/* ICON */
-
-.icon-box{
-  width:60px;
-  height:60px;
-
-  border-radius:50%;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  color:white;
-
-  font-size:28px;
-
-  flex-shrink:0;
-}
-
-/* CONTENT */
-
-.topic-content h3{
-  font-size:22px;
-  margin-bottom:8px;
-}
-
-.topic-content p{
-  color:#666;
-  line-height:1.6;
-}
-
-/* COLORS */
-
-.html-bg{
-  background:#ff5722;
-}
-
-.css-bg{
-  background:#1a73e8;
-}
-
-.js-bg{
-  background:#ffd600;
-  color:black;
-}
-
-.python-bg{
-  background:#3776ab;
-}
-
-.java-bg{
-  background:#f44336;
-}
-
-.c-bg{
-  background:#3949ab;
-}
-
-.cpp-bg{
-  background:#673ab7;
-}
-
-.sql-bg{
-  background:#009688;
-}
-
-.mongo-bg{
-  background:#13aa52;
-}
-/* ================= MOBILE ================= */
-
-    @media(max-width:768px){
-
-      header{
-
-        flex-direction:column;
-
-        gap:20px;
-      }
-
-      nav{
-
-        flex-wrap:wrap;
-
-        justify-content:center;
-      }
-
-      .hero-left h1{
-
-        font-size:45px;
-      }
-
-      .contact-grid{
-
-        grid-template-columns:1fr;
+      .cta-card {
+        flex-direction: column;
+        text-align: center;
       }
     }
-    /* BUTTON */
-
-.topic-btn{
-
-  display:inline-block;
-
-  margin-top:15px;
-
-  padding:10px 18px;
-
-  background:linear-gradient(135deg,#1a73e8,#7f00ff);
-
-  color:white;
-
-  text-decoration:none;
-
-  border-radius:10px;
-
-  font-size:14px;
-
-  font-weight:600;
-
-  transition:0.3s;
-}
-
-.topic-btn:hover{
-
-  transform:translateY(-3px);
-
-  box-shadow:0 8px 20px rgba(26,115,232,0.25);
-}
-.seo-content{
-  width:90%;
-  max-width:1200px;
-  margin:40px auto 60px;
-  background:#fff;
-  padding:35px;
-  border-radius:20px;
-  box-shadow:0 8px 25px rgba(0,0,0,0.06);
-}
-
-.seo-content h2{
-  font-size:32px;
-  color:#111827;
-  margin-bottom:15px;
-}
-
-.seo-content p{
-  font-size:17px;
-  line-height:1.8;
-  color:#555;
-  margin-bottom:15px;
-}
-/* ================= FAQ SECTION ================= */
-
-.faq-section{
-  width:90%;
-  max-width:1200px;
-  margin:80px auto;
-
-  background:white;
-
-  padding:40px;
-
-  border-radius:24px;
-
-  box-shadow:0 10px 30px rgba(0,0,0,0.08);
-}
-
-.faq-section h2{
-  text-align:center;
-
-  font-size:36px;
-
-  color:#111827;
-
-  margin-bottom:35px;
-
-  position:relative;
-}
-
-.faq-section h2::after{
-  content:"";
-
-  width:80px;
-  height:4px;
-
-  background:linear-gradient(
-    135deg,
-    #1a73e8,
-    #7f00ff
-  );
-
-  display:block;
-
-  margin:12px auto 0;
-
-  border-radius:10px;
-}
-
-/* FAQ ITEMS */
-
-.faq-section h3{
-  font-size:22px;
-
-  color:#1a73e8;
-
-  margin-top:25px;
-  margin-bottom:10px;
-
-  padding-left:15px;
-
-  border-left:4px solid #7f00ff;
-}
-
-.faq-section p{
-  color:#555;
-
-  font-size:16px;
-
-  line-height:1.8;
-
-  margin-left:20px;
-
-  margin-bottom:20px;
-}
-
-/* HOVER EFFECT */
-
-.faq-section h3:hover{
-  color:#7f00ff;
-  transition:0.3s;
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-  .faq-section{
-    padding:25px;
-  }
-
-  .faq-section h2{
-    font-size:28px;
-  }
-
-  .faq-section h3{
-    font-size:18px;
-  }
-
-  .faq-section p{
-    font-size:15px;
-  }
-} .nav-btn{
-  padding:10px 18px;
-
-  border-radius:8px;
-
-  background:linear-gradient(135deg,#1a73e8,#7f00ff);
-
-  color:white;
-
-  text-decoration:none;
-
-  font-size:14px;
-
-  transition:0.3s;
-}
-
-.nav-btn:hover{
-  background:#00e5ff;
-  color:#111;
-  transform:translateY(-2px);
-}
-/* ================= SCROLL TO TOP BUTTON ================= */
-
-#scrollTopBtn {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  width: 50px;
-  height: 50px;
-
-  border: none;
-  border-radius: 50%;
-
-  background: linear-gradient(135deg, #1a73e8, #7f00ff);
-  color: white;
-
-  font-size: 18px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  cursor: pointer;
-
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-
-  opacity: 0;
-  visibility: hidden;
-
-  transition: 0.3s;
-  z-index: 9999;
-}
-
-#scrollTopBtn:hover {
-  transform: translateY(-4px);
-  background: #00e5ff;
-  color: #111;
-}
-
-/* show button */
-#scrollTopBtn.show {
-  opacity: 1;
-  visibility: visible;
-}
+    @media(max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+      }
+      .hero-text h1 {
+        font-size: 50px;
+      }
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+      .cta-content h2 {
+        font-size: 32px;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-container {
+        flex-direction: column;
+      }
+      .explore-divider {
+        font-size: 20px;
+      }
+    }
   </style>
 
 </head>
-
 <body>
 
   <!-- ================= HEADER ================= -->
-
   <header>
-
     <div class="left">
-
-      <div class="header-logo">
-        &lt;/&gt;
-      </div>
-
+      <div class="header-logo">&lt;/&gt;</div>
       <div class="brand-text">
-
         <h2>CODECRAFT</h2>
-
-        <p>
-          Code Today. Build Tomorrow.
-          Innovate Forever.
-        </p>
-
+        <p>Code Today. Build Tomorrow.</p>
       </div>
-
     </div>
-
-<div class="right">
-
-  <a href="index.html" class="nav-btn">Home</a>
-
-  <a href="index.html#languages" class="nav-btn">Languages</a>
-
-  <a href="index.html#contact" class="nav-btn">Contact</a>
-
-</div>
-
+    <div class="right">
+      <a href="#home" class="neo-btn">Home</a>
+      <a href="#languages" class="neo-btn">Languages</a>
+      <a href="#contact" class="neo-btn">Contact</a>
+      <!-- Dark Mode Toggle -->
+      <button id="themeToggle" class="neo-btn theme-toggle">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </div>
   </header>
-<!-- SCROLL TO TOP BUTTON -->
-<button id="scrollTopBtn" onclick="scrollToTop()">
-  <i class="fa-solid fa-arrow-up"></i>
-</button>
+
+  <!-- SCROLL TO TOP BUTTON -->
+  <button id="scrollTopBtn" onclick="scrollToTop()">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
   <!-- ================= HERO SECTION ================= -->
-
-  <section class="hero-section" id="home">
-
-    <!-- LEFT -->
-
+  <section class="section hero-section" id="home">
     <div class="hero-left">
-
       <div class="hero-text">
-
-        <h1>Learn Programming with CodeCraft</h1>
-
-        <h2>
-          <span class="blue">Build Skills.</span>
-          <span class="gradient"> Build the Future.</span>
-        </h2>
-
-        <div class="separator"></div>
-
-        <p>
-          Everything you need to learn coding,
-          build projects, and grow your career.
-        </p>
-
+        <h1>Learn Programming</h1>
+        <p>Build Skills. Build the Future. Everything you need to learn coding, build projects, and grow your career.</p>
       </div>
-
-      <!-- FEATURES -->
-
       <div class="feature-grid">
-
-        <div class="feature-card">
-          <i class="fa-solid fa-shield-halved purple"></i>
+        <div class="neo-box feature-card">
+          <i class="fa-solid fa-shield-halved"></i>
           <h3>PRACTICAL LEARNING</h3>
           <span>Hands-on projects & exercises</span>
         </div>
-
-        <div class="feature-card">
-          <i class="fa-solid fa-bullseye green"></i>
+        <div class="neo-box feature-card">
+          <i class="fa-solid fa-bullseye"></i>
           <h3>EXPERT CURATED</h3>
           <span>Well structured & updated</span>
         </div>
-
-        <div class="feature-card">
-          <i class="fa-solid fa-rocket yellow"></i>
-          <h3>BUILD REAL PROJECTS</h3>
+        <div class="neo-box feature-card">
+          <i class="fa-solid fa-rocket"></i>
+          <h3>BUILD PROJECTS</h3>
           <span>Apply skills in real world</span>
         </div>
-
-        <div class="feature-card">
-          <i class="fa-solid fa-cloud blue-icon"></i>
+        <div class="neo-box feature-card">
+          <i class="fa-solid fa-cloud"></i>
           <h3>LEARN ANYWHERE</h3>
           <span>Access anytime on any device</span>
         </div>
-
       </div>
-
     </div>
-
-    <!-- RIGHT IMAGE -->
-
     <div class="hero-right">
-
-      <!-- FLOATING BADGE -->
-
-      <!-- <div class="mini-badge">
-
-        <i class="fa-solid fa-code"></i> -->
-
-        <!-- <span>
-          Learn. Practice. Build.
-          <b>Become a Developer.</b>
-        </span> -->
-
-      </div>
-
-      <!-- HERO IMAGE -->
-
-      <img
-src="coding.png.jpeg"
-alt="Web Developer Learning Programming at CodeCraft"
-loading="lazy"
-width="600"
-height="400">
-
+      <img src="coding.png.jpeg" alt="Web Developer Learning Programming at CodeCraft" loading="lazy" class="hero-image">
     </div>
-
   </section>
 
- <!-- EXPLORE -->
-
-<div class="explore">
-  • EXPLORE ALL TOPICS •
-</div>
-
-<!-- SEO CONTENT -->
-
-<section class="seo-content">
-
-  <h2>Learn Coding Online</h2>
-
-  <p>
-    CodeCraft helps beginners and professionals learn programming through
-    interactive tutorials, coding exercises, real-world projects, and
-    career-focused learning paths.
-  </p>
-
-  <p>
-    Explore HTML, CSS, JavaScript, Python, Java, C, C++, SQL, and MongoDB
-    tutorials designed to help you become a skilled software developer.
-  </p>
-
-</section>
-
-<section class="topics-section" id="languages">
-
-  <div class="topics-grid">
-
-    <!-- HTML -->
-  <div class="topic-card">
-  <div class="icon-box html-bg">
-    <i class="fa-brands fa-html5"></i>
-  </div>
-  <div class="topic-content">
-    <h3>HTML</h3>
-    <p>Structure modern web pages.</p>
-    <!-- BUTTON -->
-    <a href="html.html" class="topic-btn"
-   title="Learn HTML Tutorial for Beginners">
-   Learn HTML
-    </a>
-  </div>
+  <!-- ================= EXPLORE DIVIDER ================= -->
+  <div class="explore-divider">
+    • EXPLORE ALL TOPICS •
   </div>
 
-    <!-- CSS -->
-    <div class="topic-card">
-      <div class="icon-box css-bg">
-        <i class="fa-brands fa-css3-alt"></i>
+  <!-- ================= SEO CONTENT ================= -->
+  <section class="section seo-content neo-box">
+    <h2>Learn Coding Online</h2>
+    <p>CodeCraft helps beginners and professionals learn programming through interactive tutorials, coding exercises, real-world projects, and career-focused learning paths.</p>
+    <p>Explore HTML, CSS, JavaScript, Python, Java, C, C++, SQL, and MongoDB tutorials designed to help you become a skilled software developer.</p>
+  </section>
+
+  <!-- ================= TOPICS SECTION ================= -->
+  <section class="section topics-section" id="languages">
+    <div class="topics-grid">
+      <!-- HTML -->
+      <div class="neo-box topic-card">
+        <div class="topic-header">
+          <div class="icon-box bg-1"><i class="fa-brands fa-html5"></i></div>
+          <h3>HTML</h3>
+        </div>
+        <div class="topic-content">
+          <p>Structure modern web pages.</p>
+          <a href="html.html" class="neo-btn">Learn HTML</a>
+        </div>
       </div>
 
-      <div class="topic-content">
-        <h3>CSS</h3>
-        <p>Create beautiful responsive designs.</p>
-        <a href="css.html" class="topic-btn"
-   title="Learn CSS Tutorial for Beginners">
-   Learn CSS
-</a>
+      <!-- CSS -->
+      <div class="neo-box topic-card">
+        <div class="topic-header">
+          <div class="icon-box bg-2"><i class="fa-brands fa-css3-alt"></i></div>
+          <h3>CSS</h3>
+        </div>
+        <div class="topic-content">
+          <p>Create beautiful responsive designs.</p>
+          <a href="css.html" class="neo-btn">Learn CSS</a>
+        </div>
+      </div>
+
+      <!-- JavaScript -->
+      <div class="neo-box topic-card">
+        <div class="topic-header">
+          <div class="icon-box bg-3"><i class="fa-brands fa-js"></i></div>
+          <h3>JavaScript</h3>
+        </div>
+        <div class="topic-content">
+          <p>Build dynamic websites and apps.</p>
+          <a href="js.html" class="neo-btn">Learn JS</a>
+        </div>
+      </div>
+
+      <!-- Python -->
+      <div class="neo-box topic-card">
+        <div class="topic-header">
+          <div class="icon-box bg-4"><i class="fa-brands fa-python"></i></div>
+          <h3>Python</h3>
+        </div>
+        <div class="topic-content">
+          <p>Versatile language for all purposes.</p>
+          <a href="python.html" class="neo-btn">Learn Python</a>
+        </div>
+      </div>
+
+      <!-- Java -->
+      <div class="neo-box topic-card">
+        <div class="topic-header">
+          <div class="icon-box bg-5"><i class="fa-brands fa-java"></i></div>
+          <h3>Java</h3>
+        </div>
+        <div class="topic-content">
+          <p>Enterprise and OOP programming.</p>
+          <a href="java.html" class="neo-btn">Learn Java</a>
+        </div>
+      </div>
+
+      <!-- C -->
+      <div class="neo-box topic-card">
+        <div class="topic-header">
+          <div class="icon-box bg-6"><i class="fa-solid fa-c"></i></div>
+          <h3>C</h3>
+        </div>
+        <div class="topic-content">
+          <p>Programming fundamentals.</p>
+          <a href="c.html" class="neo-btn">Learn C</a>
+        </div>
+      </div>
+
+      <!-- C++ -->
+      <div class="neo-box topic-card">
+        <div class="topic-header">
+          <div class="icon-box bg-7"><i class="fa-solid fa-code"></i></div>
+          <h3>C++</h3>
+        </div>
+        <div class="topic-content">
+          <p>DSA and performance applications.</p>
+          <a href="c++.html" class="neo-btn">Learn C++</a>
+        </div>
+      </div>
+
+      <!-- Full Stack -->
+      <div class="neo-box topic-card">
+        <div class="topic-header">
+          <div class="icon-box bg-8"><i class="fa-solid fa-layer-group"></i></div>
+          <h3>Full Stack</h3>
+        </div>
+        <div class="topic-content">
+          <p>Work with complete full stack layers.</p>
+          <a href="fullsatck.html" class="neo-btn">Learn Full Stack</a>
+        </div>
+      </div>
+
+      <!-- DSA -->
+      <div class="neo-box topic-card">
+        <div class="topic-header">
+          <div class="icon-box bg-9"><i class="fa-solid fa-network-wired"></i></div>
+          <h3>DSA</h3>
+        </div>
+        <div class="topic-content">
+          <p>Data Structures and Algorithms.</p>
+          <a href="dsa.html" class="neo-btn">Learn DSA</a>
+        </div>
+      </div>
+
+      <!-- SQL -->
+      <div class="neo-box topic-card">
+        <div class="topic-header">
+          <div class="icon-box bg-1"><i class="fa-solid fa-database"></i></div>
+          <h3>SQL</h3>
+        </div>
+        <div class="topic-content">
+          <p>Manage relational databases.</p>
+          <a href="sql.html" class="neo-btn">Learn SQL</a>
+        </div>
+      </div>
+
+      <!-- MongoDB -->
+      <div class="neo-box topic-card">
+        <div class="topic-header">
+          <div class="icon-box bg-9"><i class="fa-solid fa-leaf"></i></div>
+          <h3>MongoDB</h3>
+        </div>
+        <div class="topic-content">
+          <p>Work with NoSQL databases.</p>
+          <a href="mongodb.html" class="neo-btn">Learn MongoDB</a>
+        </div>
+      </div>
+
+      <!-- DBMS -->
+      <div class="neo-box topic-card">
+        <div class="topic-header">
+          <div class="icon-box bg-2"><i class="fa-solid fa-server"></i></div>
+          <h3>DBMS</h3>
+        </div>
+        <div class="topic-content">
+          <p>Data Base Management Systems.</p>
+          <a href="dbms.html" class="neo-btn">Learn DBMS</a>
+        </div>
       </div>
     </div>
+  </section>
 
-    <!-- JavaScript -->
-    <div class="topic-card">
-      <div class="icon-box js-bg">
-        <i class="fa-brands fa-js"></i>
-      </div>
-
-      <div class="topic-content">
-        <h3>JavaScript</h3>
-        <p>Build dynamic websites and apps.</p>
-        <a href="js.html" class="topic-btn"
-   title="Learn JavaScript Tutorial for Beginners">
-   Learn JavaScript
-</a>
-      </div>
-    </div>
-
-    <!-- Python -->
-    <div class="topic-card">
-      <div class="icon-box python-bg">
-        <i class="fa-brands fa-python"></i>
-      </div>
-
-      <div class="topic-content">
-        <h3>Python</h3>
-        <p>Versatile language for all purposes.</p>
-        <a href="python.html" class="topic-btn"
-   title="Learn Python Programming Tutorial">
-   Learn Python
-</a>
-      </div>
-    </div>
-
-    <!-- Java -->
-    <div class="topic-card">
-      <div class="icon-box java-bg">
-        <i class="fa-brands fa-java"></i>
-      </div>
-
-      <div class="topic-content">
-        <h3>Java</h3>
-        <p>Enterprise and OOP programming.</p>
-        <a href="java.html" class="topic-btn"
-   title="Learn Java Programming Tutorial">
-   Learn Java
-</a>
-      </div>
-    </div>
-
-    <!-- C -->
-    <div class="topic-card">
-      <div class="icon-box c-bg">
-        <i class="fa-solid fa-c"></i>
-      </div>
-
-      <div class="topic-content">
-        <h3>C</h3>
-        <p>Programming fundamentals.</p>
-        <a href="c.html" class="topic-btn"
-   title="Learn C Programming Tutorial">
-   Learn C
-</a>
-      </div>
-    </div>
-
-    <!-- C++ -->
-    <div class="topic-card">
-      <div class="icon-box cpp-bg">
-        <i class="fa-solid fa-code"></i>
-      </div>
-
-      <div class="topic-content">
-        <h3>C++</h3>
-        <p>DSA and performance applications.</p>
-        <a href="c++.html" class="topic-btn"
-   title="Learn C++ Programming Tutorial">
-   Learn C++
-</a>
-      </div>
-    </div>
-
-    <!-- SQL -->
-    <div class="topic-card">
-      <div class="icon-box sql-bg">
-        <i class="fa-solid fa-database"></i>
-      </div>
-
-      <div class="topic-content">
-        <h3>SQL</h3>
-        <p>Manage relational databases.</p>
-        <a href="sql.html" class="topic-btn"
-   title="Learn SQL Database Tutorial">
-   Learn SQL
-</a>
-      </div>
-    </div>
-
-    <!-- MongoDB -->
-    <div class="topic-card">
-      <div class="icon-box mongo-bg">
-        <i class="fa-solid fa-leaf"></i>
-      </div>
-
-      <div class="topic-content">
-        <h3>MongoDB</h3>
-        <p>Work with NoSQL databases.</p>
-        <a href="mongodb.html" class="topic-btn"
-   title="Learn MongoDB NoSQL Database Tutorial">
-   Learn MongoDB
-</a>
-      </div>
-    </div>
-
-  </div>
-
-</section>
   <!-- ================= FEATURES + CTA SECTION ================= -->
-
-<section class="feature-cta-section">
-
-  <!-- TOP FEATURES BAR -->
-
-  <div class="top-features">
-
-    <!-- ITEM 1 -->
-         <div class="feature-item">
-
-      <i class="fa-solid fa-book-open purple-icon"></i>
-
-      <div>
-        <h3>Step by Step Learning</h3>
+  <section class="section feature-cta-section">
+    <div class="top-features neo-box">
+      <div class="feature-item">
+        <i class="fa-solid fa-book-open"></i>
+        <h3>Step by Step</h3>
         <p>Beginner to advanced structured paths.</p>
       </div>
-
-    </div>
-    
-
-    <!-- ITEM 2 -->
-    <div class="feature-item">
-
-      <i class="fa-solid fa-briefcase blue-icon"></i>
-
-      <div>
+      <div class="feature-item">
+        <i class="fa-solid fa-briefcase"></i>
         <h3>Industry Relevant</h3>
         <p>Skills that help you get hired.</p>
       </div>
-
-    </div>
-
-    <!-- ITEM 3 -->
-<div class="feature-item">
-
-      <i class="fa-solid fa-laptop-code green-icon"></i>
-
-      <div>
+      <div class="feature-item">
+        <i class="fa-solid fa-laptop-code"></i>
         <h3>Hands-on Projects</h3>
         <p>Build real projects and strengthen your portfolio.</p>
       </div>
-
-    </div>
-
-    <!-- ITEM 4 -->
-    <div class="feature-item">
-
-      <i class="fa-solid fa-users orange-icon"></i>
-
-      <div>
-        <h3>Community Support</h3>
+      <div class="feature-item">
+        <i class="fa-solid fa-users"></i>
+        <h3>Community</h3>
         <p>Learn together. Grow together.</p>
       </div>
-
     </div>
 
-    <!-- ITEM 5 -->
-    <div class="feature-item no-border">
-
-      <i class="fa-solid fa-certificate green-icon"></i>
-
-      <div>
-        <h3>Certificates</h3>
-        <p>Earn certificates and showcase your skills.</p>
+    <div class="bottom-grid">
+      <div class="cta-card neo-box">
+        <div class="cta-image">
+          <img src="coderimage.png.jpeg" alt="Coding Tutorial and Programming" loading="lazy">
+        </div>
+        <div class="cta-content">
+          <h2>From first line of code to real world impact – <span>CodeCraft</span> is with you at every step.</h2>
+          <button class="neo-btn">START CODING NOW →</button>
+        </div>
       </div>
-
-    </div>
-
-  </div>
-
-  <!-- BOTTOM GRID -->
-
-  <div class="bottom-grid">
-
-    <!-- LEFT CTA CARD -->
-
-    <div class="cta-card">
-
-      <!-- LEFT IMAGE -->
-
-      <div class="cta-image">
-
-        <img
-src="coderimage.png.jpeg"
-alt="Coding Tutorial and Programming Learning Platform"
-loading="lazy">
-
+      <div class="quote-card neo-box">
+        <div class="quote-mark">“</div>
+        <p>The best way to predict the future is to create it with code.</p>
+        <span>– CodeCraft Community</span>
       </div>
-
-      <!-- RIGHT CONTENT -->
-
-      <div class="cta-content">
-
-        <h2>
-          From first line of code to real world impact –
-          <span>CodeCraft</span> is with you at every step.
-        </h2>
-
-        <button>
-          START CODING NOW →
-        </button>
-
-      </div>
-
     </div>
+  </section>
 
-    <!-- RIGHT QUOTE CARD -->
-
-    <div class="quote-card">
-
-      <div class="quote-mark">“</div>
-
-      <p>
-        The best way to predict the future
-        is to create it with code.
-      </p>
-
-      <span>– CodeCraft Community</span>
-
+  <!-- ================= FAQ SECTION ================= -->
+  <section class="section faq-section neo-box">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>Can beginners learn coding with CodeCraft?</h3>
+      <p>Yes, CodeCraft provides beginner-friendly tutorials and projects.</p>
     </div>
+    <div class="faq-item">
+      <h3>Which programming languages can I learn?</h3>
+      <p>HTML, CSS, JavaScript, Python, Java, C, C++, SQL, and MongoDB.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Are projects included?</h3>
+      <p>Yes, practical projects help learners build real-world experience.</p>
+    </div>
+  </section>
 
-  </div>
-
-</section>
-<section class="faq-section">
-
-<h2>Frequently Asked Questions</h2>
-
-<h3>Can beginners learn coding with CodeCraft?</h3>
-<p>Yes, CodeCraft provides beginner-friendly tutorials and projects.</p>
-
-<h3>Which programming languages can I learn?</h3>
-<p>HTML, CSS, JavaScript, Python, Java, C, C++, SQL, and MongoDB.</p>
-
-<h3>Are projects included?</h3>
-<p>Yes, practical projects help learners build real-world experience.</p>
-
-</section>
   <!-- ================= CONTACT SECTION ================= -->
-
-  <section class="contact-section" id="contact">
-
-    <!-- LEFT -->
-
-    <!-- <div class="contact-left">
-
-      <h2>Contact Us</h2>
-
-      <p>
-        Feel free to send us your message anytime.
-      </p>
-
-      <form class="contact-form">
-
-        <input type="text" placeholder="Enter your name" required>
-
-        <input type="email" placeholder="Enter your email" required>
-
-        <textarea rows="6" placeholder="Enter your message" required></textarea>
-
-        <button type="submit">
-          Send Message
-        </button>
-
-      </form>
-
-    </div> -->
-
-    <!-- RIGHT -->
-
-    <div class="contact-right">
-
-      <h2>Get In Touch</h2>
-
-      <div class="contact-grid">
-
-        <a href="mailto:mrvenku369@gmail.com" class="info-box">
-          <i class="fa-solid fa-envelope"></i>
-          <span>Email</span>
-        </a>
-
-        <!-- <a href="tel:+919876543210" class="info-box">
-          <i class="fa-solid fa-phone"></i>
-          <span>Phone</span>
-        </a> -->
-
-        <a href="https://www.instagram.com/thecodecraft.dev?igsh=bjhzZzhnNmZrZ3l2" target="_blank" class="info-box">
-          <i class="fa-brands fa-instagram"></i>
-          <span>Instagram</span>
-        </a>
-
-        <!-- <a href="https://facebook.com" target="_blank" class="info-box">
-          <i class="fa-brands fa-facebook"></i>
-          <span>Facebook</span>
-        </a> -->
-
-        <!-- <a href="https://twitter.com" target="_blank" class="info-box">
-          <i class="fa-brands fa-twitter"></i>
-          <span>Twitter</span>
-        </a> -->
-
-        <a href="https://www.linkedin.com/in/venkatesh-b-172505353?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="info-box">
-          <i class="fa-brands fa-linkedin"></i>
-          <span>LinkedIn</span>
-        </a>
-
-      </div>
-
+  <section class="section contact-section neo-box" id="contact">
+    <h2>Get In Touch</h2>
+    <div class="contact-grid">
+      <a href="mailto:mrvenku369@gmail.com" class="info-box neo-box">
+        <i class="fa-solid fa-envelope"></i>
+        <span>Email</span>
+      </a>
+      <a href="https://www.instagram.com/thecodecraft.dev?igsh=bjhzZzhnNmZrZ3l2" target="_blank" class="info-box neo-box">
+        <i class="fa-brands fa-instagram"></i>
+        <span>Instagram</span>
+      </a>
+      <a href="https://www.linkedin.com/in/venkatesh-b-172505353" target="_blank" class="info-box neo-box">
+        <i class="fa-brands fa-linkedin"></i>
+        <span>LinkedIn</span>
+      </a>
     </div>
-
   </section>
 
   <!-- ================= FOOTER ================= -->
-
   <footer>
-
     <div class="footer-container">
-
       <div class="footer-box">
-
         <h3>CODECRAFT</h3>
-
-        <p>
-          We create modern coding experiences
-          for future developers.
-        </p>
-
+        <p>We create modern coding experiences for future developers.</p>
       </div>
-
       <div class="footer-box">
-
         <h3>Quick Links</h3>
-
         <a href="#home">Home</a>
-
         <a href="#languages">Languages</a>
-
         <a href="#contact">Contact</a>
-        
         <a href="about.html">About</a>
-
       </div>
-
       <div class="footer-box">
-
         <h3>Follow Us</h3>
-
         <div class="social-icons">
-
-          <a href="https://www.instagram.com/thecodecraft.dev?igsh=bjhzZzhnNmZrZ3l2" target="_blank" class="instagram">
-            <i class="fa-brands fa-instagram"></i>
-          </a>
-
-          <!-- <a href="#" class="facebook">
-            <i class="fa-brands fa-facebook"></i>
-          </a> -->
-
-          <a href="https://whatsapp.com/channel/0029VbCpE1Z0QeadMS6voR17" target="_blank" class="whatsapp">
-            <i class="fa-brands fa-whatsapp"></i>
-          </a>
-
+          <a href="https://www.instagram.com/thecodecraft.dev?igsh=bjhzZzhnNmZrZ3l2" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://whatsapp.com/channel/0029VbCpE1Z0QeadMS6voR17" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
-
       </div>
-
     </div>
-
     <div class="footer-bottom">
       © 2026 CODECRAFT | All Rights Reserved
     </div>
-
   </footer>
-<script>
-  const scrollBtn = document.getElementById("scrollTopBtn");
 
-  // Show button when user scrolls down
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-      scrollBtn.classList.add("show");
-    } else {
-      scrollBtn.classList.remove("show");
-    }
-  });
+  <script>
+    // Scroll to Top logic
+    const scrollBtn = document.getElementById("scrollTopBtn");
 
-  // Scroll to top function
-  function scrollToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        scrollBtn.classList.add("show");
+      } else {
+        scrollBtn.classList.remove("show");
+      }
     });
-  }
-</script>
+
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    // Theme Toggle Logic
+    const themeToggleBtn = document.getElementById("themeToggle");
+    const body = document.body;
+    const themeIcon = themeToggleBtn.querySelector("i");
+
+    // Check localStorage for preferred theme
+    const savedTheme = localStorage.getItem("codecraft-theme");
+    if (savedTheme === "dark") {
+      body.classList.add("dark-mode");
+      themeIcon.classList.replace("fa-moon", "fa-sun");
+    }
+
+    themeToggleBtn.addEventListener("click", () => {
+      body.classList.toggle("dark-mode");
+      
+      if (body.classList.contains("dark-mode")) {
+        themeIcon.classList.replace("fa-moon", "fa-sun");
+        localStorage.setItem("codecraft-theme", "dark");
+      } else {
+        themeIcon.classList.replace("fa-sun", "fa-moon");
+        localStorage.setItem("codecraft-theme", "light");
+      }
+    });
+  </script>
 </body>
 </html>
