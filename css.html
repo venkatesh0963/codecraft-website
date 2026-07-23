@@ -15,7 +15,6 @@
   <meta property="og:description" content="Master CSS with Flexbox, Grid, animations, responsive design, modern layouts, and practical projects.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.codecraft.com/css.html">
-  <meta property="og:image" content="https://www.codecraft.com/images/css-course-banner.jpg">
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Learn CSS Tutorial for Beginners to Advanced | CodeCraft">
@@ -25,921 +24,944 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- GOOGLE FONT -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* Neo-brutalism Variables */
+    /* Minimalist & Elegant Variables */
     :root {
-      /* Light Mode Colors */
-      --bg-color: #fdfaf6;
-      --text-color: #0f0f0f;
-      --border-color: #0f0f0f;
-      --shadow-color: #0f0f0f;
+      --bg-color: #fafafa;
       --surface-color: #ffffff;
-
-      --primary: #ff5e5b;    /* Red/Pink */
-      --secondary: #ffed66;  /* Yellow */
-      --tertiary: #00cecb;   /* Teal/Cyan */
-      --quaternary: #8338ec; /* Purple */
-      
-      --border-width: 4px;
-      --border-radius: 12px;
-      --section-margin: 100px auto; /* EQUAL MARGINS */
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --border-color: #e5e7eb;
+      --primary: #0f172a; /* Slate 900 */
+      --primary-hover: #334155; /* Slate 700 */
+      --accent: #2563eb; /* Blue 600 - minimal accent */
+      --accent-hover: #1d4ed8;
+      --radius: 8px;
+      --transition: all 0.3s ease;
     }
 
     body.dark-mode {
-      /* Dark Mode Colors */
-      --bg-color: #1a1a1d;
-      --text-color: #fdfaf6;
-      --border-color: #fdfaf6;
-      --shadow-color: #fdfaf6;
-      --surface-color: #26262a;
-
-      --primary: #ff4a47;
-      --secondary: #ebd800;
-      --tertiary: #00b3b0;
-      --quaternary: #9d50ff;
+      --bg-color: #0f172a;
+      --surface-color: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: #334155;
+      --primary: #f8fafc;
+      --primary-hover: #e2e8f0;
+      --accent: #3b82f6;
+      --accent-hover: #60a5fa;
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      font-family: 'Inter', sans-serif;
     }
 
-    html, body {
-      overflow-x: hidden;
+    html {
       scroll-behavior: smooth;
     }
 
     body {
       background-color: var(--bg-color);
-      color: var(--text-color);
-      background-image: radial-gradient(var(--border-color) 1px, transparent 1px);
-      background-size: 30px 30px;
-      background-position: 0 0, 15px 15px;
+      color: var(--text-main);
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    h1, h2, h3, h4, h5, h6, b, strong {
-      font-weight: 800;
-      color: var(--text-color);
-    }
-    
-    p, span, div, li, ul {
-      color: var(--text-color);
-    }
-
-    /* Neo-brutalism Utilities */
-    .neo-box {
-      background-color: var(--surface-color);
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 8px 8px 0px var(--shadow-color);
-      border-radius: var(--border-radius);
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
-    }
-    .neo-box:hover {
-      transform: translate(4px, 4px);
-      box-shadow: 4px 4px 0px var(--shadow-color);
-    }
-
-    .neo-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 14px 28px;
-      background-color: var(--primary);
-      color: #0f0f0f !important;
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 6px 6px 0px var(--shadow-color);
-      border-radius: 8px;
-      font-weight: 800;
-      font-size: 16px;
-      text-transform: uppercase;
+    a {
       text-decoration: none;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+      color: inherit;
     }
-    body.dark-mode .neo-btn {
-      color: var(--bg-color) !important;
-    }
-    .neo-btn:hover {
-      transform: translate(3px, 3px);
-      box-shadow: 3px 3px 0px var(--shadow-color);
-      background-color: var(--secondary);
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
     .section {
-      width: 90%;
-      max-width: 1400px;
-      margin: var(--section-margin);
+      padding: 80px 0;
     }
 
-    /* ================= HEADER ================= */
-    header {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
+    h1, h2, h3, h4 {
+      color: var(--text-main);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .section-title {
+      font-size: 32px;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 18px;
+      margin-bottom: 48px;
+      text-align: center;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
       align-items: center;
-      padding: 20px 50px;
-      background-color: var(--bg-color);
-      border-bottom: var(--border-width) solid var(--border-color);
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background-color: var(--primary);
+      color: var(--bg-color);
+      border: 1px solid var(--primary);
+      border-radius: var(--radius);
+      font-weight: 500;
+      font-size: 15px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    body.dark-mode .btn {
+      color: var(--bg-color);
+    }
+    .btn:hover {
+      background-color: var(--primary-hover);
+      border-color: var(--primary-hover);
+    }
+    .btn-outline {
+      background-color: transparent;
+      color: var(--primary);
+      border: 1px solid var(--border-color);
+    }
+    body.dark-mode .btn-outline {
+      color: var(--primary);
+    }
+    .btn-outline:hover {
+      background-color: var(--surface-color);
+      border-color: var(--primary);
+    }
+    .btn-accent {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+    .btn-accent:hover {
+      background-color: var(--accent-hover);
+      border-color: var(--accent-hover);
+    }
+
+    /* Sticky Navigation Wrapper */
+    .sticky-wrapper {
       position: sticky;
       top: 0;
       z-index: 1000;
     }
-    .left {
+
+    /* Header */
+    header {
+      background-color: var(--surface-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 16px 0;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+      position: relative;
+    }
+    .header-inner {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 15px;
     }
-    .header-logo {
-      width: 60px;
-      height: 60px;
-      border: var(--border-width) solid var(--border-color);
-      background-color: var(--tertiary);
-      color: #0f0f0f;
-      border-radius: var(--border-radius);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 26px;
-      font-weight: 900;
-      box-shadow: 4px 4px 0px var(--shadow-color);
-    }
-    body.dark-mode .header-logo {
-      color: var(--bg-color);
-    }
-    .brand-text h2 {
-      font-size: 32px;
-      line-height: 1;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-    .brand-text p {
-      font-size: 14px;
+    .logo {
+      font-size: 20px;
       font-weight: 700;
-      margin-top: 5px;
-    }
-    .right {
       display: flex;
-      gap: 20px;
       align-items: center;
+      gap: 8px;
+    }
+    .logo i {
+      color: var(--accent);
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    .nav-link {
+      font-weight: 500;
+      color: var(--text-muted);
+      font-size: 14px;
+      transition: var(--transition);
+      position: relative;
+    }
+    .nav-link:hover {
+      color: var(--text-main);
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--text-main);
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
     }
     .theme-toggle {
-      background-color: var(--quaternary);
-      padding: 14px;
-      font-size: 20px;
-      border-radius: 50%;
-      width: 55px;
-      height: 55px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 18px;
+      cursor: pointer;
+      transition: var(--transition);
+      padding: 8px;
+      border-radius: var(--radius);
+    }
+    .theme-toggle:hover {
+      color: var(--text-main);
+      background-color: var(--bg-color);
     }
 
-    /* ================= HERO SECTION ================= */
+    /* Courses Tab Bar */
+    .courses-tab-bar {
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-color);
+      width: 100%;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+    body.dark-mode .courses-tab-bar {
+      background-color: rgba(30, 41, 59, 0.95);
+    }
+    .courses-tab-bar::-webkit-scrollbar {
+      display: none;
+    }
+    .courses-tab-inner {
+      display: flex;
+      gap: 12px;
+      padding: 12px 0;
+      align-items: center;
+    }
+    .tab-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background-color: var(--bg-color);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 13px;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+    .tab-link i {
+      color: var(--accent);
+    }
+    .tab-link:hover, .tab-link.active {
+      border-color: var(--text-main);
+      color: var(--text-main);
+      background-color: var(--surface-color);
+    }
+    
+    /* Hero Section */
     .hero {
       text-align: center;
-      padding: 40px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 100px 0 40px;
     }
-    .hero h1 {
-      font-size: 80px;
+    .hero-title {
+      font-size: 56px;
       line-height: 1.1;
-      text-transform: uppercase;
-      margin-bottom: 25px;
-      text-shadow: 4px 4px 0px var(--tertiary);
-      letter-spacing: -1px;
+      margin-bottom: 24px;
     }
-    body.dark-mode .hero h1 {
-      text-shadow: 4px 4px 0px rgba(0, 179, 176, 0.5);
+    .hero-title span {
+      color: var(--accent);
     }
-    .hero h1 span {
-      display: inline-block;
-      margin-top: 10px;
-      background-color: var(--primary);
-      color: #0f0f0f;
-      padding: 5px 20px;
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 6px 6px 0px var(--shadow-color);
-      transform: rotate(-1deg);
+    .hero-subtitle {
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 40px;
     }
-    body.dark-mode .hero h1 span {
-      color: var(--bg-color);
-    }
-    .hero p {
-      max-width: 900px;
-      margin: 30px auto;
-      font-size: 22px;
-      font-weight: 600;
-      line-height: 1.8;
+
+    /* Info Box */
+    .info-box {
       background-color: var(--surface-color);
-      padding: 30px;
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 8px 8px 0px var(--shadow-color);
-      border-radius: var(--border-radius);
-    }
-
-    /* ================= SEO CONTENT SECTION ================= */
-    .seo-content {
-      padding: 50px;
-      background-color: var(--secondary);
-    }
-    .seo-content h2 {
-      font-size: 40px;
-      margin-bottom: 30px;
-      text-transform: uppercase;
-      color: #0f0f0f;
-    }
-    body.dark-mode .seo-content h2 {
-      color: var(--bg-color);
-    }
-    .seo-content p {
-      font-size: 20px;
-      font-weight: 600;
-      line-height: 1.8;
-      margin-bottom: 20px;
-      color: #0f0f0f;
-    }
-    body.dark-mode .seo-content p {
-      color: var(--bg-color);
-    }
-    .seo-content strong {
-      background-color: var(--tertiary);
-      padding: 2px 8px;
-      border: 2px solid var(--border-color);
-      box-shadow: 2px 2px 0px var(--shadow-color);
-      color: #0f0f0f;
-    }
-    body.dark-mode .seo-content strong {
-      color: var(--bg-color);
-    }
-
-    /* ================= PDF DOWNLOAD SECTION ================= */
-    .pdf-download-section {
-      padding: 50px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 40px;
       text-align: center;
-      background-color: var(--tertiary);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+      margin-bottom: 40px;
     }
-    .pdf-download-section h2 {
-      font-size: 40px;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-      color: #0f0f0f;
+    body.dark-mode .info-box {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
     }
-    body.dark-mode .pdf-download-section h2 {
-      color: var(--bg-color);
+    .info-box h2 {
+      font-size: 24px;
+      margin-bottom: 16px;
     }
-    .pdf-download-section p {
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 30px;
-      color: #0f0f0f;
+    .info-box p {
+      color: var(--text-muted);
+      font-size: 16px;
+      max-width: 700px;
+      margin: 0 auto 16px;
     }
-    body.dark-mode .pdf-download-section p {
-      color: var(--bg-color);
-    }
-    .pdf-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
+    .info-box p:last-child {
+      margin-bottom: 0;
     }
 
-    /* ================= COURSE GRID ================= */
-    .course-container {
+    /* Modules Grid */
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 35px;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
     }
-    .course-card {
-      padding: 30px;
+    .card {
+      background-color: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 32px;
+      transition: var(--transition);
       display: flex;
       flex-direction: column;
-      gap: 15px;
     }
-    .course-card h2 {
-      font-size: 24px;
-      text-transform: uppercase;
-      border-bottom: var(--border-width) solid var(--border-color);
-      padding-bottom: 10px;
-      margin-bottom: 10px;
+    .card:hover {
+      border-color: var(--text-main);
+      transform: translateY(-4px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
-    .course-card ul {
-      list-style-type: square;
-      padding-left: 20px;
+    body.dark-mode .card:hover {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
-    .course-card li {
+    .card h3 {
       font-size: 18px;
-      font-weight: 500;
-      line-height: 1.6;
-      margin-bottom: 10px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-main);
+    }
+    .card h3 i {
+      color: var(--accent);
+      font-size: 20px;
+    }
+    .card ul {
+      list-style-type: none;
+      color: var(--text-muted);
+      flex-grow: 1;
+    }
+    .card li {
+      font-size: 14px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card li::before {
+      content: '•';
+      color: var(--border-color);
+    }
+    .card li:last-child {
+      border-bottom: none;
     }
 
-    /* ================= FAQ SECTION ================= */
-    .faq-section {
-      padding: 60px;
-    }
-    .faq-section h2 {
-      font-size: 45px;
-      text-align: center;
-      margin-bottom: 50px;
-      text-transform: uppercase;
+    /* FAQ */
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
     }
     .faq-item {
-      border-bottom: var(--border-width) solid var(--border-color);
-      padding: 30px 0;
+      border-bottom: 1px solid var(--border-color);
+      padding: 24px 0;
     }
     .faq-item:last-child {
       border-bottom: none;
     }
     .faq-item h3 {
-      font-size: 24px;
-      margin-bottom: 15px;
+      font-size: 18px;
+      margin-bottom: 12px;
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 12px;
     }
-    .faq-item h3::before {
-      content: "Q";
-      background-color: var(--quaternary);
-      color: #0f0f0f;
-      padding: 5px 15px;
-      border: var(--border-width) solid var(--border-color);
-      border-radius: 8px;
-      box-shadow: 3px 3px 0px var(--shadow-color);
-    }
-    body.dark-mode .faq-item h3::before {
-      color: var(--bg-color);
+    .faq-item h3 i {
+      color: var(--accent);
     }
     .faq-item p {
-      font-size: 20px;
-      font-weight: 600;
-      margin-left: 70px;
+      color: var(--text-muted);
+      padding-left: 32px;
+      font-size: 15px;
     }
 
-    /* ================= RELATED COURSES ================= */
-    .related-courses {
-      padding: 60px;
-      text-align: center;
-      background-color: var(--quaternary);
-    }
-    .related-courses h2 {
-      font-size: 40px;
-      margin-bottom: 40px;
-      color: #fdfaf6;
-      text-transform: uppercase;
-    }
-    body.dark-mode .related-courses h2 {
-      color: #fdfaf6;
-    }
-    .related-courses a {
-      margin: 10px;
-      background-color: var(--primary);
-    }
-
-    /* ================= FOOTER ================= */
-    footer {
-      border-top: var(--border-width) solid var(--border-color);
-      background-color: var(--surface-color);
-      padding: 80px 50px 30px;
-    }
-    .footer-container {
+    /* Related Courses Tags */
+    .tags {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 50px;
-      margin-bottom: 50px;
-      max-width: 1400px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .footer-box {
-      flex: 1;
-      min-width: 280px;
-    }
-    .footer-box h3 {
-      font-size: 28px;
-      margin-bottom: 25px;
-      text-transform: uppercase;
-      background-color: var(--primary);
-      color: #0f0f0f;
-      display: inline-block;
-      padding: 8px 16px;
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 4px 4px 0px var(--shadow-color);
-    }
-    body.dark-mode .footer-box h3 {
-      color: var(--bg-color);
-    }
-    .footer-box p {
-      font-size: 18px;
-      font-weight: 600;
-      line-height: 1.6;
-    }
-    .footer-box a {
-      display: block;
-      font-size: 20px;
-      font-weight: 700;
-      text-decoration: none;
-      margin-bottom: 15px;
-      transition: transform 0.2s;
-    }
-    .footer-box a:hover {
-      transform: translateX(8px);
-      text-decoration: underline;
-    }
-    .social-icons {
-      display: flex;
-      gap: 20px;
-    }
-    .social-icons a {
-      width: 60px;
-      height: 60px;
-      display: flex;
-      align-items: center;
+      gap: 12px;
       justify-content: center;
-      font-size: 28px;
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 5px 5px 0px var(--shadow-color);
-      border-radius: var(--border-radius);
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
-    }
-    .social-icons a:hover {
-      transform: translate(3px, 3px);
-      box-shadow: 2px 2px 0px var(--shadow-color);
-      background-color: var(--secondary);
-    }
-    .footer-bottom {
-      text-align: center;
-      font-weight: 800;
-      font-size: 18px;
-      border-top: var(--border-width) dashed var(--border-color);
-      padding-top: 30px;
-      max-width: 1400px;
-      margin: 0 auto;
+      margin-top: 24px;
     }
 
-    /* ================= SCROLL TO TOP ================= */
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 60px 0 30px;
+      background-color: var(--surface-color);
+      margin-top: 60px;
+    }
+    .footer-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 60px;
+    }
+    .footer-brand p {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-top: 16px;
+      max-width: 300px;
+    }
+    .footer-col h4 {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    .footer-col a {
+      display: block;
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 12px;
+      transition: var(--transition);
+    }
+    .footer-col a:hover {
+      color: var(--text-main);
+    }
+    .footer-bottom {
+      border-top: 1px solid var(--border-color);
+      margin-top: 40px;
+      padding-top: 24px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    /* Scroll to Top */
     #scrollTopBtn {
       position: fixed;
       bottom: 40px;
       right: 40px;
-      width: 70px;
-      height: 70px;
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 6px 6px 0px var(--shadow-color);
-      border-radius: var(--border-radius);
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius);
       background-color: var(--primary);
-      color: #0f0f0f;
-      font-size: 28px;
+      color: var(--bg-color);
+      border: none;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 18px;
       cursor: pointer;
       opacity: 0;
       visibility: hidden;
-      transition: transform 0.2s, box-shadow 0.2s, opacity 0.3s;
-      z-index: 9999;
-    }
-    body.dark-mode #scrollTopBtn {
-      color: var(--bg-color);
+      transition: var(--transition);
+      z-index: 99;
     }
     #scrollTopBtn.show {
       opacity: 1;
       visibility: visible;
     }
     #scrollTopBtn:hover {
-      transform: translate(3px, 3px);
-      box-shadow: 3px 3px 0px var(--shadow-color);
-      background-color: var(--secondary);
+      background-color: var(--primary-hover);
+      transform: translateY(-4px);
     }
 
-    /* ================= RESPONSIVE ================= */
+    /* Responsive Design */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: var(--text-main);
+      cursor: pointer;
+    }
     @media(max-width: 768px) {
-      header {
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
         flex-direction: column;
-        gap: 20px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--surface-color);
         padding: 20px;
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
       }
-      .hero h1 {
-        font-size: 50px;
+      .nav-links.active {
+        display: flex;
       }
-      .footer-container {
-        flex-direction: column;
+      .mobile-menu-btn {
+        display: block;
+      }
+      .hero-title {
+        font-size: 40px;
       }
     }
   </style>
-
 </head>
+
 <body>
 
-  <!-- ================= HEADER ================= -->
-  <header>
-    <div class="left">
-      <div class="header-logo">&lt;/&gt;</div>
-      <div class="brand-text">
-        <h2>CODECRAFT</h2>
-        <p>Code Today. Build Tomorrow.</p>
+  <!-- STICKY NAV WRAPPER -->
+  <div class="sticky-wrapper">
+    <!-- HEADER -->
+    <header>
+      <div class="container header-inner">
+        <a href="index.html" class="logo">
+          <i class="fa-solid fa-code"></i> CodeCraft
+        </a>
+        
+        <!-- Navigation Links -->
+        <div class="nav-links" id="navLinks">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="index.html#notes" class="nav-link">Notes</a>
+          <a href="index.html#handbook" class="nav-link">Handbook</a>
+          <a href="index.html#blogs" class="nav-link">Blogs</a>
+          <a href="index.html#about" class="nav-link">About</a>
+          <a href="index.html#contact" class="nav-link">Contact</a>
+        </div>
+        
+        <div class="header-actions">
+          <button id="themeToggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- COURSES TAB BAR -->
+    <div class="courses-tab-bar">
+      <div class="container courses-tab-inner">
+        <a href="html.html" class="tab-link"><i class="fa-brands fa-html5"></i> HTML</a>
+        <a href="css.html" class="tab-link active"><i class="fa-brands fa-css3-alt"></i> CSS</a>
+        <a href="js.html" class="tab-link"><i class="fa-brands fa-js"></i> JavaScript</a>
+        <a href="python.html" class="tab-link"><i class="fa-brands fa-python"></i> Python</a>
+        <a href="java.html" class="tab-link"><i class="fa-brands fa-java"></i> Java</a>
+        <a href="c.html" class="tab-link"><i class="fa-solid fa-c"></i> C</a>
+        <a href="c++.html" class="tab-link"><i class="fa-solid fa-code"></i> C++</a>
+        <a href="fullsatck.html" class="tab-link"><i class="fa-solid fa-layer-group"></i> Full Stack</a>
+        <a href="sql.html" class="tab-link"><i class="fa-solid fa-database"></i> SQL</a>
+        <a href="mongodb.html" class="tab-link"><i class="fa-solid fa-leaf"></i> MongoDB</a>
+        <a href="dbms.html" class="tab-link"><i class="fa-solid fa-server"></i> DBMS</a>
+        <a href="dsa.html" class="tab-link"><i class="fa-solid fa-network-wired"></i> DSA</a>
       </div>
     </div>
-    <div class="right">
-      <a href="index.html" class="neo-btn">Home</a>
-      <a href="index.html#languages" class="neo-btn">Languages</a>
-      <a href="contact.html" class="neo-btn">Contact</a>
-      <!-- Dark Mode Toggle -->
-      <button id="themeToggle" class="neo-btn theme-toggle">
-        <i class="fa-solid fa-moon"></i>
-      </button>
-    </div>
-  </header>
+  </div>
 
-  <main>
-    <!-- ================= HERO ================= -->
+  <main class="container">
+    
+    <!-- HERO SECTION -->
     <section class="section hero">
-      <h1>Complete <span>CSS</span> Tutorial <br>for Beginners to Advanced</h1>
-      <p>
+      <h1 class="hero-title">Complete <span>CSS</span> Tutorial <br>for Beginners to Advanced</h1>
+      <p class="hero-subtitle">
         Master CSS from beginner to advanced level. Learn selectors, colors, backgrounds, typography, Flexbox, Grid, responsive web design, animations, modern layouts, and professional frontend styling.
       </p>
     </section>
 
-    <!-- ================= SEO CONTENT ================= -->
-    <section class="section seo-content neo-box">
+    <!-- INFO BOX (SEO CONTENT) -->
+    <section class="info-box">
       <h2>Why Learn CSS?</h2>
       <p>CSS (Cascading Style Sheets) is the foundation of modern web design. It allows developers to create responsive layouts, attractive user interfaces, animations, and mobile-friendly websites.</p>
       <p>This CSS tutorial covers selectors, colors, typography, Flexbox, Grid, responsive design, transitions, animations, CSS variables, and advanced styling techniques used in professional web development.</p>
       <p>Whether you are a beginner learning web design or a developer building modern websites, CSS is an essential skill for frontend development and user experience design.</p>
     </section>
 
-    <!-- ================= PDF DOWNLOAD SECTION ================= -->
-    <section class="section pdf-download-section neo-box" aria-label="Download CSS Tutorial PDF">
-      <h2>Download Complete CSS Tutorial PDF</h2>
-      <p>Get our comprehensive CSS guide in PDF format. Perfect for offline reading, quick reference, and mastering CSS at your own pace.</p>
-      <div class="pdf-buttons">
-        <a href="css-tutorial.pdf" target="_blank" rel="noopener noreferrer" class="neo-btn" aria-label="Open CSS Tutorial PDF in new tab" title="Open PDF">
-          <i class="fa-solid fa-file-pdf"></i> Open PDF
-        </a>
-        <a href="css-tutorial.pdf" download="CodeCraft_CSS_Tutorial.pdf" class="neo-btn" style="background-color: var(--secondary);" aria-label="Download CSS Tutorial PDF" title="Download PDF">
-          <i class="fa-solid fa-download"></i> Download PDF
-        </a>
+    <!-- MODULES GRID -->
+    <section class="section">
+      <h2 class="section-title">Course Modules</h2>
+      <p class="section-subtitle">A structured path to mastering CSS.</p>
+
+      <div class="grid">
+        <div class="card">
+          <h3><i class="fa-solid fa-book"></i> Module 1: Introduction to CSS</h3>
+          <ul>
+            <li>What is CSS?</li>
+            <li>History of CSS</li>
+            <li>Types of CSS</li>
+            <li>Inline CSS</li>
+            <li>Internal CSS</li>
+            <li>External CSS</li>
+            <li>How CSS Works</li>
+            <li>Setting Up CSS Files</li>
+            <li>Linking CSS to HTML</li>
+            <li>CSS Syntax</li>
+            <li>Comments in CSS</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-crosshairs"></i> Module 2: CSS Selectors</h3>
+          <ul>
+            <li>Element Selector</li>
+            <li>Class Selector</li>
+            <li>ID Selector</li>
+            <li>Universal Selector</li>
+            <li>Group Selector</li>
+            <li>Descendant Selector</li>
+            <li>Attribute Selectors</li>
+            <li>Pseudo Classes</li>
+            <li>Pseudo Elements</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-palette"></i> Module 3: Colors & Backgrounds</h3>
+          <ul>
+            <li>HEX, RGB, RGBA, HSL</li>
+            <li>Background Colors</li>
+            <li>Background Images</li>
+            <li>Gradient Backgrounds</li>
+            <li>Multiple Backgrounds</li>
+            <li>Background Position & Size</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-table"></i> Module 4: Flexbox & Grid</h3>
+          <ul>
+            <li>Flex Container</li>
+            <li>Flex Direction</li>
+            <li>Align Items</li>
+            <li>CSS Grid Layout</li>
+            <li>Grid Rows & Columns</li>
+            <li>Responsive Layouts</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-film"></i> Module 5: Animations & Effects</h3>
+          <ul>
+            <li>CSS Transitions</li>
+            <li>Hover Effects</li>
+            <li>Transform</li>
+            <li>Rotate & Scale</li>
+            <li>Keyframe Animations</li>
+            <li>Glassmorphism</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-rocket"></i> Module 6: Advanced CSS</h3>
+          <ul>
+            <li>SCSS / SASS</li>
+            <li>CSS Variables</li>
+            <li>Container Queries</li>
+            <li>Dark Mode</li>
+            <li>Performance Optimization</li>
+            <li>Modern CSS Features</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-border-all"></i> Module 7: Borders & Shadows</h3>
+          <ul>
+            <li>Border Types</li>
+            <li>Border Radius</li>
+            <li>Box Shadow</li>
+            <li>Text Shadow</li>
+            <li>Outline Styling</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-layer-group"></i> Module 8: Display & Positioning</h3>
+          <ul>
+            <li>Block Elements</li>
+            <li>Inline Elements</li>
+            <li>Inline-block</li>
+            <li>Display None</li>
+            <li>Visibility</li>
+            <li>Position Static</li>
+            <li>Relative Position</li>
+            <li>Absolute Position</li>
+            <li>Fixed Position</li>
+            <li>Sticky Position</li>
+            <li>Z-index</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-table-columns"></i> Module 9: Flexbox</h3>
+          <ul>
+            <li>Flex Container</li>
+            <li>Flex Items</li>
+            <li>Flex Direction</li>
+            <li>Justify Content</li>
+            <li>Align Items</li>
+            <li>Align Content</li>
+            <li>Flex Wrap</li>
+            <li>Gap</li>
+            <li>Flex Grow</li>
+            <li>Flex Shrink</li>
+            <li>Flex Basis</li>
+            <li>Building Layouts with Flexbox</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-grip"></i> Module 10: CSS Grid</h3>
+          <ul>
+            <li>Grid Container</li>
+            <li>Grid Items</li>
+            <li>Grid Columns</li>
+            <li>Grid Rows</li>
+            <li>Grid Gap</li>
+            <li>Grid Template Areas</li>
+            <li>Auto-fit & Auto-fill</li>
+            <li>Minmax</li>
+            <li>Grid Alignment</li>
+            <li>Responsive Grid Layouts</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-mobile-screen"></i> Module 11: Responsive Design</h3>
+          <ul>
+            <li>Media Queries</li>
+            <li>Mobile-first Design</li>
+            <li>Breakpoints</li>
+            <li>Responsive Typography</li>
+            <li>Responsive Images</li>
+            <li>Responsive Layouts</li>
+            <li>Viewport Units</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Module 12: Transitions & Animations</h3>
+          <ul>
+            <li>CSS Transitions</li>
+            <li>Transition Properties</li>
+            <li>Timing Functions</li>
+            <li>Delay</li>
+            <li>CSS Transform</li>
+            <li>Rotate</li>
+            <li>Scale</li>
+            <li>Translate</li>
+            <li>Skew</li>
+            <li>Keyframe Animations</li>
+            <li>Animation Properties</li>
+            <li>Loading Animations</li>
+            <li>Hover Effects</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-filter"></i> Module 13: Advanced Selectors</h3>
+          <ul>
+            <li>nth-child()</li>
+            <li>nth-of-type()</li>
+            <li>not()</li>
+            <li>has()</li>
+            <li>before & after</li>
+            <li>First-child & Last-child</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-code"></i> Module 14: CSS Variables</h3>
+          <ul>
+            <li>Creating Variables</li>
+            <li>Using Variables</li>
+            <li>Global Variables</li>
+            <li>Dynamic Themes</li>
+            <li>Dark Mode with Variables</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-droplet"></i> Module 15: Gradients & Effects</h3>
+          <ul>
+            <li>Linear Gradient</li>
+            <li>Radial Gradient</li>
+            <li>Conic Gradient</li>
+            <li>Glassmorphism</li>
+            <li>Neumorphism</li>
+            <li>Blur Effects</li>
+            <li>Backdrop Filter</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-calculator"></i> Module 16: CSS Functions</h3>
+          <ul>
+            <li>calc()</li>
+            <li>clamp()</li>
+            <li>min()</li>
+            <li>max()</li>
+            <li>var()</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-bolt"></i> Module 17: Pseudo Classes & Elements</h3>
+          <ul>
+            <li>hover</li>
+            <li>focus</li>
+            <li>active</li>
+            <li>visited</li>
+            <li>checked</li>
+            <li>disabled</li>
+            <li>before</li>
+            <li>after</li>
+            <li>first-letter</li>
+            <li>first-line</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-gauge-high"></i> Module 18: CSS Performance</h3>
+          <ul>
+            <li>Clean CSS Structure</li>
+            <li>Reusable Classes</li>
+            <li>DRY Principle</li>
+            <li>Avoiding Inline CSS</li>
+            <li>Optimizing Selectors</li>
+            <li>Minification</li>
+            <li>CSS Organization</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-layer-group"></i> Module 19: CSS Framework Basics</h3>
+          <ul>
+            <li>Introduction to Bootstrap</li>
+            <li>Tailwind CSS Basics</li>
+            <li>Utility-first CSS</li>
+            <li>Component Libraries</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-window-maximize"></i> Module 20: Real-world UI</h3>
+          <ul>
+            <li>Navbar</li>
+            <li>Hero Section</li>
+            <li>Cards</li>
+            <li>Buttons</li>
+            <li>Forms</li>
+            <li>Modals</li>
+            <li>Sidebar</li>
+            <li>Dropdown Menu</li>
+            <li>Pricing Tables</li>
+            <li>Dashboard Layouts</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-rocket"></i> Module 21: Advanced CSS</h3>
+          <ul>
+            <li>CSS Architecture</li>
+            <li>BEM Methodology</li>
+            <li>SCSS/SASS Basics</li>
+            <li>CSS Custom Properties</li>
+            <li>CSS Layers</li>
+            <li>Container Queries</li>
+            <li>Modern CSS Features</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-bug"></i> Module 22: Tools & Debugging</h3>
+          <ul>
+            <li>Chrome DevTools</li>
+            <li>Inspecting Styles</li>
+            <li>Debugging Layouts</li>
+            <li>Performance Testing</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-diagram-project"></i> Module 23: CSS Projects</h3>
+          <ul>
+            <li>Portfolio Website</li>
+            <li>Landing Page</li>
+            <li>Blog Design</li>
+            <li>E-commerce UI</li>
+            <li>Admin Dashboard</li>
+            <li>Responsive Website</li>
+            <li>Animated Website</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-forward"></i> Module 24: After CSS</h3>
+          <ul>
+            <li>JavaScript</li>
+            <li>DOM Manipulation</li>
+            <li>APIs</li>
+            <li>React</li>
+            <li>Git & GitHub</li>
+            <li>Web Performance Optimization</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <!-- ================= COURSE MODULES ================= -->
-    <section class="section course-container">
-      <div class="course-card neo-box">
-        <h2>📘 Module 1: Introduction to CSS</h2>
-        <ul>
-          <li>What is CSS?</li>
-          <li>History of CSS</li>
-          <li>Types of CSS</li>
-          <li>Inline CSS</li>
-          <li>Internal CSS</li>
-          <li>External CSS</li>
-          <li>How CSS Works</li>
-          <li>Setting Up CSS Files</li>
-          <li>Linking CSS to HTML</li>
-          <li>CSS Syntax</li>
-          <li>Comments in CSS</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>🧱 Module 2: CSS Selectors</h2>
-        <ul>
-          <li>Element Selector</li>
-          <li>Class Selector</li>
-          <li>ID Selector</li>
-          <li>Universal Selector</li>
-          <li>Group Selector</li>
-          <li>Descendant Selector</li>
-          <li>Attribute Selectors</li>
-          <li>Pseudo Classes</li>
-          <li>Pseudo Elements</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>🎨 Module 3: Colors & Backgrounds</h2>
-        <ul>
-          <li>HEX, RGB, RGBA, HSL</li>
-          <li>Background Colors</li>
-          <li>Background Images</li>
-          <li>Gradient Backgrounds</li>
-          <li>Multiple Backgrounds</li>
-          <li>Background Position & Size</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>📚 Module 4: Flexbox & Grid</h2>
-        <ul>
-          <li>Flex Container</li>
-          <li>Flex Direction</li>
-          <li>Align Items</li>
-          <li>CSS Grid Layout</li>
-          <li>Grid Rows & Columns</li>
-          <li>Responsive Layouts</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>🎞️ Module 5: Animations & Effects</h2>
-        <ul>
-          <li>CSS Transitions</li>
-          <li>Hover Effects</li>
-          <li>Transform</li>
-          <li>Rotate & Scale</li>
-          <li>Keyframe Animations</li>
-          <li>Glassmorphism</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>🚀 Module 6: Advanced CSS</h2>
-        <ul>
-          <li>SCSS / SASS</li>
-          <li>CSS Variables</li>
-          <li>Container Queries</li>
-          <li>Dark Mode</li>
-          <li>Performance Optimization</li>
-          <li>Modern CSS Features</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2><i class="fa-solid fa-border-all"></i> 🖼️ Module 7: Borders & Shadows</h2>
-        <ul>
-          <li>Border Types</li>
-          <li>Border Radius</li>
-          <li>Box Shadow</li>
-          <li>Text Shadow</li>
-          <li>Outline Styling</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2><i class="fa-solid fa-layer-group"></i> 📐 Module 8: Display & Positioning</h2>
-        <ul>
-          <li>Block Elements</li>
-          <li>Inline Elements</li>
-          <li>Inline-block</li>
-          <li>Display None</li>
-          <li>Visibility</li>
-          <li>Position Static</li>
-          <li>Relative Position</li>
-          <li>Absolute Position</li>
-          <li>Fixed Position</li>
-          <li>Sticky Position</li>
-          <li>Z-index</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2><i class="fa-solid fa-table-columns"></i> 📚 Module 9: Flexbox</h2>
-        <ul>
-          <li>Flex Container</li>
-          <li>Flex Items</li>
-          <li>Flex Direction</li>
-          <li>Justify Content</li>
-          <li>Align Items</li>
-          <li>Align Content</li>
-          <li>Flex Wrap</li>
-          <li>Gap</li>
-          <li>Flex Grow</li>
-          <li>Flex Shrink</li>
-          <li>Flex Basis</li>
-          <li>Building Layouts with Flexbox</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2><i class="fa-solid fa-grip"></i> 🧩 Module 10: CSS Grid</h2>
-        <ul>
-          <li>Grid Container</li>
-          <li>Grid Items</li>
-          <li>Grid Columns</li>
-          <li>Grid Rows</li>
-          <li>Grid Gap</li>
-          <li>Grid Template Areas</li>
-          <li>Auto-fit & Auto-fill</li>
-          <li>Minmax</li>
-          <li>Grid Alignment</li>
-          <li>Responsive Grid Layouts</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2><i class="fa-solid fa-mobile-screen"></i> 📱 Module 11: Responsive Design</h2>
-        <ul>
-          <li>Media Queries</li>
-          <li>Mobile-first Design</li>
-          <li>Breakpoints</li>
-          <li>Responsive Typography</li>
-          <li>Responsive Images</li>
-          <li>Responsive Layouts</li>
-          <li>Viewport Units</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2><i class="fa-solid fa-wand-magic-sparkles"></i> 🎞️ Module 12: Transitions & Animations</h2>
-        <ul>
-          <li>CSS Transitions</li>
-          <li>Transition Properties</li>
-          <li>Timing Functions</li>
-          <li>Delay</li>
-          <li>CSS Transform</li>
-          <li>Rotate</li>
-          <li>Scale</li>
-          <li>Translate</li>
-          <li>Skew</li>
-          <li>Keyframe Animations</li>
-          <li>Animation Properties</li>
-          <li>Loading Animations</li>
-          <li>Hover Effects</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2><i class="fa-solid fa-filter"></i> 🧭 Module 13: Advanced Selectors</h2>
-        <ul>
-          <li>nth-child()</li>
-          <li>nth-of-type()</li>
-          <li>not()</li>
-          <li>has()</li>
-          <li>before & after</li>
-          <li>First-child & Last-child</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2><i class="fa-solid fa-code"></i> 🧱 Module 14: CSS Variables</h2>
-        <ul>
-          <li>Creating Variables</li>
-          <li>Using Variables</li>
-          <li>Global Variables</li>
-          <li>Dynamic Themes</li>
-          <li>Dark Mode with Variables</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2><i class="fa-solid fa-droplet"></i> 🌈 Module 15: Gradients & Effects</h2>
-        <ul>
-          <li>Linear Gradient</li>
-          <li>Radial Gradient</li>
-          <li>Conic Gradient</li>
-          <li>Glassmorphism</li>
-          <li>Neumorphism</li>
-          <li>Blur Effects</li>
-          <li>Backdrop Filter</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2><i class="fa-solid fa-calculator"></i> 🧰 Module 16: CSS Functions</h2>
-        <ul>
-          <li>calc()</li>
-          <li>clamp()</li>
-          <li>min()</li>
-          <li>max()</li>
-          <li>var()</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2><i class="fa-solid fa-bolt"></i> 🎯 Module 17: Pseudo Classes & Elements</h2>
-        <ul>
-          <li>hover</li>
-          <li>focus</li>
-          <li>active</li>
-          <li>visited</li>
-          <li>checked</li>
-          <li>disabled</li>
-          <li>before</li>
-          <li>after</li>
-          <li>first-letter</li>
-          <li>first-line</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2><i class="fa-solid fa-gauge-high"></i> ⚡ Module 18: CSS Performance & Best Practices</h2>
-        <ul>
-          <li>Clean CSS Structure</li>
-          <li>Reusable Classes</li>
-          <li>DRY Principle</li>
-          <li>Avoiding Inline CSS</li>
-          <li>Optimizing Selectors</li>
-          <li>Minification</li>
-          <li>CSS Organization</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2><i class="fa-solid fa-layer-group"></i> 🧪 Module 19: CSS Framework Basics</h2>
-        <ul>
-          <li>Introduction to Bootstrap</li>
-          <li>Tailwind CSS Basics</li>
-          <li>Utility-first CSS</li>
-          <li>Component Libraries</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2><i class="fa-solid fa-window-maximize"></i> 🎨 Module 20: Real-world UI Components</h2>
-        <ul>
-          <li>Navbar</li>
-          <li>Hero Section</li>
-          <li>Cards</li>
-          <li>Buttons</li>
-          <li>Forms</li>
-          <li>Modals</li>
-          <li>Sidebar</li>
-          <li>Dropdown Menu</li>
-          <li>Pricing Tables</li>
-          <li>Dashboard Layouts</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2><i class="fa-solid fa-rocket"></i> 🚀 Module 21: Advanced CSS</h2>
-        <ul>
-          <li>CSS Architecture</li>
-          <li>BEM Methodology</li>
-          <li>SCSS/SASS Basics</li>
-          <li>CSS Custom Properties</li>
-          <li>CSS Layers</li>
-          <li>Container Queries</li>
-          <li>Modern CSS Features</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2><i class="fa-solid fa-bug"></i> 🛠️ Module 22: Browser Tools & Debugging</h2>
-        <ul>
-          <li>Chrome DevTools</li>
-          <li>Inspecting Styles</li>
-          <li>Debugging Layouts</li>
-          <li>Performance Testing</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2><i class="fa-solid fa-diagram-project"></i> 🏗️ Module 23: CSS Projects</h2>
-        <ul>
-          <li>Portfolio Website</li>
-          <li>Landing Page</li>
-          <li>Blog Design</li>
-          <li>E-commerce UI</li>
-          <li>Admin Dashboard</li>
-          <li>Responsive Website</li>
-          <li>Animated Website</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2><i class="fa-solid fa-forward"></i> 🎯 After CSS</h2>
-        <p style="margin-bottom: 10px; font-weight: 600;">Next technologies to learn:</p>
-        <ul>
-          <li>JavaScript</li>
-          <li>DOM Manipulation</li>
-          <li>APIs</li>
-          <li>React</li>
-          <li>Git & GitHub</li>
-          <li>Web Performance Optimization</li>
-        </ul>
+    <!-- FAQ SECTION -->
+    <section class="section">
+      <h2 class="section-title">CSS FAQ</h2>
+      <p class="section-subtitle">Common questions about CSS.</p>
+      
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3><i class="fa-solid fa-circle-question"></i> What is CSS used for?</h3>
+          <p>CSS is used to design and style web pages including layouts, colors, animations, and responsive design.</p>
+        </div>
+        <div class="faq-item">
+          <h3><i class="fa-solid fa-circle-question"></i> Is CSS enough for frontend development?</h3>
+          <p>CSS is essential but should be combined with HTML and JavaScript for full frontend development.</p>
+        </div>
+        <div class="faq-item">
+          <h3><i class="fa-solid fa-circle-question"></i> What should I learn after CSS?</h3>
+          <p>After CSS, you should learn JavaScript, DOM manipulation, React, and Git.</p>
+        </div>
       </div>
     </section>
 
-    <!-- ================= FAQ SECTION ================= -->
-    <section class="section faq-section neo-box">
-      <h2>CSS FAQ</h2>
-      <div class="faq-item">
-        <h3>What is CSS used for?</h3>
-        <p>CSS is used to design and style web pages including layouts, colors, animations, and responsive design.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Is CSS enough for frontend development?</h3>
-        <p>CSS is essential but should be combined with HTML and JavaScript for full frontend development.</p>
-      </div>
-      <div class="faq-item">
-        <h3>What should I learn after CSS?</h3>
-        <p>After CSS, you should learn JavaScript, DOM manipulation, React, and Git.</p>
-      </div>
-    </section>
-
-    <!-- ================= RELATED COURSES ================= -->
-    <section class="section related-courses neo-box">
-      <h2>Explore More Programming Tutorials</h2>
-      <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-        <a href="html.html" class="neo-btn" title="Learn HTML Tutorial">Learn HTML</a>
-        <a href="js.html" class="neo-btn" title="Learn JavaScript Tutorial">Learn JavaScript</a>
-        <a href="java.html" class="neo-btn" title="Learn Java Programming Tutorial">Learn Java</a>
-        <a href="python.html" class="neo-btn" title="Learn Python Programming Tutorial">Learn Python</a>
+    <!-- RELATED COURSES -->
+    <section class="section">
+      <div class="info-box" style="margin-bottom: 0;">
+        <h2>Explore More Programming Tutorials</h2>
+        <div class="tags">
+          <a href="html.html" class="btn btn-outline">Learn HTML</a>
+          <a href="js.html" class="btn btn-outline">Learn JavaScript</a>
+          <a href="java.html" class="btn btn-outline">Learn Java</a>
+          <a href="python.html" class="btn btn-outline">Learn Python</a>
+        </div>
       </div>
     </section>
   </main>
@@ -949,39 +971,41 @@
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <!-- ================= FOOTER ================= -->
+  <!-- FOOTER -->
   <footer>
-    <div class="footer-container">
-      <div class="footer-box">
-        <h3>CODECRAFT</h3>
-        <p>We create modern coding experiences for future developers.</p>
-      </div>
-      <div class="footer-box">
-        <h3>Quick Links</h3>
-        <a href="index.html" title="CodeCraft Home Page">Home</a>
-        <a href="index.html#languages" title="Programming Languages Tutorials">Languages</a>
-        <a href="contact.html" title="Contact CodeCraft">Contact</a>
-        <a href="about.html" title="About CodeCraft">About</a>
-      </div>
-      <div class="footer-box">
-        <h3>Follow Us</h3>
-        <div class="social-icons">
-          <a href="https://www.instagram.com/thecodecraft.dev?igsh=bjhzZzhnNmZrZ3l2" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://whatsapp.com/channel/0029VbCpE1Z0QeadMS6voR17" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <div class="logo">
+          <i class="fa-solid fa-code"></i> CodeCraft
         </div>
+        <p>Minimalist programming education for the modern developer.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <a href="index.html">Home</a>
+        <a href="index.html#notes">Notes</a>
+        <a href="index.html#handbook">Handbook</a>
+      </div>
+      <div class="footer-col">
+        <h4>More</h4>
+        <a href="index.html#blogs">Blogs</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      © 2026 CODECRAFT | All Rights Reserved
+    <div class="container">
+      <div class="footer-bottom">
+        &copy; 2026 CodeCraft. Minimalist design by choice.
+      </div>
     </div>
   </footer>
 
   <script>
-    // Scroll to Top logic
+    // Scroll to Top Logic
     const scrollBtn = document.getElementById("scrollTopBtn");
 
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 300) {
+      if (window.scrollY > 400) {
         scrollBtn.classList.add("show");
       } else {
         scrollBtn.classList.remove("show");
@@ -1000,8 +1024,7 @@
     const body = document.body;
     const themeIcon = themeToggleBtn.querySelector("i");
 
-    // Check localStorage for preferred theme
-    const savedTheme = localStorage.getItem("codecraft-theme");
+    const savedTheme = localStorage.getItem("codecraft-minimal-theme");
     if (savedTheme === "dark") {
       body.classList.add("dark-mode");
       themeIcon.classList.replace("fa-moon", "fa-sun");
@@ -1009,14 +1032,36 @@
 
     themeToggleBtn.addEventListener("click", () => {
       body.classList.toggle("dark-mode");
-      
       if (body.classList.contains("dark-mode")) {
         themeIcon.classList.replace("fa-moon", "fa-sun");
-        localStorage.setItem("codecraft-theme", "dark");
+        localStorage.setItem("codecraft-minimal-theme", "dark");
       } else {
         themeIcon.classList.replace("fa-sun", "fa-moon");
-        localStorage.setItem("codecraft-theme", "light");
+        localStorage.setItem("codecraft-minimal-theme", "light");
       }
+    });
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    const navLinks = document.getElementById("navLinks");
+    
+    mobileMenuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      const icon = mobileMenuBtn.querySelector("i");
+      if (navLinks.classList.contains("active")) {
+        icon.classList.replace("fa-bars", "fa-xmark");
+      } else {
+        icon.classList.replace("fa-xmark", "fa-bars");
+      }
+    });
+
+    // Close mobile menu when clicking a link
+    navLinks.querySelectorAll(".nav-link").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        const icon = mobileMenuBtn.querySelector("i");
+        icon.classList.replace("fa-xmark", "fa-bars");
+      });
     });
   </script>
 </body>
