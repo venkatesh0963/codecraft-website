@@ -13,500 +13,507 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- GOOGLE FONT -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* Neo-brutalism Variables */
+    /* Minimalist & Elegant Variables */
     :root {
-      /* Light Mode Colors */
-      --bg-color: #fdfaf6;
-      --text-color: #0f0f0f;
-      --border-color: #0f0f0f;
-      --shadow-color: #0f0f0f;
+      --bg-color: #fafafa;
       --surface-color: #ffffff;
-
-      --primary: #ff5e5b;    /* Red/Pink */
-      --secondary: #ffed66;  /* Yellow */
-      --tertiary: #00cecb;   /* Teal/Cyan */
-      --quaternary: #8338ec; /* Purple */
-      
-      --border-width: 4px;
-      --border-radius: 12px;
-      --section-margin: 100px auto; /* EQUAL MARGINS */
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --border-color: #e5e7eb;
+      --primary: #0f172a; /* Slate 900 */
+      --primary-hover: #334155; /* Slate 700 */
+      --accent: #2563eb; /* Blue 600 - minimal accent */
+      --accent-hover: #1d4ed8;
+      --radius: 8px;
+      --transition: all 0.3s ease;
     }
 
     body.dark-mode {
-      /* Dark Mode Colors */
-      --bg-color: #1a1a1d;
-      --text-color: #fdfaf6;
-      --border-color: #fdfaf6;
-      --shadow-color: #fdfaf6;
-      --surface-color: #26262a;
-
-      --primary: #ff4a47;
-      --secondary: #ebd800;
-      --tertiary: #00b3b0;
-      --quaternary: #9d50ff;
+      --bg-color: #0f172a;
+      --surface-color: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: #334155;
+      --primary: #f8fafc;
+      --primary-hover: #e2e8f0;
+      --accent: #3b82f6;
+      --accent-hover: #60a5fa;
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      font-family: 'Inter', sans-serif;
     }
 
-    html, body {
-      overflow-x: hidden;
+    html {
       scroll-behavior: smooth;
     }
 
     body {
       background-color: var(--bg-color);
-      color: var(--text-color);
-      background-image: radial-gradient(var(--border-color) 1px, transparent 1px);
-      background-size: 30px 30px;
-      background-position: 0 0, 15px 15px;
+      color: var(--text-main);
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    h1, h2, h3, h4, h5, h6, b, strong {
-      font-weight: 800;
-      color: var(--text-color);
-    }
-    
-    p, span, div, li, ul {
-      color: var(--text-color);
-    }
-
-    /* Neo-brutalism Utilities */
-    .neo-box {
-      background-color: var(--surface-color);
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 8px 8px 0px var(--shadow-color);
-      border-radius: var(--border-radius);
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
-    }
-    .neo-box:hover {
-      transform: translate(4px, 4px);
-      box-shadow: 4px 4px 0px var(--shadow-color);
-    }
-
-    .neo-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 14px 28px;
-      background-color: var(--primary);
-      color: #0f0f0f !important;
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 6px 6px 0px var(--shadow-color);
-      border-radius: 8px;
-      font-weight: 800;
-      font-size: 16px;
-      text-transform: uppercase;
+    a {
       text-decoration: none;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+      color: inherit;
     }
-    body.dark-mode .neo-btn {
-      color: var(--bg-color) !important;
-    }
-    .neo-btn:hover {
-      transform: translate(3px, 3px);
-      box-shadow: 3px 3px 0px var(--shadow-color);
-      background-color: var(--secondary);
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
     .section {
-      width: 90%;
-      max-width: 1400px;
-      margin: var(--section-margin);
+      padding: 80px 0;
     }
 
-    /* ================= HEADER ================= */
-    header {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
+    h1, h2, h3, h4 {
+      color: var(--text-main);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .section-title {
+      font-size: 32px;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 18px;
+      margin-bottom: 48px;
+      text-align: center;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
       align-items: center;
-      padding: 20px 50px;
-      background-color: var(--bg-color);
-      border-bottom: var(--border-width) solid var(--border-color);
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background-color: var(--primary);
+      color: var(--bg-color);
+      border: 1px solid var(--primary);
+      border-radius: var(--radius);
+      font-weight: 500;
+      font-size: 15px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    body.dark-mode .btn {
+      color: var(--bg-color);
+    }
+    .btn:hover {
+      background-color: var(--primary-hover);
+      border-color: var(--primary-hover);
+    }
+    .btn-outline {
+      background-color: transparent;
+      color: var(--primary);
+      border: 1px solid var(--border-color);
+    }
+    body.dark-mode .btn-outline {
+      color: var(--primary);
+    }
+    .btn-outline:hover {
+      background-color: var(--surface-color);
+      border-color: var(--primary);
+    }
+    .btn-accent {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+    .btn-accent:hover {
+      background-color: var(--accent-hover);
+      border-color: var(--accent-hover);
+    }
+
+    /* Sticky Navigation Wrapper */
+    .sticky-wrapper {
       position: sticky;
       top: 0;
       z-index: 1000;
     }
-    .left {
+
+    /* Header */
+    header {
+      background-color: var(--surface-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 16px 0;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+      position: relative;
+    }
+    .header-inner {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 15px;
     }
-    .header-logo {
-      width: 60px;
-      height: 60px;
-      border: var(--border-width) solid var(--border-color);
-      background-color: var(--tertiary);
-      color: #0f0f0f;
-      border-radius: var(--border-radius);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 26px;
-      font-weight: 900;
-      box-shadow: 4px 4px 0px var(--shadow-color);
-    }
-    body.dark-mode .header-logo {
-      color: var(--bg-color);
-    }
-    .brand-text h2 {
-      font-size: 32px;
-      line-height: 1;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-    .brand-text p {
-      font-size: 14px;
+    .logo {
+      font-size: 20px;
       font-weight: 700;
-      margin-top: 5px;
-    }
-    .right {
       display: flex;
-      gap: 20px;
       align-items: center;
+      gap: 8px;
+    }
+    .logo i {
+      color: var(--accent);
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    .nav-link {
+      font-weight: 500;
+      color: var(--text-muted);
+      font-size: 14px;
+      transition: var(--transition);
+      position: relative;
+    }
+    .nav-link:hover {
+      color: var(--text-main);
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--text-main);
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
     }
     .theme-toggle {
-      background-color: var(--quaternary);
-      padding: 14px;
-      font-size: 20px;
-      border-radius: 50%;
-      width: 55px;
-      height: 55px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 18px;
+      cursor: pointer;
+      transition: var(--transition);
+      padding: 8px;
+      border-radius: var(--radius);
+    }
+    .theme-toggle:hover {
+      color: var(--text-main);
+      background-color: var(--bg-color);
     }
 
-    /* ================= HERO SECTION ================= */
+    /* Courses Tab Bar */
+    .courses-tab-bar {
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-color);
+      width: 100%;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+    body.dark-mode .courses-tab-bar {
+      background-color: rgba(30, 41, 59, 0.95);
+    }
+    .courses-tab-bar::-webkit-scrollbar {
+      display: none;
+    }
+    .courses-tab-inner {
+      display: flex;
+      gap: 12px;
+      padding: 12px 0;
+      align-items: center;
+    }
+    .tab-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background-color: var(--bg-color);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 13px;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+    .tab-link i {
+      color: var(--accent);
+    }
+    .tab-link:hover, .tab-link.active {
+      border-color: var(--text-main);
+      color: var(--text-main);
+      background-color: var(--surface-color);
+    }
+    
+    /* Hero Section */
     .hero {
       text-align: center;
-      padding: 40px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 100px 0 40px;
     }
-    .hero h1 {
-      font-size: 80px;
+    .hero-title {
+      font-size: 56px;
       line-height: 1.1;
-      text-transform: uppercase;
-      margin-bottom: 25px;
-      text-shadow: 4px 4px 0px var(--tertiary);
-      letter-spacing: -1px;
+      margin-bottom: 24px;
     }
-    body.dark-mode .hero h1 {
-      text-shadow: 4px 4px 0px rgba(0, 179, 176, 0.5);
+    .hero-title span {
+      color: var(--accent);
     }
-    .hero h1 span {
-      display: inline-block;
-      margin-top: 10px;
-      background-color: var(--primary);
-      color: #0f0f0f;
-      padding: 5px 20px;
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 6px 6px 0px var(--shadow-color);
-      transform: rotate(-1deg);
+    .hero-subtitle {
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 40px;
     }
-    body.dark-mode .hero h1 span {
-      color: var(--bg-color);
-    }
-    .hero p {
-      max-width: 900px;
-      margin: 30px auto;
-      font-size: 22px;
-      font-weight: 600;
-      line-height: 1.8;
+
+    /* Info Box */
+    .info-box {
       background-color: var(--surface-color);
-      padding: 30px;
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 8px 8px 0px var(--shadow-color);
-      border-radius: var(--border-radius);
-    }
-
-    /* ================= SEO CONTENT SECTION ================= */
-    .seo-content {
-      padding: 50px;
-      background-color: var(--secondary);
-    }
-    .seo-content h2 {
-      font-size: 40px;
-      margin-bottom: 30px;
-      text-transform: uppercase;
-      color: #0f0f0f;
-    }
-    body.dark-mode .seo-content h2 {
-      color: var(--bg-color);
-    }
-    .seo-content p {
-      font-size: 20px;
-      font-weight: 600;
-      line-height: 1.8;
-      margin-bottom: 20px;
-      color: #0f0f0f;
-    }
-    body.dark-mode .seo-content p {
-      color: var(--bg-color);
-    }
-
-    /* ================= PDF DOWNLOAD SECTION ================= */
-    .pdf-download-section {
-      padding: 50px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 40px;
       text-align: center;
-      background-color: var(--tertiary);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+      margin-bottom: 40px;
     }
-    .pdf-download-section h2 {
-      font-size: 40px;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-      color: #0f0f0f;
+    body.dark-mode .info-box {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
     }
-    body.dark-mode .pdf-download-section h2 {
-      color: var(--bg-color);
+    .info-box h2 {
+      font-size: 24px;
+      margin-bottom: 16px;
     }
-    .pdf-download-section p {
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 30px;
-      color: #0f0f0f;
+    .info-box p {
+      color: var(--text-muted);
+      font-size: 16px;
+      max-width: 700px;
+      margin: 0 auto 16px;
     }
-    body.dark-mode .pdf-download-section p {
-      color: var(--bg-color);
-    }
-    .pdf-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
+    .info-box p:last-child {
+      margin-bottom: 0;
     }
 
-    /* ================= COURSE GRID ================= */
-    .course-container {
+    /* Modules Grid */
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 35px;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
     }
-    .course-card {
-      padding: 30px;
+    .card {
+      background-color: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 32px;
+      transition: var(--transition);
       display: flex;
       flex-direction: column;
-      gap: 15px;
     }
-    .course-card h2 {
-      font-size: 24px;
-      text-transform: uppercase;
-      border-bottom: var(--border-width) solid var(--border-color);
-      padding-bottom: 10px;
-      margin-bottom: 10px;
+    .card:hover {
+      border-color: var(--text-main);
+      transform: translateY(-4px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
-    .course-card ul {
-      list-style-type: square;
-      padding-left: 20px;
+    body.dark-mode .card:hover {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
-    .course-card li {
+    .card h3 {
       font-size: 18px;
-      font-weight: 500;
-      line-height: 1.6;
-      margin-bottom: 10px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-main);
+    }
+    .card h3 i {
+      color: var(--accent);
+      font-size: 20px;
+    }
+    .card ul {
+      list-style-type: none;
+      color: var(--text-muted);
+      flex-grow: 1;
+    }
+    .card li {
+      font-size: 14px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card li::before {
+      content: '•';
+      color: var(--border-color);
+    }
+    .card li:last-child {
+      border-bottom: none;
     }
 
-    /* ================= FAQ SECTION ================= */
-    .faq-section {
-      padding: 60px;
-    }
-    .faq-section h2 {
-      font-size: 45px;
-      text-align: center;
-      margin-bottom: 50px;
-      text-transform: uppercase;
+    /* FAQ */
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
     }
     .faq-item {
-      border-bottom: var(--border-width) solid var(--border-color);
-      padding: 30px 0;
+      border-bottom: 1px solid var(--border-color);
+      padding: 24px 0;
     }
     .faq-item:last-child {
       border-bottom: none;
     }
     .faq-item h3 {
-      font-size: 24px;
-      margin-bottom: 15px;
+      font-size: 18px;
+      margin-bottom: 12px;
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 12px;
     }
-    .faq-item h3::before {
-      content: "Q";
-      background-color: var(--quaternary);
-      color: #0f0f0f;
-      padding: 5px 15px;
-      border: var(--border-width) solid var(--border-color);
-      border-radius: 8px;
-      box-shadow: 3px 3px 0px var(--shadow-color);
-    }
-    body.dark-mode .faq-item h3::before {
-      color: var(--bg-color);
+    .faq-item h3 i {
+      color: var(--accent);
     }
     .faq-item p {
-      font-size: 20px;
-      font-weight: 600;
-      margin-left: 70px;
+      color: var(--text-muted);
+      padding-left: 32px;
+      font-size: 15px;
     }
 
-    /* ================= RELATED COURSES ================= */
-    .related-courses {
-      padding: 60px;
-      text-align: center;
-      background-color: var(--quaternary);
-    }
-    .related-courses h2 {
-      font-size: 40px;
-      margin-bottom: 40px;
-      color: #fdfaf6;
-      text-transform: uppercase;
-    }
-    body.dark-mode .related-courses h2 {
-      color: #fdfaf6;
-    }
-    .related-courses a {
-      margin: 10px;
-      background-color: var(--primary);
-    }
-
-    /* ================= FOOTER ================= */
-    footer {
-      border-top: var(--border-width) solid var(--border-color);
-      background-color: var(--surface-color);
-      padding: 80px 50px 30px;
-    }
-    .footer-container {
+    /* Related Courses Tags */
+    .tags {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 50px;
-      margin-bottom: 50px;
-      max-width: 1400px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .footer-box {
-      flex: 1;
-      min-width: 280px;
-    }
-    .footer-box h3 {
-      font-size: 28px;
-      margin-bottom: 25px;
-      text-transform: uppercase;
-      background-color: var(--primary);
-      color: #0f0f0f;
-      display: inline-block;
-      padding: 8px 16px;
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 4px 4px 0px var(--shadow-color);
-    }
-    body.dark-mode .footer-box h3 {
-      color: var(--bg-color);
-    }
-    .footer-box p {
-      font-size: 18px;
-      font-weight: 600;
-      line-height: 1.6;
-    }
-    .footer-box a {
-      display: block;
-      font-size: 20px;
-      font-weight: 700;
-      text-decoration: none;
-      margin-bottom: 15px;
-      transition: transform 0.2s;
-    }
-    .footer-box a:hover {
-      transform: translateX(8px);
-      text-decoration: underline;
-    }
-    .social-icons {
-      display: flex;
-      gap: 20px;
-    }
-    .social-icons a {
-      width: 60px;
-      height: 60px;
-      display: flex;
-      align-items: center;
+      gap: 12px;
       justify-content: center;
-      font-size: 28px;
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 5px 5px 0px var(--shadow-color);
-      border-radius: var(--border-radius);
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
-    }
-    .social-icons a:hover {
-      transform: translate(3px, 3px);
-      box-shadow: 2px 2px 0px var(--shadow-color);
-      background-color: var(--secondary);
-    }
-    .footer-bottom {
-      text-align: center;
-      font-weight: 800;
-      font-size: 18px;
-      border-top: var(--border-width) dashed var(--border-color);
-      padding-top: 30px;
-      max-width: 1400px;
-      margin: 0 auto;
+      margin-top: 24px;
     }
 
-    /* ================= SCROLL TO TOP ================= */
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 60px 0 30px;
+      background-color: var(--surface-color);
+      margin-top: 60px;
+    }
+    .footer-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 60px;
+    }
+    .footer-brand p {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-top: 16px;
+      max-width: 300px;
+    }
+    .footer-col h4 {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    .footer-col a {
+      display: block;
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 12px;
+      transition: var(--transition);
+    }
+    .footer-col a:hover {
+      color: var(--text-main);
+    }
+    .footer-bottom {
+      border-top: 1px solid var(--border-color);
+      margin-top: 40px;
+      padding-top: 24px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    /* Scroll to Top */
     #scrollTopBtn {
       position: fixed;
       bottom: 40px;
       right: 40px;
-      width: 70px;
-      height: 70px;
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 6px 6px 0px var(--shadow-color);
-      border-radius: var(--border-radius);
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius);
       background-color: var(--primary);
-      color: #0f0f0f;
-      font-size: 28px;
+      color: var(--bg-color);
+      border: none;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 18px;
       cursor: pointer;
       opacity: 0;
       visibility: hidden;
-      transition: transform 0.2s, box-shadow 0.2s, opacity 0.3s;
-      z-index: 9999;
-    }
-    body.dark-mode #scrollTopBtn {
-      color: var(--bg-color);
+      transition: var(--transition);
+      z-index: 99;
     }
     #scrollTopBtn.show {
       opacity: 1;
       visibility: visible;
     }
     #scrollTopBtn:hover {
-      transform: translate(3px, 3px);
-      box-shadow: 3px 3px 0px var(--shadow-color);
-      background-color: var(--secondary);
+      background-color: var(--primary-hover);
+      transform: translateY(-4px);
     }
 
-    /* ================= RESPONSIVE ================= */
+    /* Responsive Design */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: var(--text-main);
+      cursor: pointer;
+    }
     @media(max-width: 768px) {
-      header {
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
         flex-direction: column;
-        gap: 20px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--surface-color);
         padding: 20px;
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
       }
-      .hero h1 {
-        font-size: 50px;
+      .nav-links.active {
+        display: flex;
       }
-      .footer-container {
-        flex-direction: column;
+      .mobile-menu-btn {
+        display: block;
+      }
+      .hero-title {
+        font-size: 40px;
       }
     }
   </style>
@@ -514,250 +521,277 @@
 
 <body>
 
-  <!-- ================= HEADER ================= -->
-  <header>
-    <div class="left">
-      <div class="header-logo">&lt;/&gt;</div>
-      <div class="brand-text">
-        <h2>CODECRAFT</h2>
-        <p>Code Today. Build Tomorrow.</p>
+  <!-- STICKY NAV WRAPPER -->
+  <div class="sticky-wrapper">
+    <!-- HEADER -->
+    <header>
+      <div class="container header-inner">
+        <a href="index.html" class="logo">
+          <i class="fa-solid fa-code"></i> CodeCraft
+        </a>
+        
+        <!-- Navigation Links -->
+        <div class="nav-links" id="navLinks">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="index.html#notes" class="nav-link">Notes</a>
+          <a href="index.html#handbook" class="nav-link">Handbook</a>
+          <a href="index.html#blogs" class="nav-link">Blogs</a>
+          <a href="index.html#about" class="nav-link">About</a>
+          <a href="index.html#contact" class="nav-link">Contact</a>
+        </div>
+        
+        <div class="header-actions">
+          <button id="themeToggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- COURSES TAB BAR -->
+    <div class="courses-tab-bar">
+      <div class="container courses-tab-inner">
+        <a href="html.html" class="tab-link"><i class="fa-brands fa-html5"></i> HTML</a>
+        <a href="css.html" class="tab-link"><i class="fa-brands fa-css3-alt"></i> CSS</a>
+        <a href="js.html" class="tab-link"><i class="fa-brands fa-js"></i> JavaScript</a>
+        <a href="python.html" class="tab-link"><i class="fa-brands fa-python"></i> Python</a>
+        <a href="java.html" class="tab-link"><i class="fa-brands fa-java"></i> Java</a>
+        <a href="c.html" class="tab-link"><i class="fa-solid fa-c"></i> C</a>
+        <a href="c++.html" class="tab-link"><i class="fa-solid fa-code"></i> C++</a>
+        <a href="fullsatck.html" class="tab-link active"><i class="fa-solid fa-layer-group"></i> Full Stack</a>
+        <a href="sql.html" class="tab-link"><i class="fa-solid fa-database"></i> SQL</a>
+        <a href="mongodb.html" class="tab-link"><i class="fa-solid fa-leaf"></i> MongoDB</a>
+        <a href="dbms.html" class="tab-link"><i class="fa-solid fa-server"></i> DBMS</a>
+        <a href="dsa.html" class="tab-link"><i class="fa-solid fa-network-wired"></i> DSA</a>
       </div>
     </div>
-    <div class="right">
-      <a href="index.html" class="neo-btn">Home</a>
-      <a href="index.html#languages" class="neo-btn">Languages</a>
-      <a href="contact.html" class="neo-btn">Contact</a>
-      <!-- Dark Mode Toggle -->
-      <button id="themeToggle" class="neo-btn theme-toggle">
-        <i class="fa-solid fa-moon"></i>
-      </button>
-    </div>
-  </header>
+  </div>
 
-  <main>
-    <!-- ================= HERO ================= -->
+  <main class="container">
+    
+    <!-- HERO SECTION -->
     <section class="section hero">
-      <h1>Learn <span>Full Stack Development</span></h1>
-      <p>
+      <h1 class="hero-title">Learn <span>Full Stack Development</span></h1>
+      <p class="hero-subtitle">
         Master Full Stack Web Development from scratch. Learn how to build end-to-end web applications with modern frontend frameworks, powerful backend architectures, robust databases, API integrations, and cloud deployments.
       </p>
     </section>
 
-    <!-- ================= SEO CONTENT ================= -->
-    <section class="section seo-content neo-box">
+    <!-- INFO BOX (SEO CONTENT) -->
+    <section class="info-box">
       <h2>Why Learn Full Stack Web Development?</h2>
       <p>A Full Stack Developer is a software engineer who can handle both the front-end (user interface) and the back-end (server, database, architecture) of an application. By mastering both sides, you become incredibly versatile and highly sought after by tech companies of all sizes.</p>
       <p>This complete tutorial covers the modern web stack. You will start with the foundations of HTML, CSS, and JavaScript, before diving into popular frameworks like React or Vue. Then, you'll learn back-end technologies such as Node.js or Python, database management using SQL and NoSQL, and how to deploy your apps to the cloud.</p>
     </section>
 
-    <!-- ================= PDF DOWNLOAD SECTION ================= -->
-    <section class="section pdf-download-section neo-box" aria-label="Download Full Stack Tutorial PDF">
-      <h2>Download Complete Full Stack Tutorial PDF</h2>
-      <p>Get our comprehensive Full Stack guide in PDF format. Perfect for offline reading, quick reference, and mastering web development at your own pace.</p>
-      <div class="pdf-buttons">
-        <a href="fullstack-tutorial.pdf" target="_blank" rel="noopener noreferrer" class="neo-btn" aria-label="Open Full Stack Tutorial PDF in new tab" title="Open PDF">
-          <i class="fa-solid fa-file-pdf"></i> Open PDF
-        </a>
-        <a href="fullstack-tutorial.pdf" download="CodeCraft_FullStack_Tutorial.pdf" class="neo-btn" style="background-color: var(--secondary);" aria-label="Download Full Stack Tutorial PDF" title="Download PDF">
-          <i class="fa-solid fa-download"></i> Download PDF
-        </a>
+    <!-- MODULES GRID -->
+    <section class="section">
+      <h2 class="section-title">Course Modules</h2>
+      <p class="section-subtitle">A structured path to mastering Full Stack Web Development.</p>
+
+      <div class="grid">
+        <div class="card">
+          <h3><i class="fa-solid fa-globe"></i> Module 1: Internet Basics</h3>
+          <ul>
+            <li>How the Web Works</li>
+            <li>HTTP / HTTPS</li>
+            <li>DNS & Hosting</li>
+            <li>Browsers & Engines</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-palette"></i> Module 2: HTML & CSS</h3>
+          <ul>
+            <li>Semantic HTML5</li>
+            <li>CSS3 Styling</li>
+            <li>Flexbox & Grid</li>
+            <li>Responsive Design</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-brands fa-js"></i> Module 3: JavaScript Essentials</h3>
+          <ul>
+            <li>ES6+ Features</li>
+            <li>DOM Manipulation</li>
+            <li>Async/Await & Promises</li>
+            <li>Fetch API & JSON</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-code-branch"></i> Module 4: Version Control</h3>
+          <ul>
+            <li>Git Fundamentals</li>
+            <li>GitHub Repositories</li>
+            <li>Branching & Merging</li>
+            <li>Collaboration Workflows</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-brands fa-react"></i> Module 5: Frontend Frameworks</h3>
+          <ul>
+            <li>React.js Basics</li>
+            <li>Components & Props</li>
+            <li>State & Effect Hooks</li>
+            <li>React Router</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-cubes"></i> Module 6: State Management</h3>
+          <ul>
+            <li>Context API</li>
+            <li>Redux Toolkit</li>
+            <li>Zustand / Recoil</li>
+            <li>Handling Complex State</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-brands fa-node-js"></i> Module 7: Backend Basics</h3>
+          <ul>
+            <li>Node.js Fundamentals</li>
+            <li>Express.js Framework</li>
+            <li>Routing & Middleware</li>
+            <li>Handling Requests</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-database"></i> Module 8: SQL Databases</h3>
+          <ul>
+            <li>Relational Concepts</li>
+            <li>PostgreSQL / MySQL</li>
+            <li>Querying & Joins</li>
+            <li>Object-Relational Mapping (ORM)</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-leaf"></i> Module 9: NoSQL Databases</h3>
+          <ul>
+            <li>MongoDB Basics</li>
+            <li>Collections & Documents</li>
+            <li>Mongoose ODM</li>
+            <li>Aggregation Pipeline</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-plug"></i> Module 10: APIs & Architecture</h3>
+          <ul>
+            <li>RESTful APIs</li>
+            <li>GraphQL Basics</li>
+            <li>API Testing with Postman</li>
+            <li>Microservices vs Monolithic</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-lock"></i> Module 11: Authentication</h3>
+          <ul>
+            <li>Cookies & Sessions</li>
+            <li>JSON Web Tokens (JWT)</li>
+            <li>OAuth & Social Logins</li>
+            <li>Bcrypt & Password Hashing</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-shield-halved"></i> Module 12: Web Security</h3>
+          <ul>
+            <li>CORS Policies</li>
+            <li>Preventing XSS</li>
+            <li>Preventing CSRF</li>
+            <li>Rate Limiting</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-rocket"></i> Module 13: Deployment</h3>
+          <ul>
+            <li>Deploying Frontend (Vercel)</li>
+            <li>Deploying Backend (Render/AWS)</li>
+            <li>Managing Environment Vars</li>
+            <li>CI/CD Pipelines</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-brands fa-docker"></i> Module 14: Containerization</h3>
+          <ul>
+            <li>Docker Basics</li>
+            <li>Writing Dockerfiles</li>
+            <li>Docker Compose</li>
+            <li>Deploying Containers</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-vial"></i> Module 15: Testing</h3>
+          <ul>
+            <li>Unit Testing (Jest)</li>
+            <li>Integration Testing</li>
+            <li>End-to-End Testing (Cypress)</li>
+            <li>Test-Driven Development</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-laptop-code"></i> Module 16: Full Stack Projects</h3>
+          <ul>
+            <li>E-Commerce Platform</li>
+            <li>Social Media Clone</li>
+            <li>Real-time Chat App</li>
+            <li>Task Management Dashboard</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <!-- ================= FULL STACK COURSE MODULES ================= -->
-    <section class="section course-container">
-      <div class="course-card neo-box">
-        <h2>🌐 Module 1: Internet Basics</h2>
-        <ul>
-          <li>How the Web Works</li>
-          <li>HTTP / HTTPS</li>
-          <li>DNS & Hosting</li>
-          <li>Browsers & Engines</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>🎨 Module 2: HTML & CSS</h2>
-        <ul>
-          <li>Semantic HTML5</li>
-          <li>CSS3 Styling</li>
-          <li>Flexbox & Grid</li>
-          <li>Responsive Design</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>⚡ Module 3: JavaScript Essentials</h2>
-        <ul>
-          <li>ES6+ Features</li>
-          <li>DOM Manipulation</li>
-          <li>Async/Await & Promises</li>
-          <li>Fetch API & JSON</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>📦 Module 4: Version Control</h2>
-        <ul>
-          <li>Git Fundamentals</li>
-          <li>GitHub Repositories</li>
-          <li>Branching & Merging</li>
-          <li>Collaboration Workflows</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>🖼️ Module 5: Frontend Frameworks</h2>
-        <ul>
-          <li>React.js Basics</li>
-          <li>Components & Props</li>
-          <li>State & Effect Hooks</li>
-          <li>React Router</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>🧩 Module 6: State Management</h2>
-        <ul>
-          <li>Context API</li>
-          <li>Redux Toolkit</li>
-          <li>Zustand / Recoil</li>
-          <li>Handling Complex State</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>⚙️ Module 7: Backend Basics</h2>
-        <ul>
-          <li>Node.js Fundamentals</li>
-          <li>Express.js Framework</li>
-          <li>Routing & Middleware</li>
-          <li>Handling Requests</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>🗄️ Module 8: SQL Databases</h2>
-        <ul>
-          <li>Relational Concepts</li>
-          <li>PostgreSQL / MySQL</li>
-          <li>Querying & Joins</li>
-          <li>Object-Relational Mapping (ORM)</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>🍃 Module 9: NoSQL Databases</h2>
-        <ul>
-          <li>MongoDB Basics</li>
-          <li>Collections & Documents</li>
-          <li>Mongoose ODM</li>
-          <li>Aggregation Pipeline</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>🔗 Module 10: APIs & Architecture</h2>
-        <ul>
-          <li>RESTful APIs</li>
-          <li>GraphQL Basics</li>
-          <li>API Testing with Postman</li>
-          <li>Microservices vs Monolithic</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>🔐 Module 11: Authentication</h2>
-        <ul>
-          <li>Cookies & Sessions</li>
-          <li>JSON Web Tokens (JWT)</li>
-          <li>OAuth & Social Logins</li>
-          <li>Bcrypt & Password Hashing</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>🛡️ Module 12: Web Security</h2>
-        <ul>
-          <li>CORS Policies</li>
-          <li>Preventing XSS</li>
-          <li>Preventing CSRF</li>
-          <li>Rate Limiting</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>🚀 Module 13: Deployment</h2>
-        <ul>
-          <li>Deploying Frontend (Vercel)</li>
-          <li>Deploying Backend (Render/AWS)</li>
-          <li>Managing Environment Vars</li>
-          <li>CI/CD Pipelines</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>🐳 Module 14: Containerization</h2>
-        <ul>
-          <li>Docker Basics</li>
-          <li>Writing Dockerfiles</li>
-          <li>Docker Compose</li>
-          <li>Deploying Containers</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>🧪 Module 15: Testing</h2>
-        <ul>
-          <li>Unit Testing (Jest)</li>
-          <li>Integration Testing</li>
-          <li>End-to-End Testing (Cypress)</li>
-          <li>Test-Driven Development</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>🛠️ Module 16: Full Stack Projects</h2>
-        <ul>
-          <li>E-Commerce Platform</li>
-          <li>Social Media Clone</li>
-          <li>Real-time Chat App</li>
-          <li>Task Management Dashboard</li>
-        </ul>
+    <!-- FAQ SECTION -->
+    <section class="section">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-subtitle">Common questions about Full Stack Web Development.</p>
+      
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3><i class="fa-solid fa-circle-question"></i> What is a Full Stack Developer?</h3>
+          <p>A full stack developer is an engineer who can build both the client-side (frontend) and server-side (backend) of a web application.</p>
+        </div>
+        <div class="faq-item">
+          <h3><i class="fa-solid fa-circle-question"></i> Do I need to master every technology?</h3>
+          <p>No. Most developers specialize in a specific stack (like MERN or MEAN) and have a deep understanding of core concepts rather than knowing every single language.</p>
+        </div>
+        <div class="faq-item">
+          <h3><i class="fa-solid fa-circle-question"></i> What is the MERN stack?</h3>
+          <p>MERN stands for MongoDB, Express.js, React.js, and Node.js. It is one of the most popular JavaScript stacks for building modern web applications.</p>
+        </div>
+        <div class="faq-item">
+          <h3><i class="fa-solid fa-circle-question"></i> How long does it take to learn Full Stack Development?</h3>
+          <p>It typically takes 4 to 8 months of consistent study and project building to become a proficient full stack developer.</p>
+        </div>
       </div>
     </section>
 
-    <!-- ================= FAQ SECTION ================= -->
-    <section class="section faq-section neo-box">
-      <h2>Frequently Asked Questions</h2>
-      <div class="faq-item">
-        <h3>What is a Full Stack Developer?</h3>
-        <p>A full stack developer is an engineer who can build both the client-side (frontend) and server-side (backend) of a web application.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Do I need to master every technology?</h3>
-        <p>No. Most developers specialize in a specific stack (like MERN or MEAN) and have a deep understanding of core concepts rather than knowing every single language.</p>
-      </div>
-      <div class="faq-item">
-        <h3>What is the MERN stack?</h3>
-        <p>MERN stands for MongoDB, Express.js, React.js, and Node.js. It is one of the most popular JavaScript stacks for building modern web applications.</p>
-      </div>
-      <div class="faq-item">
-        <h3>How long does it take to learn Full Stack Development?</h3>
-        <p>It typically takes 4 to 8 months of consistent study and project building to become a proficient full stack developer.</p>
-      </div>
-    </section>
-
-    <!-- ================= RELATED COURSES ================= -->
-    <section class="section related-courses neo-box">
-      <h2>Explore More Programming Tutorials</h2>
-      <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-        <a href="html.html" class="neo-btn" title="Learn HTML Tutorial">Learn HTML</a>
-        <a href="css.html" class="neo-btn" title="Learn CSS Tutorial">Learn CSS</a>
-        <a href="js.html" class="neo-btn" title="Learn JavaScript Tutorial">Learn JavaScript</a>
-        <a href="python.html" class="neo-btn" title="Learn Python Tutorial">Learn Python</a>
-        <a href="sql.html" class="neo-btn" title="Learn SQL Tutorial">Learn SQL</a>
-        <a href="mongodb.html" class="neo-btn" title="Learn MongoDB Tutorial">Learn MongoDB</a>
+    <!-- RELATED COURSES -->
+    <section class="section">
+      <div class="info-box" style="margin-bottom: 0;">
+        <h2>Explore More Programming Tutorials</h2>
+        <div class="tags">
+          <a href="html.html" class="btn btn-outline">Learn HTML</a>
+          <a href="css.html" class="btn btn-outline">Learn CSS</a>
+          <a href="js.html" class="btn btn-outline">Learn JavaScript</a>
+          <a href="python.html" class="btn btn-outline">Learn Python</a>
+          <a href="sql.html" class="btn btn-outline">Learn SQL</a>
+          <a href="mongodb.html" class="btn btn-outline">Learn MongoDB</a>
+        </div>
       </div>
     </section>
   </main>
@@ -767,39 +801,41 @@
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <!-- ================= FOOTER ================= -->
+  <!-- FOOTER -->
   <footer>
-    <div class="footer-container">
-      <div class="footer-box">
-        <h3>CODECRAFT</h3>
-        <p>We create modern coding experiences for future developers.</p>
-      </div>
-      <div class="footer-box">
-        <h3>Quick Links</h3>
-        <a href="index.html" title="CodeCraft Home Page">Home</a>
-        <a href="index.html#languages" title="Programming Languages Tutorials">Languages</a>
-        <a href="contact.html" title="Contact CodeCraft">Contact</a>
-        <a href="about.html" title="About CodeCraft">About</a>
-      </div>
-      <div class="footer-box">
-        <h3>Follow Us</h3>
-        <div class="social-icons">
-          <a href="https://www.instagram.com/thecodecraft.dev?igsh=bjhzZzhnNmZrZ3l2" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://whatsapp.com/channel/0029VbCpE1Z0QeadMS6voR17" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <div class="logo">
+          <i class="fa-solid fa-code"></i> CodeCraft
         </div>
+        <p>Minimalist programming education for the modern developer.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <a href="index.html">Home</a>
+        <a href="index.html#notes">Notes</a>
+        <a href="index.html#handbook">Handbook</a>
+      </div>
+      <div class="footer-col">
+        <h4>More</h4>
+        <a href="index.html#blogs">Blogs</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      © 2026 CODECRAFT | All Rights Reserved
+    <div class="container">
+      <div class="footer-bottom">
+        &copy; 2026 CodeCraft. Minimalist design by choice.
+      </div>
     </div>
   </footer>
 
   <script>
-    // Scroll to Top logic
+    // Scroll to Top Logic
     const scrollBtn = document.getElementById("scrollTopBtn");
 
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 300) {
+      if (window.scrollY > 400) {
         scrollBtn.classList.add("show");
       } else {
         scrollBtn.classList.remove("show");
@@ -818,8 +854,7 @@
     const body = document.body;
     const themeIcon = themeToggleBtn.querySelector("i");
 
-    // Check localStorage for preferred theme
-    const savedTheme = localStorage.getItem("codecraft-theme");
+    const savedTheme = localStorage.getItem("codecraft-minimal-theme");
     if (savedTheme === "dark") {
       body.classList.add("dark-mode");
       themeIcon.classList.replace("fa-moon", "fa-sun");
@@ -827,14 +862,36 @@
 
     themeToggleBtn.addEventListener("click", () => {
       body.classList.toggle("dark-mode");
-      
       if (body.classList.contains("dark-mode")) {
         themeIcon.classList.replace("fa-moon", "fa-sun");
-        localStorage.setItem("codecraft-theme", "dark");
+        localStorage.setItem("codecraft-minimal-theme", "dark");
       } else {
         themeIcon.classList.replace("fa-sun", "fa-moon");
-        localStorage.setItem("codecraft-theme", "light");
+        localStorage.setItem("codecraft-minimal-theme", "light");
       }
+    });
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    const navLinks = document.getElementById("navLinks");
+    
+    mobileMenuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      const icon = mobileMenuBtn.querySelector("i");
+      if (navLinks.classList.contains("active")) {
+        icon.classList.replace("fa-bars", "fa-xmark");
+      } else {
+        icon.classList.replace("fa-xmark", "fa-bars");
+      }
+    });
+
+    // Close mobile menu when clicking a link
+    navLinks.querySelectorAll(".nav-link").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        const icon = mobileMenuBtn.querySelector("i");
+        icon.classList.replace("fa-xmark", "fa-bars");
+      });
     });
   </script>
 </body>
