@@ -1,4 +1,4 @@
-# CodeCraft.
+# CodeCraft
 
 CodeCraft is an online programming learning platform offering comprehensive tutorials for beginners to advanced developers. It provides structured learning paths, course modules, and PDF resources across a wide variety of programming languages and technologies.
 
