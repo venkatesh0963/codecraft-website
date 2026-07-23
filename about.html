@@ -1,511 +1,394 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>About CodeCraft | Learn Programming, Web Development & Coding Skills</title>
+  <title>About Us | CodeCraft</title>
   
-  <meta name="description" content="Learn about CodeCraft, an online programming learning platform offering tutorials in HTML, CSS, JavaScript, Python, Java, C++, SQL, MongoDB, web development, and software engineering.">
-  <meta name="keywords" content="CodeCraft, learn programming, coding tutorials, web development, software development, HTML, CSS, JavaScript, Python, Java, SQL, MongoDB">
-  <meta name="robots" content="index, follow">
-  <meta property="og:title" content="About CodeCraft">
-  <meta property="og:description" content="Learn programming through structured tutorials, coding projects, and career-focused learning paths.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.codecraft.com/about.html">
-  <meta property="og:image" content="https://www.codecraft.com/images/about-banner.jpg">
-  <meta name="author" content="CodeCraft">
-  
-  <!-- GOOGLE FONT -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  
+  <meta name="description" content="Learn more about CodeCraft, our mission to provide high-quality programming education, and why developers choose us to learn coding.">
+  <meta name="keywords" content="About CodeCraft, Learn Programming, Coding Education, Developer Resources">
+
   <!-- FONT AWESOME -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <style>
-    /* Neo-brutalism Variables */
-    :root {
-      /* Light Mode Colors */
-      --bg-color: #fdfaf6;
-      --text-color: #0f0f0f;
-      --border-color: #0f0f0f;
-      --shadow-color: #0f0f0f;
-      --surface-color: #ffffff;
+  <!-- GOOGLE FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-      --primary: #ff5e5b;    /* Red/Pink */
-      --secondary: #ffed66;  /* Yellow */
-      --tertiary: #00cecb;   /* Teal/Cyan */
-      --quaternary: #8338ec; /* Purple */
-      
-      --border-width: 4px;
-      --border-radius: 12px;
-      --section-margin: 100px auto; /* EQUAL MARGINS */
+  <style>
+    /* Minimalist & Elegant Variables */
+    :root {
+      --bg-color: #fafafa;
+      --surface-color: #ffffff;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --border-color: #e5e7eb;
+      --primary: #0f172a; /* Slate 900 */
+      --primary-hover: #334155; /* Slate 700 */
+      --accent: #2563eb; /* Blue 600 - minimal accent */
+      --accent-hover: #1d4ed8;
+      --radius: 8px;
+      --transition: all 0.3s ease;
     }
 
     body.dark-mode {
-      /* Dark Mode Colors */
-      --bg-color: #1a1a1d;
-      --text-color: #fdfaf6;
-      --border-color: #fdfaf6;
-      --shadow-color: #fdfaf6;
-      --surface-color: #26262a;
-
-      --primary: #ff4a47;
-      --secondary: #ebd800;
-      --tertiary: #00b3b0;
-      --quaternary: #9d50ff;
+      --bg-color: #0f172a;
+      --surface-color: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: #334155;
+      --primary: #f8fafc;
+      --primary-hover: #e2e8f0;
+      --accent: #3b82f6;
+      --accent-hover: #60a5fa;
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      font-family: 'Inter', sans-serif;
     }
 
-    html, body {
-      overflow-x: hidden;
+    html {
       scroll-behavior: smooth;
     }
 
     body {
       background-color: var(--bg-color);
-      color: var(--text-color);
-      background-image: radial-gradient(var(--border-color) 1px, transparent 1px);
-      background-size: 30px 30px;
-      background-position: 0 0, 15px 15px;
+      color: var(--text-main);
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    h1, h2, h3, h4, h5, h6, b, strong {
-      font-weight: 800;
-      color: var(--text-color);
-    }
-    
-    p, span, div {
-      color: var(--text-color);
-    }
-
-    /* Neo-brutalism Utilities */
-    .neo-box {
-      background-color: var(--surface-color);
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 8px 8px 0px var(--shadow-color);
-      border-radius: var(--border-radius);
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
-    }
-    .neo-box:hover {
-      transform: translate(4px, 4px);
-      box-shadow: 4px 4px 0px var(--shadow-color);
-    }
-
-    .neo-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 14px 28px;
-      background-color: var(--primary);
-      color: #0f0f0f !important;
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 6px 6px 0px var(--shadow-color);
-      border-radius: 8px;
-      font-weight: 800;
-      font-size: 16px;
-      text-transform: uppercase;
+    a {
       text-decoration: none;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+      color: inherit;
     }
-    body.dark-mode .neo-btn {
-      color: var(--bg-color) !important;
-    }
-    .neo-btn:hover {
-      transform: translate(3px, 3px);
-      box-shadow: 3px 3px 0px var(--shadow-color);
-      background-color: var(--secondary);
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
     .section {
-      width: 90%;
-      max-width: 1400px;
-      margin: var(--section-margin);
+      padding: 80px 0;
     }
 
-    /* ================= HEADER ================= */
-    header {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
+    h1, h2, h3, h4 {
+      color: var(--text-main);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
       align-items: center;
-      padding: 20px 50px;
-      background-color: var(--bg-color);
-      border-bottom: var(--border-width) solid var(--border-color);
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background-color: var(--primary);
+      color: var(--bg-color);
+      border: 1px solid var(--primary);
+      border-radius: var(--radius);
+      font-weight: 500;
+      font-size: 15px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    body.dark-mode .btn {
+      color: var(--bg-color);
+    }
+    .btn:hover {
+      background-color: var(--primary-hover);
+      border-color: var(--primary-hover);
+    }
+    .btn-outline {
+      background-color: transparent;
+      color: var(--primary);
+      border: 1px solid var(--border-color);
+    }
+    body.dark-mode .btn-outline {
+      color: var(--primary);
+    }
+    .btn-outline:hover {
+      background-color: var(--surface-color);
+      border-color: var(--primary);
+    }
+
+    /* Sticky Navigation Wrapper */
+    .sticky-wrapper {
       position: sticky;
       top: 0;
       z-index: 1000;
     }
-    .left {
+
+    /* Header */
+    header {
+      background-color: var(--surface-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 16px 0;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+      position: relative;
+    }
+    .header-inner {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 15px;
     }
-    .header-logo {
-      width: 60px;
-      height: 60px;
-      border: var(--border-width) solid var(--border-color);
-      background-color: var(--tertiary);
-      color: #0f0f0f;
-      border-radius: var(--border-radius);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 26px;
-      font-weight: 900;
-      box-shadow: 4px 4px 0px var(--shadow-color);
-    }
-    body.dark-mode .header-logo {
-      color: var(--bg-color);
-    }
-    .brand-text h2 {
-      font-size: 32px;
-      line-height: 1;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-    .brand-text p {
-      font-size: 14px;
+    .logo {
+      font-size: 20px;
       font-weight: 700;
-      margin-top: 5px;
-    }
-    .right {
       display: flex;
-      gap: 20px;
       align-items: center;
+      gap: 8px;
+    }
+    .logo i {
+      color: var(--accent);
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    .nav-link {
+      font-weight: 500;
+      color: var(--text-muted);
+      font-size: 14px;
+      transition: var(--transition);
+      position: relative;
+    }
+    .nav-link:hover {
+      color: var(--text-main);
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--text-main);
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
     }
     .theme-toggle {
-      background-color: var(--quaternary);
-      padding: 14px;
-      font-size: 20px;
-      border-radius: 50%;
-      width: 55px;
-      height: 55px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 18px;
+      cursor: pointer;
+      transition: var(--transition);
+      padding: 8px;
+      border-radius: var(--radius);
     }
-
-    /* ================= HERO SECTION ================= */
+    .theme-toggle:hover {
+      color: var(--text-main);
+      background-color: var(--bg-color);
+    }
+    
+    /* Hero Section */
     .hero {
       text-align: center;
-      padding: 40px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 100px 0 60px;
     }
-    .hero h1 {
-      font-size: 80px;
+    .hero-title {
+      font-size: 56px;
       line-height: 1.1;
-      text-transform: uppercase;
-      margin-bottom: 25px;
-      text-shadow: 4px 4px 0px var(--tertiary);
-      letter-spacing: -1px;
+      margin-bottom: 24px;
     }
-    body.dark-mode .hero h1 {
-      text-shadow: 4px 4px 0px rgba(0, 179, 176, 0.5);
+    .hero-title span {
+      color: var(--accent);
     }
-    .hero h1 span {
-      display: inline-block;
-      margin-top: 10px;
-      background-color: var(--primary);
-      color: #0f0f0f;
-      padding: 5px 20px;
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 6px 6px 0px var(--shadow-color);
-      transform: rotate(-1deg);
-    }
-    body.dark-mode .hero h1 span {
-      color: var(--bg-color);
-    }
-    .hero p {
-      max-width: 900px;
-      margin: 30px auto;
-      font-size: 22px;
-      font-weight: 600;
-      line-height: 1.8;
-      background-color: var(--surface-color);
-      padding: 30px;
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 8px 8px 0px var(--shadow-color);
-      border-radius: var(--border-radius);
-    }
-
-    /* ================= STATS SECTION ================= */
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 30px;
-    }
-    .stat-box {
-      padding: 40px 20px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-    .stat-box h2 {
-      font-size: 55px;
-      color: var(--primary);
-      text-shadow: 2px 2px 0px var(--border-color);
-    }
-    .stat-box p {
+    .hero-subtitle {
       font-size: 18px;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-
-    /* ================= SEO CONTENT SECTION ================= */
-    .seo-content {
-      padding: 50px;
-      background-color: var(--secondary);
-    }
-    .seo-content h2 {
-      font-size: 40px;
-      margin-bottom: 30px;
-      text-transform: uppercase;
-      color: #0f0f0f;
-    }
-    body.dark-mode .seo-content h2 {
-      color: var(--bg-color);
-    }
-    .seo-content p {
-      font-size: 20px;
-      font-weight: 600;
-      line-height: 1.8;
-      margin-bottom: 20px;
-      color: #0f0f0f;
-    }
-    body.dark-mode .seo-content p {
-      color: var(--bg-color);
-    }
-    .seo-content strong {
-      background-color: var(--tertiary);
-      padding: 2px 8px;
-      border: 2px solid var(--border-color);
-      box-shadow: 2px 2px 0px var(--shadow-color);
-      color: #0f0f0f;
-    }
-    body.dark-mode .seo-content strong {
-      color: var(--bg-color);
-    }
-
-    /* ================= ABOUT CARDS ================= */
-    .about {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 35px;
-    }
-    .card {
-      padding: 40px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .card h3 {
-      font-size: 28px;
-      text-transform: uppercase;
-      border-bottom: var(--border-width) solid var(--border-color);
-      padding-bottom: 15px;
-    }
-    .card p {
-      font-size: 18px;
-      font-weight: 500;
-      line-height: 1.7;
-    }
-    
-    .bg-1 { background-color: var(--tertiary); color: #0f0f0f; }
-    body.dark-mode .bg-1 { color: var(--bg-color); }
-    body.dark-mode .bg-1 h3 { color: var(--bg-color); }
-    body.dark-mode .bg-1 p { color: var(--bg-color); }
-    
-    .bg-2 { background-color: var(--primary); color: #0f0f0f; }
-    body.dark-mode .bg-2 { color: var(--bg-color); }
-    body.dark-mode .bg-2 h3 { color: var(--bg-color); }
-    body.dark-mode .bg-2 p { color: var(--bg-color); }
-
-    .bg-3 { background-color: var(--quaternary); color: #fdfaf6; }
-    body.dark-mode .bg-3 { color: #fdfaf6; }
-    body.dark-mode .bg-3 h3 { color: #fdfaf6; }
-    body.dark-mode .bg-3 p { color: #fdfaf6; }
-
-    /* ================= FAQ SECTION ================= */
-    .faq-section {
-      padding: 60px;
-    }
-    .faq-section h2 {
-      font-size: 45px;
-      text-align: center;
-      margin-bottom: 50px;
-      text-transform: uppercase;
-    }
-    .faq-item {
-      border-bottom: var(--border-width) solid var(--border-color);
-      padding: 30px 0;
-    }
-    .faq-item:last-child {
-      border-bottom: none;
-    }
-    .faq-item h3 {
-      font-size: 24px;
-      margin-bottom: 15px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-    .faq-item h3::before {
-      content: "Q";
-      background-color: var(--quaternary);
-      color: #0f0f0f;
-      padding: 5px 15px;
-      border: var(--border-width) solid var(--border-color);
-      border-radius: 8px;
-      box-shadow: 3px 3px 0px var(--shadow-color);
-    }
-    body.dark-mode .faq-item h3::before {
-      color: var(--bg-color);
-    }
-    .faq-item p {
-      font-size: 20px;
-      font-weight: 600;
-      margin-left: 70px;
-    }
-
-    /* ================= FOOTER ================= */
-    footer {
-      border-top: var(--border-width) solid var(--border-color);
-      background-color: var(--surface-color);
-      padding: 80px 50px 30px;
-    }
-    .footer-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 50px;
-      margin-bottom: 50px;
-      max-width: 1400px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .footer-box {
-      flex: 1;
-      min-width: 280px;
-    }
-    .footer-box h3 {
-      font-size: 28px;
-      margin-bottom: 25px;
-      text-transform: uppercase;
-      background-color: var(--primary);
-      color: #0f0f0f;
-      display: inline-block;
-      padding: 8px 16px;
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 4px 4px 0px var(--shadow-color);
-    }
-    body.dark-mode .footer-box h3 {
-      color: var(--bg-color);
-    }
-    .footer-box p {
-      font-size: 18px;
-      font-weight: 600;
-      line-height: 1.6;
-    }
-    .footer-box a {
-      display: block;
-      font-size: 20px;
-      font-weight: 700;
-      text-decoration: none;
-      margin-bottom: 15px;
-      transition: transform 0.2s;
-    }
-    .footer-box a:hover {
-      transform: translateX(8px);
-      text-decoration: underline;
-    }
-    .social-icons {
-      display: flex;
-      gap: 20px;
-    }
-    .social-icons a {
-      width: 60px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 5px 5px 0px var(--shadow-color);
-      border-radius: var(--border-radius);
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
-    }
-    .social-icons a:hover {
-      transform: translate(3px, 3px);
-      box-shadow: 2px 2px 0px var(--shadow-color);
-      background-color: var(--secondary);
-    }
-    .footer-bottom {
-      text-align: center;
-      font-weight: 800;
-      font-size: 18px;
-      border-top: var(--border-width) dashed var(--border-color);
-      padding-top: 30px;
-      max-width: 1400px;
+      color: var(--text-muted);
+      max-width: 600px;
       margin: 0 auto;
     }
 
-    /* ================= SCROLL TO TOP ================= */
+    /* Info Box */
+    .info-box {
+      background-color: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 60px 40px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+      margin-bottom: 80px;
+    }
+    body.dark-mode .info-box {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .info-box h2 {
+      font-size: 32px;
+      margin-bottom: 24px;
+    }
+    .info-box p {
+      color: var(--text-muted);
+      font-size: 18px;
+      max-width: 800px;
+      margin: 0 auto 16px;
+      line-height: 1.8;
+    }
+    .info-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Grid layout for features */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+    }
+    .card {
+      background-color: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 40px;
+      transition: var(--transition);
+      text-align: center;
+    }
+    .card:hover {
+      border-color: var(--text-main);
+      transform: translateY(-4px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+    body.dark-mode .card:hover {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .card i {
+      font-size: 36px;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 16px;
+      color: var(--text-main);
+    }
+    .card p {
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 60px 0 30px;
+      background-color: var(--surface-color);
+      margin-top: 80px;
+    }
+    .footer-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 60px;
+    }
+    .footer-brand p {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-top: 16px;
+      max-width: 300px;
+    }
+    .footer-col h4 {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    .footer-col a {
+      display: block;
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 12px;
+      transition: var(--transition);
+    }
+    .footer-col a:hover {
+      color: var(--text-main);
+    }
+    .footer-bottom {
+      border-top: 1px solid var(--border-color);
+      margin-top: 40px;
+      padding-top: 24px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    /* Scroll to Top */
     #scrollTopBtn {
       position: fixed;
       bottom: 40px;
       right: 40px;
-      width: 70px;
-      height: 70px;
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 6px 6px 0px var(--shadow-color);
-      border-radius: var(--border-radius);
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius);
       background-color: var(--primary);
-      color: #0f0f0f;
-      font-size: 28px;
+      color: var(--bg-color);
+      border: none;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 18px;
       cursor: pointer;
       opacity: 0;
       visibility: hidden;
-      transition: transform 0.2s, box-shadow 0.2s, opacity 0.3s;
-      z-index: 9999;
-    }
-    body.dark-mode #scrollTopBtn {
-      color: var(--bg-color);
+      transition: var(--transition);
+      z-index: 99;
     }
     #scrollTopBtn.show {
       opacity: 1;
       visibility: visible;
     }
     #scrollTopBtn:hover {
-      transform: translate(3px, 3px);
-      box-shadow: 3px 3px 0px var(--shadow-color);
-      background-color: var(--secondary);
+      background-color: var(--primary-hover);
+      transform: translateY(-4px);
     }
 
-    /* ================= RESPONSIVE ================= */
+    /* Responsive Design */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: var(--text-main);
+      cursor: pointer;
+    }
     @media(max-width: 768px) {
-      header {
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
         flex-direction: column;
-        gap: 20px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--surface-color);
         padding: 20px;
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
       }
-      .hero h1 {
-        font-size: 50px;
+      .nav-links.active {
+        display: flex;
       }
-      .footer-container {
-        flex-direction: column;
+      .mobile-menu-btn {
+        display: block;
+      }
+      .hero-title {
+        font-size: 40px;
       }
     }
   </style>
@@ -513,99 +396,95 @@
 
 <body>
 
-  <!-- ================= HEADER ================= -->
-  <header>
-    <div class="left">
-      <div class="header-logo">&lt;/&gt;</div>
-      <div class="brand-text">
-        <h2>CODECRAFT</h2>
-        <p>Code Today. Build Tomorrow.</p>
+  <!-- STICKY NAV WRAPPER -->
+  <div class="sticky-wrapper">
+    <!-- HEADER -->
+    <header>
+      <div class="container header-inner">
+        <a href="index.html" class="logo">
+          <i class="fa-solid fa-code"></i> CodeCraft
+        </a>
+        
+        <!-- Navigation Links -->
+        <div class="nav-links" id="navLinks">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="index.html#notes" class="nav-link">Notes</a>
+          <a href="handbook.html" class="nav-link">Handbook</a>
+          <a href="blog.html" class="nav-link">Blogs</a>
+          <a href="about.html" class="nav-link" style="color: var(--text-main);">About</a>
+          <a href="index.html#contact" class="nav-link">Contact</a>
+        </div>
+        
+        <div class="header-actions">
+          <button id="themeToggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
       </div>
-    </div>
-    <div class="right">
-      <a href="index.html" class="neo-btn">Home</a>
-      <a href="index.html#languages" class="neo-btn">Languages</a>
-      <a href="contact.html" class="neo-btn">Contact</a>
-      <!-- Dark Mode Toggle -->
-      <button id="themeToggle" class="neo-btn theme-toggle">
-        <i class="fa-solid fa-moon"></i>
-      </button>
-    </div>
-  </header>
+    </header>
+  </div>
 
-  <main>
-    <!-- ================= HERO ================= -->
+  <main class="container">
+    
+    <!-- HERO SECTION -->
     <section class="section hero">
-      <h1>About CodeCraft <br> <span>Learn Programming</span></h1>
-      <p>
-        CodeCraft is a next-generation programming learning platform designed to help students, developers, and professionals master coding skills through structured, project-based learning. We focus on real-world skills, modern tech stacks, and industry-ready development.
+      <h1 class="hero-title">About <span>CodeCraft</span></h1>
+      <p class="hero-subtitle">
+        We are on a mission to democratize programming education and build a community where everyone can learn to code.
       </p>
     </section>
 
-    <!-- ================= STATS ================= -->
-    <section class="section stats">
-      <div class="stat-box neo-box">
-        <h2>10K+</h2>
-        <p>Students Learning</p>
-      </div>
-      <div class="stat-box neo-box">
-        <h2>6+</h2>
-        <p>Programming Languages</p>
-      </div>
-      <div class="stat-box neo-box">
-        <h2>200+</h2>
-        <p>Structured Modules</p>
-      </div>
-      <div class="stat-box neo-box">
-        <h2>50+</h2>
-        <p>Real Projects</p>
+    <!-- MISSION / INFO BOX -->
+    <section class="info-box">
+      <h2>Our Mission</h2>
+      <p>
+        At CodeCraft, we believe that software development is for everyone. Whether you are aiming to crack technical interviews, build your own startup, or simply understand the technology that runs our world, we provide the foundational resources you need.
+      </p>
+      <p>
+        Our comprehensive tutorials, curated handbooks, and insightful blogs are crafted to bridge the gap between beginner confusion and professional competency.
+      </p>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="section" style="padding-top: 0;">
+      <h2 style="font-size: 32px; text-align: center; margin-bottom: 48px;">Why Choose Us?</h2>
+      
+      <div class="grid">
+        <div class="card">
+          <i class="fa-solid fa-book-open"></i>
+          <h3>Structured Curriculum</h3>
+          <p>Carefully designed modules that take you from absolute basics to advanced, real-world development concepts without missing a beat.</p>
+        </div>
+        
+        <div class="card">
+          <i class="fa-solid fa-gem"></i>
+          <h3>Premium Quality</h3>
+          <p>We pride ourselves on providing high-quality, up-to-date, and visually elegant content that makes learning complex topics a joy.</p>
+        </div>
+
+        <div class="card">
+          <i class="fa-solid fa-download"></i>
+          <h3>Accessible Anywhere</h3>
+          <p>With downloadable PDF handbooks and a responsive web platform, you can learn and reference material offline, anytime, anywhere.</p>
+        </div>
       </div>
     </section>
 
-    <!-- ================= SEO CONTENT ================= -->
-    <section class="section seo-content neo-box">
-      <h2>Learn Programming and Web Development</h2>
-      <p>CodeCraft is an online learning platform dedicated to teaching <strong>programming</strong>, <strong>web development</strong>, <strong>software engineering</strong>, database management, and modern technology skills.</p>
-      <p>Our tutorials cover <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, <strong>Python</strong>, <strong>Java</strong>, <strong>C++</strong>, <strong>SQL</strong>, and <strong>MongoDB</strong>.</p>
-      <p>Whether you are a beginner learning your first programming language or an experienced developer improving your skills, CodeCraft provides structured learning paths and practical coding projects.</p>
-    </section>
-
-    <!-- ================= ABOUT CARDS ================= -->
-    <section class="section about">
-      <div class="card neo-box bg-1">
-        <h3>🚀 Our Mission</h3>
-        <p>To make coding education accessible, practical, and industry-ready. We eliminate confusion by teaching structured roadmaps instead of random tutorials.</p>
-      </div>
-      <div class="card neo-box bg-2">
-        <h3>💡 What We Offer</h3>
-        <p>Full structured courses in C, C++, Java, Python, JavaScript, SQL, and MongoDB with real-world project-based learning experience.</p>
-      </div>
-      <div class="card neo-box bg-3">
-        <h3>🏆 Why CodeCraft?</h3>
-        <p>Because we focus on clarity, depth, and job-ready skills. No fluff — only real programming knowledge used in companies.</p>
+    <!-- CALL TO ACTION -->
+    <section class="section" style="text-align: center;">
+      <h2 style="font-size: 32px; margin-bottom: 24px;">Start Your Journey Today</h2>
+      <p style="color: var(--text-muted); font-size: 18px; margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto;">
+        Join thousands of developers who are building their future with CodeCraft.
+      </p>
+      <div style="display: flex; gap: 16px; justify-content: center;">
+        <a href="index.html#languages" class="btn">Explore Courses</a>
+        <a href="contact.html" class="btn btn-outline">Get In Touch</a>
       </div>
     </section>
 
-    <!-- ================= FAQ SECTION ================= -->
-    <section class="section faq-section neo-box">
-      <h2>Frequently Asked Questions</h2>
-      <div class="faq-item">
-        <h3>What is CodeCraft?</h3>
-        <p>CodeCraft is an online programming and web development learning platform.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Which programming languages can I learn?</h3>
-        <p>HTML, CSS, JavaScript, Python, Java, C, C++, SQL, and MongoDB.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Does CodeCraft provide project-based learning?</h3>
-        <p>Yes. Students learn through real-world coding projects and practical exercises.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Is CodeCraft suitable for beginners?</h3>
-        <p>Yes. Our structured tutorials are designed for beginners and advanced learners.</p>
-      </div>
-    </section>
   </main>
 
   <!-- SCROLL TO TOP BUTTON -->
@@ -613,39 +492,41 @@
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <!-- ================= FOOTER ================= -->
+  <!-- FOOTER -->
   <footer>
-    <div class="footer-container">
-      <div class="footer-box">
-        <h3>CODECRAFT</h3>
-        <p>We create modern coding experiences for future developers.</p>
-      </div>
-      <div class="footer-box">
-        <h3>Quick Links</h3>
-        <a href="index.html">Home</a>
-        <a href="index.html#languages">Languages</a>
-        <a href="contact.html">Contact</a>
-        <a href="about.html">About</a>
-      </div>
-      <div class="footer-box">
-        <h3>Follow Us</h3>
-        <div class="social-icons">
-          <a href="https://www.instagram.com/thecodecraft.dev?igsh=bjhzZzhnNmZrZ3l2" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://whatsapp.com/channel/0029VbCpE1Z0QeadMS6voR17" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <div class="logo">
+          <i class="fa-solid fa-code"></i> CodeCraft
         </div>
+        <p>Minimalist programming education for the modern developer.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <a href="index.html">Home</a>
+        <a href="index.html#notes">Notes</a>
+        <a href="handbook.html">Handbook</a>
+      </div>
+      <div class="footer-col">
+        <h4>More</h4>
+        <a href="blog.html">Blogs</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      © 2026 CODECRAFT | All Rights Reserved
+    <div class="container">
+      <div class="footer-bottom">
+        &copy; 2026 CodeCraft. Minimalist design by choice.
+      </div>
     </div>
   </footer>
 
   <script>
-    // Scroll to Top logic
+    // Scroll to Top Logic
     const scrollBtn = document.getElementById("scrollTopBtn");
 
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 300) {
+      if (window.scrollY > 400) {
         scrollBtn.classList.add("show");
       } else {
         scrollBtn.classList.remove("show");
@@ -664,8 +545,7 @@
     const body = document.body;
     const themeIcon = themeToggleBtn.querySelector("i");
 
-    // Check localStorage for preferred theme
-    const savedTheme = localStorage.getItem("codecraft-theme");
+    const savedTheme = localStorage.getItem("codecraft-minimal-theme");
     if (savedTheme === "dark") {
       body.classList.add("dark-mode");
       themeIcon.classList.replace("fa-moon", "fa-sun");
@@ -673,14 +553,36 @@
 
     themeToggleBtn.addEventListener("click", () => {
       body.classList.toggle("dark-mode");
-      
       if (body.classList.contains("dark-mode")) {
         themeIcon.classList.replace("fa-moon", "fa-sun");
-        localStorage.setItem("codecraft-theme", "dark");
+        localStorage.setItem("codecraft-minimal-theme", "dark");
       } else {
         themeIcon.classList.replace("fa-sun", "fa-moon");
-        localStorage.setItem("codecraft-theme", "light");
+        localStorage.setItem("codecraft-minimal-theme", "light");
       }
+    });
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    const navLinks = document.getElementById("navLinks");
+    
+    mobileMenuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      const icon = mobileMenuBtn.querySelector("i");
+      if (navLinks.classList.contains("active")) {
+        icon.classList.replace("fa-bars", "fa-xmark");
+      } else {
+        icon.classList.replace("fa-xmark", "fa-bars");
+      }
+    });
+
+    // Close mobile menu when clicking a link
+    navLinks.querySelectorAll(".nav-link").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        const icon = mobileMenuBtn.querySelector("i");
+        icon.classList.replace("fa-xmark", "fa-bars");
+      });
     });
   </script>
 </body>
