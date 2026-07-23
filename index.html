@@ -3,1065 +3,904 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>CodeCraft - Learn Programming, Web Development & Coding Tutorials</title>
-
-  <meta name="description" content="Learn HTML, CSS, JavaScript, Python, Java, C, C++, SQL, and MongoDB with beginner-friendly tutorials, coding projects, and career-focused learning paths.">
-  <meta name="keywords" content="learn coding, programming tutorials, HTML tutorial, CSS tutorial, JavaScript tutorial, Python course, Java programming, SQL tutorial, web development, coding for beginners">
-  <meta name="author" content="CodeCraft">
-  <meta name="robots" content="index, follow">
-  <meta property="og:title" content="CodeCraft - Learn Programming & Web Development">
-  <meta property="og:description" content="Master coding with HTML, CSS, JavaScript, Python, Java, C++, SQL and more.">
-  <meta property="og:image" content="https://www.codecraft.com/images/codecraft-banner.jpg">
-  <meta property="og:url" content="https://www.codecraft.com">
-  <meta property="og:type" content="website">
-  <link rel="canonical" href="https://www.codecraft.com/">
-
+  
+  <title>CodeCraft - Learn Programming</title>
+  <meta name="description" content="Learn programming with beginner-friendly tutorials and a clean minimalist design.">
+  
   <!-- GOOGLE FONT -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
   <!-- FONT AWESOME -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
-    /* Neo-brutalism Variables */
+    /* Minimalist & Elegant Variables */
     :root {
-      /* Light Mode Colors */
-      --bg-color: #fdfaf6;
-      --text-color: #0f0f0f;
-      --border-color: #0f0f0f;
-      --shadow-color: #0f0f0f;
+      --bg-color: #fafafa;
       --surface-color: #ffffff;
-
-      --primary: #ff5e5b;    /* Red/Pink */
-      --secondary: #ffed66;  /* Yellow */
-      --tertiary: #00cecb;   /* Teal/Cyan */
-      --quaternary: #8338ec; /* Purple */
-      
-      --border-width: 4px;
-      --border-radius: 12px;
-      --section-margin: 100px auto; /* Equal margins for all sections */
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --border-color: #e5e7eb;
+      --primary: #0f172a; /* Slate 900 */
+      --primary-hover: #334155; /* Slate 700 */
+      --accent: #2563eb; /* Blue 600 - minimal accent */
+      --accent-hover: #1d4ed8;
+      --radius: 8px;
+      --transition: all 0.3s ease;
     }
 
     body.dark-mode {
-      /* Dark Mode Colors */
-      --bg-color: #1a1a1d;
-      --text-color: #fdfaf6;
-      --border-color: #fdfaf6;
-      --shadow-color: #fdfaf6;
-      --surface-color: #26262a;
-
-      --primary: #ff4a47;
-      --secondary: #ebd800;
-      --tertiary: #00b3b0;
-      --quaternary: #9d50ff;
+      --bg-color: #0f172a;
+      --surface-color: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: #334155;
+      --primary: #f8fafc;
+      --primary-hover: #e2e8f0;
+      --accent: #3b82f6;
+      --accent-hover: #60a5fa;
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      font-family: 'Inter', sans-serif;
     }
 
-    html, body {
-      overflow-x: hidden;
+    html {
       scroll-behavior: smooth;
     }
 
     body {
       background-color: var(--bg-color);
-      color: var(--text-color);
-      background-image: radial-gradient(var(--border-color) 1px, transparent 1px);
-      background-size: 30px 30px;
-      background-position: 0 0, 15px 15px;
-      opacity: 0.99; /* Fix for z-index issues with pseudo-elements if any */
+      color: var(--text-main);
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    h1, h2, h3, h4, h5, h6, b, strong {
-      font-weight: 800;
-      color: var(--text-color);
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Layout */
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 100px 0;
     }
     
-    p, span, div {
-      color: var(--text-color);
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
     }
 
-    /* Neo-brutalism Utilities */
-    .neo-box {
-      background-color: var(--surface-color);
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 8px 8px 0px var(--shadow-color);
-      border-radius: var(--border-radius);
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
-    }
-    .neo-box:hover {
-      transform: translate(4px, 4px);
-      box-shadow: 4px 4px 0px var(--shadow-color);
+    /* Typography */
+    h1, h2, h3, h4 {
+      color: var(--text-main);
+      font-weight: 700;
+      letter-spacing: -0.02em;
     }
 
-    .neo-btn {
+    h2.section-title {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    p.section-subtitle {
+      color: var(--text-muted);
+      font-size: 18px;
+      margin-bottom: 48px;
+      max-width: 600px;
+    }
+
+    /* Buttons */
+    .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 14px 28px;
+      gap: 8px;
+      padding: 12px 24px;
       background-color: var(--primary);
-      color: #0f0f0f !important; /* Forces black text in buttons for contrast */
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 6px 6px 0px var(--shadow-color);
-      border-radius: 8px;
-      font-weight: 800;
-      font-size: 16px;
-      text-transform: uppercase;
-      text-decoration: none;
+      color: var(--bg-color);
+      border: 1px solid var(--primary);
+      border-radius: var(--radius);
+      font-weight: 500;
+      font-size: 15px;
       cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+      transition: var(--transition);
     }
-    body.dark-mode .neo-btn {
-      color: var(--bg-color) !important;
-    }
-    .neo-btn:hover {
-      transform: translate(3px, 3px);
-      box-shadow: 3px 3px 0px var(--shadow-color);
-      background-color: var(--secondary);
+    body.dark-mode .btn {
+      color: var(--bg-color);
     }
 
-    /* Section Global Utility */
-    .section {
-      width: 90%;
-      max-width: 1400px;
-      margin: var(--section-margin);
+    .btn:hover {
+      background-color: var(--primary-hover);
+      border-color: var(--primary-hover);
     }
 
-    /* ================= HEADER ================= */
-    header {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 50px;
-      background-color: var(--bg-color);
-      border-bottom: var(--border-width) solid var(--border-color);
+    .btn-outline {
+      background-color: transparent;
+      color: var(--primary);
+      border: 1px solid var(--border-color);
+    }
+    
+    body.dark-mode .btn-outline {
+      color: var(--primary);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--surface-color);
+      border-color: var(--primary);
+    }
+    
+    .btn-accent {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+    
+    .btn-accent:hover {
+      background-color: var(--accent-hover);
+      border-color: var(--accent-hover);
+    }
+
+    /* Sticky Navigation Wrapper */
+    .sticky-wrapper {
       position: sticky;
       top: 0;
       z-index: 1000;
     }
-    .left {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-    .header-logo {
-      width: 60px;
-      height: 60px;
-      border: var(--border-width) solid var(--border-color);
-      background-color: var(--tertiary);
-      color: #0f0f0f;
-      border-radius: var(--border-radius);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 26px;
-      font-weight: 900;
-      box-shadow: 4px 4px 0px var(--shadow-color);
-    }
-    body.dark-mode .header-logo {
-      color: var(--bg-color);
-    }
-    .brand-text h2 {
-      font-size: 32px;
-      line-height: 1;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-    .brand-text p {
-      font-size: 14px;
-      font-weight: 700;
-      margin-top: 5px;
-    }
-    .right {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-    }
-    .theme-toggle {
-      background-color: var(--quaternary);
-      padding: 14px;
-      font-size: 20px;
-      border-radius: 50%;
-      width: 55px;
-      height: 55px;
-    }
-    
-    /* ================= HERO SECTION ================= */
-    .hero-section {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 60px;
-    }
-    .hero-left {
-      flex: 1;
-    }
-    .hero-text h1 {
-      font-size: 80px;
-      line-height: 1.1;
-      text-transform: uppercase;
-      margin-bottom: 25px;
-      text-shadow: 4px 4px 0px var(--tertiary);
-      letter-spacing: -1px;
-    }
-    body.dark-mode .hero-text h1 {
-      text-shadow: 4px 4px 0px rgba(0, 179, 176, 0.5); /* Adjusted for dark mode */
-    }
-    .hero-text p {
-      font-size: 24px;
-      font-weight: 600;
-      margin-bottom: 40px;
-      line-height: 1.6;
-      border-left: 6px solid var(--primary);
-      padding-left: 20px;
-    }
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
-    }
-    .feature-card {
-      padding: 25px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-    .feature-card i {
-      font-size: 36px;
-      background-color: var(--secondary);
-      color: #0f0f0f;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: var(--border-width) solid var(--border-color);
-      border-radius: 8px;
-      box-shadow: 3px 3px 0px var(--shadow-color);
-    }
-    body.dark-mode .feature-card i {
-      color: var(--bg-color);
-    }
-    .feature-card h3 {
-      font-size: 20px;
-      text-transform: uppercase;
-    }
-    .feature-card span {
-      font-size: 16px;
-      font-weight: 600;
-    }
-    
-    .hero-right {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+
+    /* Header */
+    header {
+      background-color: var(--surface-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 16px 0;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
       position: relative;
     }
-    .hero-image {
-      width: 100%;
-      max-width: 550px;
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 16px 16px 0px var(--shadow-color);
-      border-radius: var(--border-radius);
-      object-fit: cover;
-      background-color: #fff;
-    }
 
-    /* ================= EXPLORE DIVIDER ================= */
-    .explore-divider {
-      text-align: center;
-      font-size: 28px;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 6px;
-      background-color: var(--secondary);
-      color: #0f0f0f;
-      padding: 20px 0;
-      border-top: var(--border-width) solid var(--border-color);
-      border-bottom: var(--border-width) solid var(--border-color);
-      margin: 80px 0;
-      width: 100%;
-      box-shadow: 0px 8px 0px var(--shadow-color);
-    }
-    body.dark-mode .explore-divider {
-      color: var(--bg-color);
-    }
-
-    /* ================= SEO CONTENT ================= */
-    .seo-content {
-      padding: 50px;
-      background-color: var(--tertiary);
-    }
-    .seo-content h2 {
-      font-size: 40px;
-      margin-bottom: 25px;
-      text-transform: uppercase;
-      color: #0f0f0f;
-    }
-    .seo-content p {
-      font-size: 20px;
-      font-weight: 600;
-      line-height: 1.8;
-      margin-bottom: 20px;
-      color: #0f0f0f;
-    }
-    body.dark-mode .seo-content h2, body.dark-mode .seo-content p {
-      color: var(--bg-color);
-    }
-
-    /* ================= TOPICS SECTION ================= */
-    .topics-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 35px;
-    }
-    .topic-card {
-      padding: 35px;
+    .header-inner {
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 20px;
-    }
-    .topic-header {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-    .icon-box {
-      width: 70px;
-      height: 70px;
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 5px 5px 0px var(--shadow-color);
-      border-radius: var(--border-radius);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 32px;
-      color: #0f0f0f;
-      font-weight: bold;
-    }
-    body.dark-mode .icon-box {
-      color: var(--bg-color);
-    }
-    .topic-content h3 {
-      font-size: 26px;
-      text-transform: uppercase;
-    }
-    .topic-content p {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 20px;
-    }
-    
-    /* Neobrutalist Colors for Topics */
-    .bg-1 { background-color: #ff5722; }
-    .bg-2 { background-color: #1a73e8; }
-    .bg-3 { background-color: #ffd600; }
-    .bg-4 { background-color: #3776ab; }
-    .bg-5 { background-color: #f44336; }
-    .bg-6 { background-color: #8c9eff; }
-    .bg-7 { background-color: #b388ff; }
-    .bg-8 { background-color: #1de9b6; }
-    .bg-9 { background-color: #00e676; }
-
-    /* ================= FEATURE CTA SECTION ================= */
-    .top-features {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 25px;
-      margin-bottom: 50px;
-    }
-    .feature-item {
-      flex: 1;
-      min-width: 260px;
-      padding: 25px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 15px;
-    }
-    .feature-item i {
-      font-size: 40px;
-      color: var(--quaternary);
-    }
-    .feature-item h3 {
-      font-size: 20px;
-      text-transform: uppercase;
-      border-bottom: 3px solid var(--primary);
-      padding-bottom: 5px;
-    }
-    .feature-item p {
-      font-size: 16px;
-      font-weight: 600;
-    }
-    
-    .bottom-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 35px;
-    }
-    .cta-card {
-      padding: 50px;
-      display: flex;
-      align-items: center;
-      gap: 50px;
-      background-color: var(--secondary);
-    }
-    .cta-card h2, .cta-card span {
-      color: #0f0f0f;
-    }
-    body.dark-mode .cta-card h2, body.dark-mode .cta-card span {
-      color: var(--bg-color);
-    }
-    .cta-image img {
-      width: 280px;
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 10px 10px 0px var(--shadow-color);
-      border-radius: var(--border-radius);
-      background-color: #ffffff;
-    }
-    .cta-content h2 {
-      font-size: 40px;
-      line-height: 1.4;
-      margin-bottom: 30px;
-      text-transform: uppercase;
-    }
-    
-    .quote-card {
-      padding: 50px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background-color: var(--primary);
-    }
-    .quote-card .quote-mark {
-      font-size: 100px;
-      line-height: 1;
-      margin-bottom: 10px;
-      color: #0f0f0f;
-    }
-    body.dark-mode .quote-card .quote-mark, body.dark-mode .quote-card p, body.dark-mode .quote-card span {
-      color: var(--bg-color);
-    }
-    .quote-card p {
-      font-size: 28px;
-      font-weight: 800;
-      margin-bottom: 25px;
-      color: #0f0f0f;
-    }
-    .quote-card span {
-      font-size: 18px;
-      font-weight: 900;
-      align-self: flex-end;
-      color: #0f0f0f;
-    }
-
-    /* ================= FAQ SECTION ================= */
-    .faq-section {
-      padding: 60px;
-    }
-    .faq-section h2 {
-      font-size: 45px;
-      text-align: center;
-      margin-bottom: 50px;
-      text-transform: uppercase;
-    }
-    .faq-item {
-      border-bottom: var(--border-width) solid var(--border-color);
-      padding: 30px 0;
-    }
-    .faq-item:last-child {
-      border-bottom: none;
-    }
-    .faq-item h3 {
-      font-size: 24px;
-      margin-bottom: 15px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-    .faq-item h3::before {
-      content: "Q";
-      background-color: var(--quaternary);
-      color: #0f0f0f;
-      padding: 5px 15px;
-      border: var(--border-width) solid var(--border-color);
-      border-radius: 8px;
-      box-shadow: 3px 3px 0px var(--shadow-color);
-    }
-    body.dark-mode .faq-item h3::before {
-      color: var(--bg-color);
-    }
-    .faq-item p {
-      font-size: 20px;
-      font-weight: 600;
-      margin-left: 70px;
-    }
-
-    /* ================= CONTACT SECTION ================= */
-    .contact-section {
-      padding: 60px;
-      background-color: var(--tertiary);
-    }
-    .contact-section h2 {
-      font-size: 45px;
-      text-align: center;
-      margin-bottom: 50px;
-      text-transform: uppercase;
-      color: #0f0f0f;
-    }
-    body.dark-mode .contact-section h2 {
-      color: var(--bg-color);
-    }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px;
-    }
-    .info-box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 40px;
-      gap: 20px;
-      text-decoration: none;
-      background-color: var(--surface-color);
-    }
-    .info-box i {
-      font-size: 50px;
-      color: var(--primary);
-    }
-    .info-box span {
-      font-size: 22px;
-      font-weight: 800;
-    }
-
-    /* ================= FOOTER ================= */
-    footer {
-      border-top: var(--border-width) solid var(--border-color);
-      background-color: var(--surface-color);
-      padding: 80px 50px 30px;
-    }
-    .footer-container {
-      display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
-      gap: 50px;
-      margin-bottom: 50px;
-      max-width: 1400px;
-      margin-left: auto;
-      margin-right: auto;
+      align-items: center;
     }
-    .footer-box {
-      flex: 1;
-      min-width: 280px;
-    }
-    .footer-box h3 {
-      font-size: 28px;
-      margin-bottom: 25px;
-      text-transform: uppercase;
-      background-color: var(--primary);
-      color: #0f0f0f;
-      display: inline-block;
-      padding: 8px 16px;
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 4px 4px 0px var(--shadow-color);
-    }
-    body.dark-mode .footer-box h3 {
-      color: var(--bg-color);
-    }
-    .footer-box p {
-      font-size: 18px;
-      font-weight: 600;
-      line-height: 1.6;
-    }
-    .footer-box a {
-      display: block;
+
+    .logo {
       font-size: 20px;
       font-weight: 700;
-      text-decoration: none;
-      margin-bottom: 15px;
-      transition: transform 0.2s;
-    }
-    .footer-box a:hover {
-      transform: translateX(8px);
-      text-decoration: underline;
-    }
-    .social-icons {
-      display: flex;
-      gap: 20px;
-    }
-    .social-icons a {
-      width: 60px;
-      height: 60px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-size: 28px;
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 5px 5px 0px var(--shadow-color);
-      border-radius: var(--border-radius);
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+      gap: 8px;
     }
-    .social-icons a:hover {
-      transform: translate(3px, 3px);
-      box-shadow: 2px 2px 0px var(--shadow-color);
-      background-color: var(--secondary);
+    
+    .logo i {
+      color: var(--accent);
     }
-    .footer-bottom {
-      text-align: center;
-      font-weight: 800;
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-link {
+      font-weight: 500;
+      color: var(--text-muted);
+      font-size: 14px;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-link:hover {
+      color: var(--text-main);
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--text-main);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .theme-toggle {
+      background: none;
+      border: none;
+      color: var(--text-muted);
       font-size: 18px;
-      border-top: var(--border-width) dashed var(--border-color);
-      padding-top: 30px;
-      max-width: 1400px;
-      margin: 0 auto;
+      cursor: pointer;
+      transition: var(--transition);
+      padding: 8px;
+      border-radius: var(--radius);
     }
 
-    /* ================= SCROLL TO TOP ================= */
-    #scrollTopBtn {
-      position: fixed;
-      bottom: 40px;
-      right: 40px;
-      width: 70px;
-      height: 70px;
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 6px 6px 0px var(--shadow-color);
-      border-radius: var(--border-radius);
-      background-color: var(--primary);
-      color: #0f0f0f;
-      font-size: 28px;
+    .theme-toggle:hover {
+      color: var(--text-main);
+      background-color: var(--bg-color);
+    }
+
+    /* Courses Tab Bar */
+    .courses-tab-bar {
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-color);
+      width: 100%;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+    body.dark-mode .courses-tab-bar {
+      background-color: rgba(30, 41, 59, 0.95); /* matches dark surface-color */
+    }
+    .courses-tab-bar::-webkit-scrollbar {
+      display: none;
+    }
+    .courses-tab-inner {
+      display: flex;
+      gap: 12px;
+      padding: 12px 0;
+      align-items: center;
+    }
+    .tab-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background-color: var(--bg-color);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 13px;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+    .tab-link i {
+      color: var(--accent);
+    }
+    .tab-link:hover {
+      border-color: var(--text-main);
+      color: var(--text-main);
+      background-color: var(--surface-color);
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 60px;
+      min-height: 70vh;
+    }
+
+    .hero-content {
+      flex: 1;
+    }
+
+    .hero-title {
+      font-size: 56px;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      max-width: 480px;
+      font-weight: 400;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+    }
+    
+    .hero-image {
+      flex: 1;
+      text-align: right;
+    }
+
+    .hero-image img {
+      width: 100%;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      object-fit: cover;
+    }
+    
+    body.dark-mode .hero-image img {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    /* Grid Layouts (Notes, Blogs) */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 32px;
+    }
+
+    .card {
+      background-color: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 32px;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .card:hover {
+      border-color: var(--text-main);
+      transform: translateY(-4px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+    
+    body.dark-mode .card:hover {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      background-color: var(--bg-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
-      opacity: 0;
-      visibility: hidden;
-      transition: transform 0.2s, box-shadow 0.2s, opacity 0.3s;
-      z-index: 9999;
-    }
-    body.dark-mode #scrollTopBtn {
-      color: var(--bg-color);
-    }
-    #scrollTopBtn.show {
-      opacity: 1;
-      visibility: visible;
-    }
-    #scrollTopBtn:hover {
-      transform: translate(3px, 3px);
-      box-shadow: 3px 3px 0px var(--shadow-color);
-      background-color: var(--secondary);
+      font-size: 20px;
+      color: var(--text-main);
+      margin-bottom: 24px;
+      transition: var(--transition);
     }
 
-    /* ================= RESPONSIVE ================= */
-    @media(max-width: 1100px) {
-      .hero-section {
-        flex-direction: column;
-      }
-      .bottom-grid {
-        grid-template-columns: 1fr;
-      }
-      .cta-card {
-        flex-direction: column;
-        text-align: center;
-      }
+    .card:hover .card-icon {
+      background-color: var(--primary);
+      color: var(--bg-color);
+      border-color: var(--primary);
     }
+
+    .card-title {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .card-desc {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+
+    .card-link {
+      font-weight: 500;
+      font-size: 14px;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+    }
+
+    .card-link:hover {
+      gap: 12px;
+      color: var(--accent-hover);
+    }
+
+    /* Handbook Section */
+    .handbook-wrapper {
+      background-color: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .handbook-text h3 {
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+
+    .handbook-text p {
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      max-width: 500px;
+    }
+
+    /* About Section */
+    .about-content {
+      display: flex;
+      gap: 60px;
+      align-items: center;
+    }
+    
+    .about-text {
+      flex: 1;
+    }
+    
+    .about-text p {
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+    
+    .about-image {
+      flex: 1;
+    }
+    
+    .about-image img {
+      width: 100%;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      object-fit: cover;
+    }
+    
+    body.dark-mode .about-image img {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    /* Contact Section */
+    .contact-wrapper {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+    
+    .contact-item {
+      padding: 32px 20px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      background-color: var(--surface-color);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .contact-item:hover {
+      border-color: var(--text-main);
+    }
+    
+    .contact-item i {
+      font-size: 24px;
+      color: var(--text-main);
+    }
+    
+    .contact-item span {
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 60px 0 30px;
+      background-color: var(--surface-color);
+      margin-top: 60px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 60px;
+    }
+
+    .footer-brand p {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-top: 16px;
+      max-width: 300px;
+    }
+
+    .footer-col h4 {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .footer-col a {
+      display: block;
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 12px;
+      transition: var(--transition);
+    }
+
+    .footer-col a:hover {
+      color: var(--text-main);
+    }
+    
+    .footer-bottom {
+      border-top: 1px solid var(--border-color);
+      margin-top: 40px;
+      padding-top: 24px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    /* Responsive Design */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: var(--text-main);
+      cursor: pointer;
+    }
+
     @media(max-width: 768px) {
-      header {
+      .hero, .handbook-wrapper, .about-content {
         flex-direction: column;
-        gap: 20px;
+        text-align: left;
+      }
+      .handbook-wrapper {
+        padding: 40px 24px;
+      }
+      .contact-grid, .footer-content {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--surface-color);
         padding: 20px;
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
       }
-      .hero-text h1 {
-        font-size: 50px;
+      .nav-links.active {
+        display: flex;
       }
-      .feature-grid {
-        grid-template-columns: 1fr;
+      .mobile-menu-btn {
+        display: block;
       }
-      .cta-content h2 {
-        font-size: 32px;
+      .hero-title {
+        font-size: 40px;
       }
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-      .footer-container {
+      .hero-buttons {
         flex-direction: column;
       }
-      .explore-divider {
-        font-size: 20px;
+      .btn {
+        width: 100%;
       }
     }
   </style>
-
 </head>
 <body>
 
-  <!-- ================= HEADER ================= -->
-  <header>
-    <div class="left">
-      <div class="header-logo">&lt;/&gt;</div>
-      <div class="brand-text">
-        <h2>CODECRAFT</h2>
-        <p>Code Today. Build Tomorrow.</p>
-      </div>
-    </div>
-    <div class="right">
-      <a href="#home" class="neo-btn">Home</a>
-      <a href="#languages" class="neo-btn">Languages</a>
-      <a href="#contact" class="neo-btn">Contact</a>
-      <!-- Dark Mode Toggle -->
-      <button id="themeToggle" class="neo-btn theme-toggle">
-        <i class="fa-solid fa-moon"></i>
-      </button>
-    </div>
-  </header>
-
-  <!-- SCROLL TO TOP BUTTON -->
-  <button id="scrollTopBtn" onclick="scrollToTop()">
-    <i class="fa-solid fa-arrow-up"></i>
-  </button>
-
-  <!-- ================= HERO SECTION ================= -->
-  <section class="section hero-section" id="home">
-    <div class="hero-left">
-      <div class="hero-text">
-        <h1>Learn Programming</h1>
-        <p>Build Skills. Build the Future. Everything you need to learn coding, build projects, and grow your career.</p>
-      </div>
-      <div class="feature-grid">
-        <div class="neo-box feature-card">
-          <i class="fa-solid fa-shield-halved"></i>
-          <h3>PRACTICAL LEARNING</h3>
-          <span>Hands-on projects & exercises</span>
+  <!-- STICKY NAV WRAPPER -->
+  <div class="sticky-wrapper">
+    <!-- HEADER -->
+    <header>
+      <div class="container header-inner">
+        <a href="#home" class="logo">
+          <i class="fa-solid fa-code"></i> CodeCraft
+        </a>
+        
+        <!-- Home, Notes, Handbook, Blogs, About, Contact -->
+        <div class="nav-links" id="navLinks">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#notes" class="nav-link">Notes</a>
+          <a href="#handbook" class="nav-link">Handbook</a>
+          <a href="#blogs" class="nav-link">Blogs</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#contact" class="nav-link">Contact</a>
         </div>
-        <div class="neo-box feature-card">
-          <i class="fa-solid fa-bullseye"></i>
-          <h3>EXPERT CURATED</h3>
-          <span>Well structured & updated</span>
-        </div>
-        <div class="neo-box feature-card">
-          <i class="fa-solid fa-rocket"></i>
-          <h3>BUILD PROJECTS</h3>
-          <span>Apply skills in real world</span>
-        </div>
-        <div class="neo-box feature-card">
-          <i class="fa-solid fa-cloud"></i>
-          <h3>LEARN ANYWHERE</h3>
-          <span>Access anytime on any device</span>
+        
+        <div class="header-actions">
+          <button id="themeToggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
         </div>
       </div>
-    </div>
-    <div class="hero-right">
-      <img src="coding.png.jpeg" alt="Web Developer Learning Programming at CodeCraft" loading="lazy" class="hero-image">
-    </div>
-  </section>
+    </header>
 
-  <!-- ================= EXPLORE DIVIDER ================= -->
-  <div class="explore-divider">
-    • EXPLORE ALL TOPICS •
+    <!-- COURSES TAB BAR -->
+    <div class="courses-tab-bar">
+      <div class="container courses-tab-inner">
+        <a href="html.html" class="tab-link"><i class="fa-brands fa-html5"></i> HTML</a>
+        <a href="css.html" class="tab-link"><i class="fa-brands fa-css3-alt"></i> CSS</a>
+        <a href="js.html" class="tab-link"><i class="fa-brands fa-js"></i> JavaScript</a>
+        <a href="python.html" class="tab-link"><i class="fa-brands fa-python"></i> Python</a>
+        <a href="java.html" class="tab-link"><i class="fa-brands fa-java"></i> Java</a>
+        <a href="c.html" class="tab-link"><i class="fa-solid fa-c"></i> C</a>
+        <a href="c++.html" class="tab-link"><i class="fa-solid fa-code"></i> C++</a>
+        <a href="fullsatck.html" class="tab-link"><i class="fa-solid fa-layer-group"></i> Full Stack</a>
+        <a href="sql.html" class="tab-link"><i class="fa-solid fa-database"></i> SQL</a>
+        <a href="mongodb.html" class="tab-link"><i class="fa-solid fa-leaf"></i> MongoDB</a>
+        <a href="dbms.html" class="tab-link"><i class="fa-solid fa-server"></i> DBMS</a>
+        <a href="dsa.html" class="tab-link"><i class="fa-solid fa-network-wired"></i> DSA</a>
+      </div>
+    </div>
   </div>
 
-  <!-- ================= SEO CONTENT ================= -->
-  <section class="section seo-content neo-box">
-    <h2>Learn Coding Online</h2>
-    <p>CodeCraft helps beginners and professionals learn programming through interactive tutorials, coding exercises, real-world projects, and career-focused learning paths.</p>
-    <p>Explore HTML, CSS, JavaScript, Python, Java, C, C++, SQL, and MongoDB tutorials designed to help you become a skilled software developer.</p>
-  </section>
+  <div class="container">
+    
+    <!-- HOME SECTION -->
+    <section class="section hero" id="home">
+      <div class="hero-content">
+        <h1 class="hero-title">Learn to code, <br><span>simplify</span> your logic.</h1>
+        <p class="hero-subtitle">Embrace a minimalist approach to learning programming. Focus on what matters, without the noise.</p>
+        <div class="hero-buttons">
+          <a href="#handbook" class="btn btn-accent">Read Handbook</a>
+          <a href="#notes" class="btn btn-outline">Browse Notes</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <!-- Using original images from prompt -->
+        <img src="coding.png.jpeg" alt="Coding Illustration" />
+      </div>
+    </section>
 
-  <!-- ================= TOPICS SECTION ================= -->
-  <section class="section topics-section" id="languages">
-    <div class="topics-grid">
-      <!-- HTML -->
-      <div class="neo-box topic-card">
-        <div class="topic-header">
-          <div class="icon-box bg-1"><i class="fa-brands fa-html5"></i></div>
-          <h3>HTML</h3>
-        </div>
-        <div class="topic-content">
-          <p>Structure modern web pages.</p>
-          <a href="html.html" class="neo-btn">Learn HTML</a>
-        </div>
-      </div>
+    <!-- NOTES SECTION -->
+    <section class="section" id="notes">
+      <h2 class="section-title">Notes</h2>
+      <p class="section-subtitle">Concise reference materials for key concepts.</p>
+      
+<div class="grid">
 
-      <!-- CSS -->
-      <div class="neo-box topic-card">
-        <div class="topic-header">
-          <div class="icon-box bg-2"><i class="fa-brands fa-css3-alt"></i></div>
-          <h3>CSS</h3>
-        </div>
-        <div class="topic-content">
-          <p>Create beautiful responsive designs.</p>
-          <a href="css.html" class="neo-btn">Learn CSS</a>
-        </div>
-      </div>
+  <a href="html.html" class="card">
+    <div class="card-icon"><i class="fa-brands fa-html5"></i></div>
+    <h3 class="card-title">HTML</h3>
+    <p class="card-desc">Semantic HTML, forms, tables, multimedia, and best practices.</p>
+    <span class="card-link">View Notes <i class="fa-solid fa-arrow-right"></i></span>
+  </a>
 
-      <!-- JavaScript -->
-      <div class="neo-box topic-card">
-        <div class="topic-header">
-          <div class="icon-box bg-3"><i class="fa-brands fa-js"></i></div>
-          <h3>JavaScript</h3>
-        </div>
-        <div class="topic-content">
-          <p>Build dynamic websites and apps.</p>
-          <a href="js.html" class="neo-btn">Learn JS</a>
-        </div>
-      </div>
+  <a href="css.html" class="card">
+    <div class="card-icon"><i class="fa-brands fa-css3-alt"></i></div>
+    <h3 class="card-title">CSS</h3>
+    <p class="card-desc">Selectors, Flexbox, Grid, animations, responsive design, and layouts.</p>
+    <span class="card-link">View Notes <i class="fa-solid fa-arrow-right"></i></span>
+  </a>
 
-      <!-- Python -->
-      <div class="neo-box topic-card">
-        <div class="topic-header">
-          <div class="icon-box bg-4"><i class="fa-brands fa-python"></i></div>
-          <h3>Python</h3>
-        </div>
-        <div class="topic-content">
-          <p>Versatile language for all purposes.</p>
-          <a href="python.html" class="neo-btn">Learn Python</a>
-        </div>
-      </div>
+  <a href="js.html" class="card">
+    <div class="card-icon"><i class="fa-brands fa-js"></i></div>
+    <h3 class="card-title">JavaScript</h3>
+    <p class="card-desc">Variables, DOM, ES6+, events, asynchronous programming, and APIs.</p>
+    <span class="card-link">View Notes <i class="fa-solid fa-arrow-right"></i></span>
+  </a>
 
-      <!-- Java -->
-      <div class="neo-box topic-card">
-        <div class="topic-header">
-          <div class="icon-box bg-5"><i class="fa-brands fa-java"></i></div>
-          <h3>Java</h3>
-        </div>
-        <div class="topic-content">
-          <p>Enterprise and OOP programming.</p>
-          <a href="java.html" class="neo-btn">Learn Java</a>
-        </div>
-      </div>
+  <a href="python.html" class="card">
+    <div class="card-icon"><i class="fa-brands fa-python"></i></div>
+    <h3 class="card-title">Python</h3>
+    <p class="card-desc">Syntax, functions, OOP, file handling, modules, and libraries.</p>
+    <span class="card-link">View Notes <i class="fa-solid fa-arrow-right"></i></span>
+  </a>
 
-      <!-- C -->
-      <div class="neo-box topic-card">
-        <div class="topic-header">
-          <div class="icon-box bg-6"><i class="fa-solid fa-c"></i></div>
-          <h3>C</h3>
-        </div>
-        <div class="topic-content">
-          <p>Programming fundamentals.</p>
-          <a href="c.html" class="neo-btn">Learn C</a>
-        </div>
-      </div>
+  <a href="java.html" class="card">
+    <div class="card-icon"><i class="fa-brands fa-java"></i></div>
+    <h3 class="card-title">Java</h3>
+    <p class="card-desc">Core Java, collections, multithreading, exception handling, and OOP.</p>
+    <span class="card-link">View Notes <i class="fa-solid fa-arrow-right"></i></span>
+  </a>
 
-      <!-- C++ -->
-      <div class="neo-box topic-card">
-        <div class="topic-header">
-          <div class="icon-box bg-7"><i class="fa-solid fa-code"></i></div>
-          <h3>C++</h3>
-        </div>
-        <div class="topic-content">
-          <p>DSA and performance applications.</p>
-          <a href="c++.html" class="neo-btn">Learn C++</a>
-        </div>
-      </div>
+  <a href="c.html" class="card">
+    <div class="card-icon"><i class="fa-solid fa-c"></i></div>
+    <h3 class="card-title">C Programming</h3>
+    <p class="card-desc">Pointers, arrays, functions, memory management, and file handling.</p>
+    <span class="card-link">View Notes <i class="fa-solid fa-arrow-right"></i></span>
+  </a>
 
-      <!-- Full Stack -->
-      <div class="neo-box topic-card">
-        <div class="topic-header">
-          <div class="icon-box bg-8"><i class="fa-solid fa-layer-group"></i></div>
-          <h3>Full Stack</h3>
-        </div>
-        <div class="topic-content">
-          <p>Work with complete full stack layers.</p>
-          <a href="fullsatck.html" class="neo-btn">Learn Full Stack</a>
-        </div>
-      </div>
+  <a href="c++.html" class="card">
+    <div class="card-icon"><i class="fa-solid fa-code"></i></div>
+    <h3 class="card-title">C++</h3>
+    <p class="card-desc">OOP, STL, templates, inheritance, polymorphism, and algorithms.</p>
+    <span class="card-link">View Notes <i class="fa-solid fa-arrow-right"></i></span>
+  </a>
 
-      <!-- DSA -->
-      <div class="neo-box topic-card">
-        <div class="topic-header">
-          <div class="icon-box bg-9"><i class="fa-solid fa-network-wired"></i></div>
-          <h3>DSA</h3>
-        </div>
-        <div class="topic-content">
-          <p>Data Structures and Algorithms.</p>
-          <a href="dsa.html" class="neo-btn">Learn DSA</a>
-        </div>
-      </div>
+  <a href="fullsatck.html" class="card">
+    <div class="card-icon"><i class="fa-solid fa-layer-group"></i></div>
+    <h3 class="card-title">Full Stack Development</h3>
+    <p class="card-desc">Frontend, backend, REST APIs, authentication, deployment, and Git.</p>
+    <span class="card-link">View Notes <i class="fa-solid fa-arrow-right"></i></span>
+  </a>
 
-      <!-- SQL -->
-      <div class="neo-box topic-card">
-        <div class="topic-header">
-          <div class="icon-box bg-1"><i class="fa-solid fa-database"></i></div>
-          <h3>SQL</h3>
-        </div>
-        <div class="topic-content">
-          <p>Manage relational databases.</p>
-          <a href="sql.html" class="neo-btn">Learn SQL</a>
-        </div>
-      </div>
+  <a href="sql.html" class="card">
+    <div class="card-icon"><i class="fa-solid fa-database"></i></div>
+    <h3 class="card-title">SQL</h3>
+    <p class="card-desc">Queries, joins, indexing, normalization, views, and stored procedures.</p>
+    <span class="card-link">View Notes <i class="fa-solid fa-arrow-right"></i></span>
+  </a>
 
-      <!-- MongoDB -->
-      <div class="neo-box topic-card">
-        <div class="topic-header">
-          <div class="icon-box bg-9"><i class="fa-solid fa-leaf"></i></div>
-          <h3>MongoDB</h3>
-        </div>
-        <div class="topic-content">
-          <p>Work with NoSQL databases.</p>
-          <a href="mongodb.html" class="neo-btn">Learn MongoDB</a>
-        </div>
-      </div>
+  <a href="mongodb.html" class="card">
+    <div class="card-icon"><i class="fa-solid fa-leaf"></i></div>
+    <h3 class="card-title">MongoDB</h3>
+    <p class="card-desc">Collections, CRUD operations, aggregation, indexing, and schema design.</p>
+    <span class="card-link">View Notes <i class="fa-solid fa-arrow-right"></i></span>
+  </a>
 
-      <!-- DBMS -->
-      <div class="neo-box topic-card">
-        <div class="topic-header">
-          <div class="icon-box bg-2"><i class="fa-solid fa-server"></i></div>
-          <h3>DBMS</h3>
-        </div>
-        <div class="topic-content">
-          <p>Data Base Management Systems.</p>
-          <a href="dbms.html" class="neo-btn">Learn DBMS</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <a href="dbms.html" class="card">
+    <div class="card-icon"><i class="fa-solid fa-server"></i></div>
+    <h3 class="card-title">DBMS</h3>
+    <p class="card-desc">Database concepts, normalization, transactions, ACID, and indexing.</p>
+    <span class="card-link">View Notes <i class="fa-solid fa-arrow-right"></i></span>
+  </a>
 
-  <!-- ================= FEATURES + CTA SECTION ================= -->
-  <section class="section feature-cta-section">
-    <div class="top-features neo-box">
-      <div class="feature-item">
-        <i class="fa-solid fa-book-open"></i>
-        <h3>Step by Step</h3>
-        <p>Beginner to advanced structured paths.</p>
-      </div>
-      <div class="feature-item">
-        <i class="fa-solid fa-briefcase"></i>
-        <h3>Industry Relevant</h3>
-        <p>Skills that help you get hired.</p>
-      </div>
-      <div class="feature-item">
-        <i class="fa-solid fa-laptop-code"></i>
-        <h3>Hands-on Projects</h3>
-        <p>Build real projects and strengthen your portfolio.</p>
-      </div>
-      <div class="feature-item">
-        <i class="fa-solid fa-users"></i>
-        <h3>Community</h3>
-        <p>Learn together. Grow together.</p>
-      </div>
-    </div>
+  <a href="dsa.html" class="card">
+    <div class="card-icon"><i class="fa-solid fa-code-branch"></i></div>
+    <h3 class="card-title">Data Structures & Algorithms</h3>
+    <p class="card-desc">Arrays, linked lists, trees, graphs, recursion, sorting, and searching.</p>
+    <span class="card-link">View Notes <i class="fa-solid fa-arrow-right"></i></span>
+  </a>
 
-    <div class="bottom-grid">
-      <div class="cta-card neo-box">
-        <div class="cta-image">
-          <img src="coderimage.png.jpeg" alt="Coding Tutorial and Programming" loading="lazy">
+</div>
+    </section>
+
+    <!-- HANDBOOK SECTION -->
+    <section class="section" id="handbook">
+      <div class="handbook-wrapper">
+        <div class="handbook-text">
+          <h3>The CodeCraft Handbook</h3>
+          <p>A comprehensive, zero-clutter guide to starting your software engineering journey. Written for clarity and depth.</p>
+          <a href="handbook.html" class="btn">Download handbooks</a>
         </div>
-        <div class="cta-content">
-          <h2>From first line of code to real world impact – <span>CodeCraft</span> is with you at every step.</h2>
-          <button class="neo-btn">START CODING NOW →</button>
+        <div class="handbook-icon" style="font-size: 80px; color: var(--border-color);">
+          <i class="fa-solid fa-book-journal-whills"></i>
         </div>
       </div>
-      <div class="quote-card neo-box">
-        <div class="quote-mark">“</div>
-        <p>The best way to predict the future is to create it with code.</p>
-        <span>– CodeCraft Community</span>
+    </section>
+
+    <!-- BLOGS SECTION -->
+    <section class="section" id="blogs">
+      <h2 class="section-title">Blogs</h2>
+      <p class="section-subtitle">Thoughts, tutorials, and insights on development.</p>
+      
+      <div class="grid">
+        <div class="card" style="padding: 24px;">
+          <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px;">Oct 12, 2026</p>
+          <h3 class="card-title" style="font-size: 18px;">Understanding React Hooks</h3>
+          <p class="card-desc" style="font-size: 14px;">A minimal approach to state management in functional components without the boilerplate.</p>
+          <a href="#" class="card-link">Read Post <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="card" style="padding: 24px;">
+          <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px;">Sep 28, 2026</p>
+          <h3 class="card-title" style="font-size: 18px;">Designing Minimal APIs</h3>
+          <p class="card-desc" style="font-size: 14px;">How to structure your REST endpoints for maximum clarity and ease of use.</p>
+          <a href="#" class="card-link">Read Post <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="card" style="padding: 24px;">
+          <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px;">Sep 15, 2026</p>
+          <h3 class="card-title" style="font-size: 18px;">Why Whitespace Matters</h3>
+          <p class="card-desc" style="font-size: 14px;">Improving code readability by letting your logic breathe.</p>
+          <a href="#" class="card-link">Read Post <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+              <div class="card" style="padding: 24px;">
+          <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px;">Sep 15, 2026</p>
+          <h3 class="card-title" style="font-size: 18px;">View more related Blog's</h3>
+          <p class="card-desc" style="font-size: 14px;">Improving Knowledge.</p>
+          <a href="blogs.html" class="card-link">View more blog's<i class="fa-solid fa-arrow-right"></i></a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ================= FAQ SECTION ================= -->
-  <section class="section faq-section neo-box">
-    <h2>Frequently Asked Questions</h2>
-    <div class="faq-item">
-      <h3>Can beginners learn coding with CodeCraft?</h3>
-      <p>Yes, CodeCraft provides beginner-friendly tutorials and projects.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Which programming languages can I learn?</h3>
-      <p>HTML, CSS, JavaScript, Python, Java, C, C++, SQL, and MongoDB.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Are projects included?</h3>
-      <p>Yes, practical projects help learners build real-world experience.</p>
-    </div>
-  </section>
+    <!-- ABOUT SECTION -->
+    <section class="section" id="about">
+      <h2 class="section-title">About CodeCraft</h2>
+      <p class="section-subtitle">Our philosophy and mission.</p>
+      
+      <div class="about-content">
+        <div class="about-text">
+          <p>CodeCraft was founded on the principle that learning to code shouldn't be overwhelming. The internet is filled with flashy, cluttered resources that distract from core concepts.</p>
+          <p>We strip away the noise. By focusing on minimalist design and straightforward explanations, we help you build a solid foundation in programming. No fluff, just code.</p>
+        </div>
+        <div class="about-image">
+          <!-- Using original images from prompt -->
+          <img src="coderimage.png.jpeg" alt="Coder Working" />
+        </div>
+      </div>
+    </section>
 
-  <!-- ================= CONTACT SECTION ================= -->
-  <section class="section contact-section neo-box" id="contact">
-    <h2>Get In Touch</h2>
-    <div class="contact-grid">
-      <a href="mailto:mrvenku369@gmail.com" class="info-box neo-box">
-        <i class="fa-solid fa-envelope"></i>
-        <span>Email</span>
-      </a>
-      <a href="https://www.instagram.com/thecodecraft.dev?igsh=bjhzZzhnNmZrZ3l2" target="_blank" class="info-box neo-box">
-        <i class="fa-brands fa-instagram"></i>
-        <span>Instagram</span>
-      </a>
-      <a href="https://www.linkedin.com/in/venkatesh-b-172505353" target="_blank" class="info-box neo-box">
-        <i class="fa-brands fa-linkedin"></i>
-        <span>LinkedIn</span>
-      </a>
-    </div>
-  </section>
+    <!-- CONTACT SECTION -->
+    <section class="section" id="contact">
+      <div class="contact-wrapper">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-subtitle" style="margin: 0 auto 32px;">Have a question or just want to say hi? Reach out.</p>
+        
+        <div class="contact-grid">
+          <a href="mailto:hello@codecraft.dev" class="contact-item">
+            <i class="fa-regular fa-envelope"></i>
+            <span>Email</span>
+          </a>
+          <a href="#" class="contact-item">
+            <i class="fa-brands fa-github"></i>
+            <span>GitHub</span>
+          </a>
+          <a href="#" class="contact-item">
+            <i class="fa-brands fa-x-twitter"></i>
+            <span>Twitter</span>
+          </a>
+        </div>
+      </div>
+    </section>
 
-  <!-- ================= FOOTER ================= -->
+  </div>
+
+  <!-- FOOTER -->
   <footer>
-    <div class="footer-container">
-      <div class="footer-box">
-        <h3>CODECRAFT</h3>
-        <p>We create modern coding experiences for future developers.</p>
-      </div>
-      <div class="footer-box">
-        <h3>Quick Links</h3>
-        <a href="#home">Home</a>
-        <a href="#languages">Languages</a>
-        <a href="#contact">Contact</a>
-        <a href="about.html">About</a>
-      </div>
-      <div class="footer-box">
-        <h3>Follow Us</h3>
-        <div class="social-icons">
-          <a href="https://www.instagram.com/thecodecraft.dev?igsh=bjhzZzhnNmZrZ3l2" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://whatsapp.com/channel/0029VbCpE1Z0QeadMS6voR17" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <div class="logo">
+          <i class="fa-solid fa-code"></i> CodeCraft
         </div>
+        <p>Minimalist programming education for the modern developer.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <a href="#home">Home</a>
+        <a href="#notes">Notes</a>
+        <a href="#handbook">Handbook</a>
+      </div>
+      <div class="footer-col">
+        <h4>More</h4>
+        <a href="blogs.html">Blogs</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacypolicy.html">Privacy Policy</a>
+        <a href="terms of services.html">Terms of services</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      © 2026 CODECRAFT | All Rights Reserved
+    <div class="container">
+      <div class="footer-bottom">
+        &copy; 2026 CodeCraft. Minimalist design by choice.
+      </div>
     </div>
   </footer>
 
   <script>
-    // Scroll to Top logic
-    const scrollBtn = document.getElementById("scrollTopBtn");
-
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 300) {
-        scrollBtn.classList.add("show");
-      } else {
-        scrollBtn.classList.remove("show");
-      }
-    });
-
-    function scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    }
-
     // Theme Toggle Logic
     const themeToggleBtn = document.getElementById("themeToggle");
     const body = document.body;
     const themeIcon = themeToggleBtn.querySelector("i");
 
-    // Check localStorage for preferred theme
-    const savedTheme = localStorage.getItem("codecraft-theme");
+    const savedTheme = localStorage.getItem("codecraft-minimal-theme");
     if (savedTheme === "dark") {
       body.classList.add("dark-mode");
       themeIcon.classList.replace("fa-moon", "fa-sun");
@@ -1069,14 +908,36 @@
 
     themeToggleBtn.addEventListener("click", () => {
       body.classList.toggle("dark-mode");
-      
       if (body.classList.contains("dark-mode")) {
         themeIcon.classList.replace("fa-moon", "fa-sun");
-        localStorage.setItem("codecraft-theme", "dark");
+        localStorage.setItem("codecraft-minimal-theme", "dark");
       } else {
         themeIcon.classList.replace("fa-sun", "fa-moon");
-        localStorage.setItem("codecraft-theme", "light");
+        localStorage.setItem("codecraft-minimal-theme", "light");
       }
+    });
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    const navLinks = document.getElementById("navLinks");
+    
+    mobileMenuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      const icon = mobileMenuBtn.querySelector("i");
+      if (navLinks.classList.contains("active")) {
+        icon.classList.replace("fa-bars", "fa-xmark");
+      } else {
+        icon.classList.replace("fa-xmark", "fa-bars");
+      }
+    });
+
+    // Close mobile menu when clicking a link
+    navLinks.querySelectorAll(".nav-link").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        const icon = mobileMenuBtn.querySelector("i");
+        icon.classList.replace("fa-xmark", "fa-bars");
+      });
     });
   </script>
 </body>
