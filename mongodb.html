@@ -4,526 +4,528 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Learn Java Programming Tutorial for Beginners to Advanced | CodeCraft</title>
+  <title>Learn MongoDB Tutorial for Beginners to Advanced | CodeCraft</title>
   
-  <meta name="description" content="Learn Java Programming from beginner to advanced level. Master Java basics, OOP, Collections Framework, JDBC, Multithreading, Exception Handling, Java 8+, Data Structures, Projects, and Interview Preparation with CodeCraft.">
-  <meta name="keywords" content="Java Tutorial, Learn Java, Java Programming, Core Java, Advanced Java, Java Course, OOP in Java, JDBC Tutorial, Java Collections Framework, Java Projects, Java Interview Questions">
+  <meta name="description" content="Learn MongoDB from beginner to advanced with CodeCraft. Master NoSQL databases, CRUD operations, aggregation pipelines, indexing, MongoDB Atlas, Mongoose, transactions, and real-world projects.">
+  <meta name="keywords" content="MongoDB Tutorial, Learn MongoDB, MongoDB Course, NoSQL Database Tutorial, MongoDB CRUD Operations, MongoDB Aggregation, MongoDB Atlas, Mongoose Tutorial, MongoDB Projects">
   <meta name="author" content="CodeCraft">
   <meta name="robots" content="index, follow">
   
-  <link rel="canonical" href="https://yourdomain.com/java.html">
+  <link rel="canonical" href="https://yourdomain.com/mongodb.html">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Learn Java Programming Tutorial for Beginners to Advanced | CodeCraft">
-  <meta property="og:description" content="Master Java Programming with beginner-friendly tutorials covering OOP, Collections, JDBC, Multithreading, Projects, and Career Skills.">
+  <meta property="og:title" content="Learn MongoDB Tutorial for Beginners to Advanced">
+  <meta property="og:description" content="Complete MongoDB course covering CRUD, Aggregation, Indexing, Atlas, Mongoose, Transactions, and Projects.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://yourdomain.com/java.html">
-  <meta property="og:image" content="https://yourdomain.com/images/java-course-banner.jpg">
+  <meta property="og:url" content="https://yourdomain.com/mongodb.html">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Learn Java Programming Tutorial for Beginners to Advanced">
-  <meta name="twitter:description" content="Complete Java Programming course covering Core Java, Advanced Java, OOP, JDBC, Collections Framework, and real-world projects.">
-  <meta name="twitter:image" content="https://yourdomain.com/images/java-course-banner.jpg">
+  <meta name="twitter:title" content="Learn MongoDB Tutorial">
+  <meta name="twitter:description" content="Master MongoDB with practical examples, projects, and interview preparation.">
 
   <!-- FONT AWESOME -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- GOOGLE FONT -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* Neo-brutalism Variables */
+    /* Minimalist & Elegant Variables */
     :root {
-      /* Light Mode Colors */
-      --bg-color: #fdfaf6;
-      --text-color: #0f0f0f;
-      --border-color: #0f0f0f;
-      --shadow-color: #0f0f0f;
+      --bg-color: #fafafa;
       --surface-color: #ffffff;
-
-      --primary: #ff5e5b;    /* Red/Pink */
-      --secondary: #ffed66;  /* Yellow */
-      --tertiary: #00cecb;   /* Teal/Cyan */
-      --quaternary: #8338ec; /* Purple */
-      
-      --border-width: 4px;
-      --border-radius: 12px;
-      --section-margin: 100px auto; /* EQUAL MARGINS */
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --border-color: #e5e7eb;
+      --primary: #0f172a; /* Slate 900 */
+      --primary-hover: #334155; /* Slate 700 */
+      --accent: #2563eb; /* Blue 600 - minimal accent */
+      --accent-hover: #1d4ed8;
+      --radius: 8px;
+      --transition: all 0.3s ease;
     }
 
     body.dark-mode {
-      /* Dark Mode Colors */
-      --bg-color: #1a1a1d;
-      --text-color: #fdfaf6;
-      --border-color: #fdfaf6;
-      --shadow-color: #fdfaf6;
-      --surface-color: #26262a;
-
-      --primary: #ff4a47;
-      --secondary: #ebd800;
-      --tertiary: #00b3b0;
-      --quaternary: #9d50ff;
+      --bg-color: #0f172a;
+      --surface-color: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: #334155;
+      --primary: #f8fafc;
+      --primary-hover: #e2e8f0;
+      --accent: #3b82f6;
+      --accent-hover: #60a5fa;
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      font-family: 'Inter', sans-serif;
     }
 
-    html, body {
-      overflow-x: hidden;
+    html {
       scroll-behavior: smooth;
     }
 
     body {
       background-color: var(--bg-color);
-      color: var(--text-color);
-      background-image: radial-gradient(var(--border-color) 1px, transparent 1px);
-      background-size: 30px 30px;
-      background-position: 0 0, 15px 15px;
+      color: var(--text-main);
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    h1, h2, h3, h4, h5, h6, b, strong {
-      font-weight: 800;
-      color: var(--text-color);
-    }
-    
-    p, span, div, li, ul {
-      color: var(--text-color);
-    }
-
-    /* Neo-brutalism Utilities */
-    .neo-box {
-      background-color: var(--surface-color);
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 8px 8px 0px var(--shadow-color);
-      border-radius: var(--border-radius);
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
-    }
-    .neo-box:hover {
-      transform: translate(4px, 4px);
-      box-shadow: 4px 4px 0px var(--shadow-color);
-    }
-
-    .neo-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 14px 28px;
-      background-color: var(--primary);
-      color: #0f0f0f !important;
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 6px 6px 0px var(--shadow-color);
-      border-radius: 8px;
-      font-weight: 800;
-      font-size: 16px;
-      text-transform: uppercase;
+    a {
       text-decoration: none;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+      color: inherit;
     }
-    body.dark-mode .neo-btn {
-      color: var(--bg-color) !important;
-    }
-    .neo-btn:hover {
-      transform: translate(3px, 3px);
-      box-shadow: 3px 3px 0px var(--shadow-color);
-      background-color: var(--secondary);
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
     .section {
-      width: 90%;
-      max-width: 1400px;
-      margin: var(--section-margin);
+      padding: 80px 0;
     }
 
-    /* ================= HEADER ================= */
-    header {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
+    h1, h2, h3, h4 {
+      color: var(--text-main);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .section-title {
+      font-size: 32px;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 18px;
+      margin-bottom: 48px;
+      text-align: center;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
       align-items: center;
-      padding: 20px 50px;
-      background-color: var(--bg-color);
-      border-bottom: var(--border-width) solid var(--border-color);
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background-color: var(--primary);
+      color: var(--bg-color);
+      border: 1px solid var(--primary);
+      border-radius: var(--radius);
+      font-weight: 500;
+      font-size: 15px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    body.dark-mode .btn {
+      color: var(--bg-color);
+    }
+    .btn:hover {
+      background-color: var(--primary-hover);
+      border-color: var(--primary-hover);
+    }
+    .btn-outline {
+      background-color: transparent;
+      color: var(--primary);
+      border: 1px solid var(--border-color);
+    }
+    body.dark-mode .btn-outline {
+      color: var(--primary);
+    }
+    .btn-outline:hover {
+      background-color: var(--surface-color);
+      border-color: var(--primary);
+    }
+    .btn-accent {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+    .btn-accent:hover {
+      background-color: var(--accent-hover);
+      border-color: var(--accent-hover);
+    }
+
+    /* Sticky Navigation Wrapper */
+    .sticky-wrapper {
       position: sticky;
       top: 0;
       z-index: 1000;
     }
-    .left {
+
+    /* Header */
+    header {
+      background-color: var(--surface-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 16px 0;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+      position: relative;
+    }
+    .header-inner {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 15px;
     }
-    .header-logo {
-      width: 60px;
-      height: 60px;
-      border: var(--border-width) solid var(--border-color);
-      background-color: var(--tertiary);
-      color: #0f0f0f;
-      border-radius: var(--border-radius);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 26px;
-      font-weight: 900;
-      box-shadow: 4px 4px 0px var(--shadow-color);
-    }
-    body.dark-mode .header-logo {
-      color: var(--bg-color);
-    }
-    .brand-text h2 {
-      font-size: 32px;
-      line-height: 1;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-    .brand-text p {
-      font-size: 14px;
+    .logo {
+      font-size: 20px;
       font-weight: 700;
-      margin-top: 5px;
-    }
-    .right {
       display: flex;
-      gap: 20px;
       align-items: center;
+      gap: 8px;
+    }
+    .logo i {
+      color: var(--accent);
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    .nav-link {
+      font-weight: 500;
+      color: var(--text-muted);
+      font-size: 14px;
+      transition: var(--transition);
+      position: relative;
+    }
+    .nav-link:hover {
+      color: var(--text-main);
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--text-main);
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
     }
     .theme-toggle {
-      background-color: var(--quaternary);
-      padding: 14px;
-      font-size: 20px;
-      border-radius: 50%;
-      width: 55px;
-      height: 55px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 18px;
+      cursor: pointer;
+      transition: var(--transition);
+      padding: 8px;
+      border-radius: var(--radius);
+    }
+    .theme-toggle:hover {
+      color: var(--text-main);
+      background-color: var(--bg-color);
     }
 
-    /* ================= HERO SECTION ================= */
+    /* Courses Tab Bar */
+    .courses-tab-bar {
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-color);
+      width: 100%;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+    body.dark-mode .courses-tab-bar {
+      background-color: rgba(30, 41, 59, 0.95);
+    }
+    .courses-tab-bar::-webkit-scrollbar {
+      display: none;
+    }
+    .courses-tab-inner {
+      display: flex;
+      gap: 12px;
+      padding: 12px 0;
+      align-items: center;
+    }
+    .tab-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background-color: var(--bg-color);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 13px;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+    .tab-link i {
+      color: var(--accent);
+    }
+    .tab-link:hover, .tab-link.active {
+      border-color: var(--text-main);
+      color: var(--text-main);
+      background-color: var(--surface-color);
+    }
+    
+    /* Hero Section */
     .hero {
       text-align: center;
-      padding: 40px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 100px 0 40px;
     }
-    .hero h1 {
-      font-size: 80px;
+    .hero-title {
+      font-size: 56px;
       line-height: 1.1;
-      text-transform: uppercase;
-      margin-bottom: 25px;
-      text-shadow: 4px 4px 0px var(--tertiary);
-      letter-spacing: -1px;
+      margin-bottom: 24px;
     }
-    body.dark-mode .hero h1 {
-      text-shadow: 4px 4px 0px rgba(0, 179, 176, 0.5);
+    .hero-title span {
+      color: var(--accent);
     }
-    .hero h1 span {
-      display: inline-block;
-      margin-top: 10px;
-      background-color: var(--primary);
-      color: #0f0f0f;
-      padding: 5px 20px;
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 6px 6px 0px var(--shadow-color);
-      transform: rotate(-1deg);
-    }
-    body.dark-mode .hero h1 span {
-      color: var(--bg-color);
-    }
-    .hero p {
-      max-width: 900px;
-      margin: 30px auto;
-      font-size: 22px;
-      font-weight: 600;
-      line-height: 1.8;
-      background-color: var(--surface-color);
-      padding: 30px;
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 8px 8px 0px var(--shadow-color);
-      border-radius: var(--border-radius);
-    }
-
-    /* ================= SEO CONTENT SECTION ================= */
-    .seo-content {
-      padding: 50px;
-      background-color: var(--secondary);
-    }
-    .seo-content h2 {
-      font-size: 40px;
-      margin-bottom: 30px;
-      text-transform: uppercase;
-      color: #0f0f0f;
-    }
-    body.dark-mode .seo-content h2 {
-      color: var(--bg-color);
-    }
-    .seo-content p {
-      font-size: 20px;
-      font-weight: 600;
-      line-height: 1.8;
-      margin-bottom: 20px;
-      color: #0f0f0f;
-    }
-    body.dark-mode .seo-content p {
-      color: var(--bg-color);
-    }
-
-    /* ================= PDF DOWNLOAD SECTION ================= */
-    .pdf-download-section {
-      padding: 50px;
-      text-align: center;
-      background-color: var(--tertiary);
-    }
-    .pdf-download-section h2 {
-      font-size: 40px;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-      color: #0f0f0f;
-    }
-    body.dark-mode .pdf-download-section h2 {
-      color: var(--bg-color);
-    }
-    .pdf-download-section p {
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 30px;
-      color: #0f0f0f;
-    }
-    body.dark-mode .pdf-download-section p {
-      color: var(--bg-color);
-    }
-    .pdf-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    /* ================= COURSE GRID ================= */
-    .course-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 35px;
-    }
-    .course-card {
-      padding: 30px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-    .course-card h2 {
-      font-size: 24px;
-      text-transform: uppercase;
-      border-bottom: var(--border-width) solid var(--border-color);
-      padding-bottom: 10px;
-      margin-bottom: 10px;
-    }
-    .course-card ul {
-      list-style-type: square;
-      padding-left: 20px;
-    }
-    .course-card li {
+    .hero-subtitle {
       font-size: 18px;
-      font-weight: 500;
-      line-height: 1.6;
-      margin-bottom: 10px;
+      color: var(--text-muted);
+      margin-bottom: 40px;
     }
 
-    /* ================= FAQ SECTION ================= */
-    .faq-section {
-      padding: 60px;
-    }
-    .faq-section h2 {
-      font-size: 45px;
+    /* Info Box */
+    .info-box {
+      background-color: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 40px;
       text-align: center;
-      margin-bottom: 50px;
-      text-transform: uppercase;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+      margin-bottom: 40px;
+    }
+    body.dark-mode .info-box {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .info-box h2 {
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+    .info-box p {
+      color: var(--text-muted);
+      font-size: 16px;
+      max-width: 700px;
+      margin: 0 auto 16px;
+    }
+    .info-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Modules Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background-color: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 32px;
+      transition: var(--transition);
+    }
+    .card:hover {
+      border-color: var(--text-main);
+      transform: translateY(-4px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+    body.dark-mode .card:hover {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .card h3 {
+      font-size: 18px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-main);
+    }
+    .card h3 i {
+      color: var(--accent);
+      font-size: 20px;
+    }
+    .card ul {
+      list-style-type: none;
+      color: var(--text-muted);
+    }
+    .card li {
+      font-size: 14px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card li::before {
+      content: '•';
+      color: var(--border-color);
+    }
+    .card li:last-child {
+      border-bottom: none;
+    }
+
+    /* FAQ */
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
     }
     .faq-item {
-      border-bottom: var(--border-width) solid var(--border-color);
-      padding: 30px 0;
+      border-bottom: 1px solid var(--border-color);
+      padding: 24px 0;
     }
     .faq-item:last-child {
       border-bottom: none;
     }
     .faq-item h3 {
-      font-size: 24px;
-      margin-bottom: 15px;
+      font-size: 18px;
+      margin-bottom: 12px;
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 12px;
     }
-    .faq-item h3::before {
-      content: "Q";
-      background-color: var(--quaternary);
-      color: #0f0f0f;
-      padding: 5px 15px;
-      border: var(--border-width) solid var(--border-color);
-      border-radius: 8px;
-      box-shadow: 3px 3px 0px var(--shadow-color);
-    }
-    body.dark-mode .faq-item h3::before {
-      color: var(--bg-color);
+    .faq-item h3 i {
+      color: var(--accent);
     }
     .faq-item p {
-      font-size: 20px;
-      font-weight: 600;
-      margin-left: 70px;
+      color: var(--text-muted);
+      padding-left: 32px;
+      font-size: 15px;
     }
 
-    /* ================= RELATED COURSES ================= */
-    .related-courses {
-      padding: 60px;
-      text-align: center;
-      background-color: var(--quaternary);
-    }
-    .related-courses h2 {
-      font-size: 40px;
-      margin-bottom: 40px;
-      color: #fdfaf6;
-      text-transform: uppercase;
-    }
-    body.dark-mode .related-courses h2 {
-      color: #fdfaf6;
-    }
-    .related-courses a {
-      margin: 10px;
-      background-color: var(--primary);
-    }
-
-    /* ================= FOOTER ================= */
-    footer {
-      border-top: var(--border-width) solid var(--border-color);
-      background-color: var(--surface-color);
-      padding: 80px 50px 30px;
-    }
-    .footer-container {
+    /* Related Courses Tags */
+    .tags {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 50px;
-      margin-bottom: 50px;
-      max-width: 1400px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .footer-box {
-      flex: 1;
-      min-width: 280px;
-    }
-    .footer-box h3 {
-      font-size: 28px;
-      margin-bottom: 25px;
-      text-transform: uppercase;
-      background-color: var(--primary);
-      color: #0f0f0f;
-      display: inline-block;
-      padding: 8px 16px;
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 4px 4px 0px var(--shadow-color);
-    }
-    body.dark-mode .footer-box h3 {
-      color: var(--bg-color);
-    }
-    .footer-box p {
-      font-size: 18px;
-      font-weight: 600;
-      line-height: 1.6;
-    }
-    .footer-box a {
-      display: block;
-      font-size: 20px;
-      font-weight: 700;
-      text-decoration: none;
-      margin-bottom: 15px;
-      transition: transform 0.2s;
-    }
-    .footer-box a:hover {
-      transform: translateX(8px);
-      text-decoration: underline;
-    }
-    .social-icons {
-      display: flex;
-      gap: 20px;
-    }
-    .social-icons a {
-      width: 60px;
-      height: 60px;
-      display: flex;
-      align-items: center;
+      gap: 12px;
       justify-content: center;
-      font-size: 28px;
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 5px 5px 0px var(--shadow-color);
-      border-radius: var(--border-radius);
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
-    }
-    .social-icons a:hover {
-      transform: translate(3px, 3px);
-      box-shadow: 2px 2px 0px var(--shadow-color);
-      background-color: var(--secondary);
-    }
-    .footer-bottom {
-      text-align: center;
-      font-weight: 800;
-      font-size: 18px;
-      border-top: var(--border-width) dashed var(--border-color);
-      padding-top: 30px;
-      max-width: 1400px;
-      margin: 0 auto;
+      margin-top: 24px;
     }
 
-    /* ================= SCROLL TO TOP ================= */
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 60px 0 30px;
+      background-color: var(--surface-color);
+      margin-top: 60px;
+    }
+    .footer-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 60px;
+    }
+    .footer-brand p {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-top: 16px;
+      max-width: 300px;
+    }
+    .footer-col h4 {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    .footer-col a {
+      display: block;
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 12px;
+      transition: var(--transition);
+    }
+    .footer-col a:hover {
+      color: var(--text-main);
+    }
+    .footer-bottom {
+      border-top: 1px solid var(--border-color);
+      margin-top: 40px;
+      padding-top: 24px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    /* Scroll to Top */
     #scrollTopBtn {
       position: fixed;
       bottom: 40px;
       right: 40px;
-      width: 70px;
-      height: 70px;
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: 6px 6px 0px var(--shadow-color);
-      border-radius: var(--border-radius);
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius);
       background-color: var(--primary);
-      color: #0f0f0f;
-      font-size: 28px;
+      color: var(--bg-color);
+      border: none;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 18px;
       cursor: pointer;
       opacity: 0;
       visibility: hidden;
-      transition: transform 0.2s, box-shadow 0.2s, opacity 0.3s;
-      z-index: 9999;
-    }
-    body.dark-mode #scrollTopBtn {
-      color: var(--bg-color);
+      transition: var(--transition);
+      z-index: 99;
     }
     #scrollTopBtn.show {
       opacity: 1;
       visibility: visible;
     }
     #scrollTopBtn:hover {
-      transform: translate(3px, 3px);
-      box-shadow: 3px 3px 0px var(--shadow-color);
-      background-color: var(--secondary);
+      background-color: var(--primary-hover);
+      transform: translateY(-4px);
     }
 
-    /* ================= RESPONSIVE ================= */
+    /* Responsive Design */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: var(--text-main);
+      cursor: pointer;
+    }
     @media(max-width: 768px) {
-      header {
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
         flex-direction: column;
-        gap: 20px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--surface-color);
         padding: 20px;
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
       }
-      .hero h1 {
-        font-size: 50px;
+      .nav-links.active {
+        display: flex;
       }
-      .footer-container {
-        flex-direction: column;
+      .mobile-menu-btn {
+        display: block;
+      }
+      .hero-title {
+        font-size: 40px;
       }
     }
   </style>
@@ -531,282 +533,313 @@
 
 <body>
 
-  <!-- ================= HEADER ================= -->
-  <header>
-    <div class="left">
-      <div class="header-logo">&lt;/&gt;</div>
-      <div class="brand-text">
-        <h2>CODECRAFT</h2>
-        <p>Code Today. Build Tomorrow.</p>
+  <!-- STICKY NAV WRAPPER -->
+  <div class="sticky-wrapper">
+    <!-- HEADER -->
+    <header>
+      <div class="container header-inner">
+        <a href="index.html" class="logo">
+          <i class="fa-solid fa-code"></i> CodeCraft
+        </a>
+        
+        <!-- Navigation Links -->
+        <div class="nav-links" id="navLinks">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="index.html#notes" class="nav-link">Notes</a>
+          <a href="index.html#handbook" class="nav-link">Handbook</a>
+          <a href="index.html#blogs" class="nav-link">Blogs</a>
+          <a href="index.html#about" class="nav-link">About</a>
+          <a href="index.html#contact" class="nav-link">Contact</a>
+        </div>
+        
+        <div class="header-actions">
+          <button id="themeToggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- COURSES TAB BAR -->
+    <div class="courses-tab-bar">
+      <div class="container courses-tab-inner">
+        <a href="html.html" class="tab-link"><i class="fa-brands fa-html5"></i> HTML</a>
+        <a href="css.html" class="tab-link"><i class="fa-brands fa-css3-alt"></i> CSS</a>
+        <a href="js.html" class="tab-link"><i class="fa-brands fa-js"></i> JavaScript</a>
+        <a href="python.html" class="tab-link"><i class="fa-brands fa-python"></i> Python</a>
+        <a href="java.html" class="tab-link"><i class="fa-brands fa-java"></i> Java</a>
+        <a href="c.html" class="tab-link"><i class="fa-solid fa-c"></i> C</a>
+        <a href="c++.html" class="tab-link"><i class="fa-solid fa-code"></i> C++</a>
+        <a href="fullsatck.html" class="tab-link"><i class="fa-solid fa-layer-group"></i> Full Stack</a>
+        <a href="sql.html" class="tab-link"><i class="fa-solid fa-database"></i> SQL</a>
+        <a href="mongodb.html" class="tab-link active"><i class="fa-solid fa-leaf"></i> MongoDB</a>
+        <a href="dbms.html" class="tab-link"><i class="fa-solid fa-server"></i> DBMS</a>
+        <a href="dsa.html" class="tab-link"><i class="fa-solid fa-network-wired"></i> DSA</a>
       </div>
     </div>
-    <div class="right">
-      <a href="index.html" class="neo-btn">Home</a>
-      <a href="index.html#languages" class="neo-btn">Languages</a>
-      <a href="contact.html" class="neo-btn">Contact</a>
-      <!-- Dark Mode Toggle -->
-      <button id="themeToggle" class="neo-btn theme-toggle">
-        <i class="fa-solid fa-moon"></i>
-      </button>
-    </div>
-  </header>
+  </div>
 
-  <main>
-    <!-- ================= HERO ================= -->
+  <main class="container">
+    
+    <!-- HERO SECTION -->
     <section class="section hero">
-      <h1>Complete <span>Java Programming</span><br>Tutorial for Beginners</h1>
-      <p>
-        Master Java programming from beginner to advanced level. Learn variables, data types, loops, methods, arrays, strings, object-oriented programming (OOP), exception handling, collections framework, file handling, JDBC, multithreading, Java 8+ features, and real-world application development projects.
+      <h1 class="hero-title">Learn <span>MongoDB</span></h1>
+      <p class="hero-subtitle">
+        Master MongoDB from beginner to advanced level. Learn NoSQL databases, collections, documents, CRUD operations, aggregation pipelines, indexing, MongoDB Atlas, Mongoose, transactions, performance optimization, and real-world backend projects.
       </p>
     </section>
 
-    <!-- ================= SEO CONTENT ================= -->
-    <section class="section seo-content neo-box">
-      <h2>Why Learn Java Programming?</h2>
-      <p>Java is one of the most popular and widely used programming languages in the world. It powers enterprise applications, Android apps, banking systems, cloud platforms, and large-scale software solutions.</p>
-      <p>This Java tutorial covers Core Java, Object-Oriented Programming (OOP), Collections Framework, Exception Handling, JDBC, Multithreading, Java 8 Features, Data Structures, Testing, and real-world Java projects.</p>
-      <p>Whether you want to become a Java Developer, Backend Developer, Android Developer, Software Engineer, or Full Stack Developer, learning Java provides a strong foundation for building scalable applications and advancing your programming career.</p>
+    <!-- INFO BOX -->
+    <section class="info-box">
+      <h2>Learn MongoDB – Complete NoSQL Database Tutorial</h2>
+      <p>MongoDB is one of the most popular NoSQL databases used by modern web applications. Unlike traditional relational databases, MongoDB stores data as flexible JSON-like documents, making it highly scalable and developer-friendly.</p>
+      <p>This MongoDB tutorial covers everything from basic CRUD operations to advanced concepts such as aggregation pipelines, indexing, replication, sharding, transactions, and performance optimization.</p>
+      <p>Whether you are a beginner learning databases for the first time or a developer building scalable backend systems with Node.js and Express.js, this course provides practical examples and real-world projects.</p>
+      <p>You will also learn MongoDB Atlas, MongoDB Compass, Mongoose ODM, schema validation, relationships, and interview preparation topics commonly asked in software development roles.</p>
     </section>
 
-    <!-- ================= PDF DOWNLOAD SECTION ================= -->
-    <section class="section pdf-download-section neo-box" aria-label="Download Java Programming Tutorial PDF">
-      <h2>Download Complete Java Tutorial PDF</h2>
-      <p>Get our comprehensive Java Programming guide in PDF format. Perfect for offline reading, quick reference, and mastering Java at your own pace.</p>
-      <div class="pdf-buttons">
-        <a href="java-programming-tutorial.pdf" target="_blank" rel="noopener noreferrer" class="neo-btn" aria-label="Open Java Programming Tutorial PDF in new tab" title="Open PDF">
-          <i class="fa-solid fa-file-pdf"></i> Open PDF
-        </a>
-        <a href="java-programming-tutorial.pdf" download="CodeCraft_Java_Tutorial.pdf" class="neo-btn" style="background-color: var(--secondary);" aria-label="Download Java Programming Tutorial PDF" title="Download PDF">
-          <i class="fa-solid fa-download"></i> Download PDF
-        </a>
+    <!-- MODULES GRID -->
+    <section class="section">
+      <h2 class="section-title">Course Modules</h2>
+      <p class="section-subtitle">A structured path to mastering MongoDB.</p>
+
+      <div class="grid">
+        <div class="card">
+          <h3><i class="fa-solid fa-book"></i> Module 1: Introduction</h3>
+          <ul>
+            <li>What is MongoDB?</li>
+            <li>SQL vs NoSQL</li>
+            <li>BSON vs JSON</li>
+            <li>MongoDB architecture</li>
+            <li>Installation & setup</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-layer-group"></i> Module 2: Basics</h3>
+          <ul>
+            <li>Databases & Collections</li>
+            <li>Documents structure</li>
+            <li>insertOne()</li>
+            <li>insertMany()</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-magnifying-glass"></i> Module 3: Reading Data</h3>
+          <ul>
+            <li>find()</li>
+            <li>findOne()</li>
+            <li>Filters</li>
+            <li>Projection</li>
+            <li>Sorting & Limiting</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-filter"></i> Module 4: Query Operators</h3>
+          <ul>
+            <li>$eq, $ne, $gt, $lt</li>
+            <li>$and, $or, $not</li>
+            <li>$in, $nin</li>
+            <li>$exists, $type</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-pen-to-square"></i> Module 5: Updating Data</h3>
+          <ul>
+            <li>updateOne()</li>
+            <li>updateMany()</li>
+            <li>$set, $inc</li>
+            <li>$push, $pull</li>
+            <li>rename fields</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-trash-can"></i> Module 6: Deleting Data</h3>
+          <ul>
+            <li>deleteOne()</li>
+            <li>deleteMany()</li>
+            <li>drop collection</li>
+            <li>drop database</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-sitemap"></i> Module 7: Data Modeling</h3>
+          <ul>
+            <li>Embedded documents</li>
+            <li>Referenced documents</li>
+            <li>Relationships</li>
+            <li>Schema design</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-chart-line"></i> Module 8: Aggregation</h3>
+          <ul>
+            <li>aggregate()</li>
+            <li>$match</li>
+            <li>$group</li>
+            <li>$sort</li>
+            <li>$project</li>
+            <li>$unwind</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-bolt"></i> Module 9: Indexing</h3>
+          <ul>
+            <li>createIndex()</li>
+            <li>Single index</li>
+            <li>Compound index</li>
+            <li>Text index</li>
+            <li>Performance tuning</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-shield-halved"></i> Module 10: Security</h3>
+          <ul>
+            <li>Authentication</li>
+            <li>Users & roles</li>
+            <li>Permissions</li>
+            <li>Best practices</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-brands fa-node-js"></i> Module 11: MongoDB + Node.js</h3>
+          <ul>
+            <li>Mongoose setup</li>
+            <li>Connection to DB</li>
+            <li>Schemas & Models</li>
+            <li>CRUD APIs</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-code-branch"></i> Module 12: Mongoose Deep Dive</h3>
+          <ul>
+            <li>Validation</li>
+            <li>Middleware</li>
+            <li>Populate()</li>
+            <li>Relationships</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-server"></i> Module 13: Advanced Concepts</h3>
+          <ul>
+            <li>Replication</li>
+            <li>Sharding</li>
+            <li>Scaling</li>
+            <li>Backup & restore</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-gauge-high"></i> Module 14: Performance</h3>
+          <ul>
+            <li>Query optimization</li>
+            <li>Index tuning</li>
+            <li>Avoid slow queries</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-rocket"></i> Module 15: Projects</h3>
+          <ul>
+            <li>Blog API</li>
+            <li>E-commerce backend</li>
+            <li>Chat app backend</li>
+            <li>Task manager</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-toolbox"></i> Module 16: Tools</h3>
+          <ul>
+            <li>MongoDB Compass</li>
+            <li>Mongo Shell</li>
+            <li>MongoDB Atlas</li>
+            <li>Cloud clusters</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-check-double"></i> Module 17: Data Validation</h3>
+          <ul>
+            <li>Schema validation</li>
+            <li>Required fields</li>
+            <li>Custom rules</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-money-bill-transfer"></i> Module 18: Transactions</h3>
+          <ul>
+            <li>ACID properties</li>
+            <li>Commit & rollback</li>
+            <li>Multi-document transactions</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-comments"></i> Module 19: Interview Prep</h3>
+          <ul>
+            <li>Aggregation questions</li>
+            <li>Schema design</li>
+            <li>CRUD practice</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <!-- ================= COURSE GRID ================= -->
-    <section class="section course-container">
+    <!-- FAQ SECTION -->
+    <section class="section">
+      <h2 class="section-title">MongoDB Frequently Asked Questions</h2>
+      <p class="section-subtitle">Common questions about learning MongoDB.</p>
       
-      <div class="course-card neo-box">
-        <h2>📘 Module 1: Introduction to Java</h2>
-        <ul>
-          <li>What is Java?</li>
-          <li>History of Java</li>
-          <li>Features of Java</li>
-          <li>JVM, JRE, JDK</li>
-          <li>How Java works</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>🧱 Module 2: Java Basics</h2>
-        <ul>
-          <li>Variables</li>
-          <li>Data Types</li>
-          <li>Operators</li>
-          <li>Type Casting</li>
-          <li>Input using Scanner</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>🔀 Module 3: Control Statements</h2>
-        <ul>
-          <li>if / else</li>
-          <li>switch case</li>
-          <li>loops</li>
-          <li>break / continue</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>🔁 Module 4: Loops</h2>
-        <ul>
-          <li>for loop</li>
-          <li>while loop</li>
-          <li>do-while loop</li>
-          <li>nested loops</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>🧩 Module 5: Functions (Methods)</h2>
-        <ul>
-          <li>Methods in Java</li>
-          <li>Parameters</li>
-          <li>Return types</li>
-          <li>Method overloading</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>📦 Module 6: Arrays</h2>
-        <ul>
-          <li>1D Arrays</li>
-          <li>2D Arrays</li>
-          <li>Array operations</li>
-          <li>Sorting arrays</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>🧾 Module 7: Strings</h2>
-        <ul>
-          <li>String class</li>
-          <li>String methods</li>
-          <li>StringBuilder</li>
-          <li>String manipulation</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>🧠 Module 8: OOP Concepts</h2>
-        <ul>
-          <li>Classes & Objects</li>
-          <li>Encapsulation</li>
-          <li>Inheritance</li>
-          <li>Polymorphism</li>
-          <li>Abstraction</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>⚡ Module 9: Exception Handling</h2>
-        <ul>
-          <li>try / catch</li>
-          <li>finally</li>
-          <li>throw / throws</li>
-          <li>custom exceptions</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>📚 Module 10: Collections Framework</h2>
-        <ul>
-          <li>ArrayList</li>
-          <li>LinkedList</li>
-          <li>HashSet</li>
-          <li>HashMap</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>🧰 Module 11: File Handling</h2>
-        <ul>
-          <li>File class</li>
-          <li>Reading files</li>
-          <li>Writing files</li>
-          <li>BufferedReader</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>🌐 Module 12: Java Web Basics</h2>
-        <ul>
-          <li>Servlet basics</li>
-          <li>JSP basics</li>
-          <li>HTTP requests</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>🗄️ Module 13: JDBC</h2>
-        <ul>
-          <li>Database connection</li>
-          <li>SQL queries</li>
-          <li>CRUD operations</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>🧪 Module 14: Advanced Java</h2>
-        <ul>
-          <li>Multithreading</li>
-          <li>Synchronization</li>
-          <li>Lambda expressions</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>⚙️ Module 15: Java 8+ Features</h2>
-        <ul>
-          <li>Streams API</li>
-          <li>Functional interfaces</li>
-          <li>Default methods</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>🧪 Module 16: Testing</h2>
-        <ul>
-          <li>JUnit basics</li>
-          <li>Assertions</li>
-          <li>Test cases</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>🧠 Module 17: Data Structures</h2>
-        <ul>
-          <li>Stack</li>
-          <li>Queue</li>
-          <li>Linked List</li>
-          <li>Trees basics</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>🚀 Module 18: Projects</h2>
-        <ul>
-          <li>Bank Management System</li>
-          <li>Library Management</li>
-          <li>Student Management</li>
-          <li>ATM System</li>
-        </ul>
-      </div>
-
-      <div class="course-card neo-box">
-        <h2>🎯 Module 19: Career Skills</h2>
-        <ul>
-          <li>Git & GitHub</li>
-          <li>Clean Code</li>
-          <li>Interview Preparation</li>
-        </ul>
-      </div>
-
-    </section>
-
-    <!-- ================= FAQ SECTION ================= -->
-    <section class="section faq-section neo-box">
-      <h2>Java Frequently Asked Questions</h2>
-      <div class="faq-item">
-        <h3>What is Java?</h3>
-        <p>Java is a high-level, object-oriented programming language used for developing web applications, mobile apps, enterprise software, cloud systems, and desktop applications.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Is Java easy to learn?</h3>
-        <p>Yes. Java has a clear syntax and strong community support, making it one of the best programming languages for beginners and professionals.</p>
-      </div>
-      <div class="faq-item">
-        <h3>What is the difference between JDK, JRE, and JVM?</h3>
-        <p>JDK is the Java Development Kit used for development, JRE is the Java Runtime Environment used to run applications, and JVM is the Java Virtual Machine that executes Java bytecode.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Can I get a job after learning Java?</h3>
-        <p>Yes. Java is widely used in software development, backend development, enterprise applications, Android development, and cloud computing, creating strong career opportunities.</p>
-      </div>
-      <div class="faq-item">
-        <h3>What should I learn after Java?</h3>
-        <p>After Java, you can learn JDBC, Spring Boot, Hibernate, REST APIs, Microservices, Databases, and Cloud Technologies to become a professional Java developer.</p>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3><i class="fa-solid fa-circle-question"></i> What is MongoDB?</h3>
+          <p>MongoDB is a document-oriented NoSQL database that stores data in flexible JSON-like documents instead of traditional tables and rows.</p>
+        </div>
+        <div class="faq-item">
+          <h3><i class="fa-solid fa-circle-question"></i> Is MongoDB easy to learn?</h3>
+          <p>Yes. MongoDB is beginner-friendly and easier to understand than many traditional databases because it uses JSON-like documents.</p>
+        </div>
+        <div class="faq-item">
+          <h3><i class="fa-solid fa-circle-question"></i> Where is MongoDB used?</h3>
+          <p>MongoDB is widely used in web applications, e-commerce platforms, social media applications, analytics systems, and cloud-native applications.</p>
+        </div>
+        <div class="faq-item">
+          <h3><i class="fa-solid fa-circle-question"></i> What is MongoDB Atlas?</h3>
+          <p>MongoDB Atlas is the official cloud database platform that allows developers to deploy and manage MongoDB clusters without server administration.</p>
+        </div>
+        <div class="faq-item">
+          <h3><i class="fa-solid fa-circle-question"></i> Should I learn MongoDB in 2026?</h3>
+          <p>Yes. MongoDB remains one of the most in-demand database technologies for full-stack development, backend engineering, and cloud applications.</p>
+        </div>
       </div>
     </section>
 
-    <!-- ================= RELATED COURSES ================= -->
-    <section class="section related-courses neo-box">
-      <h2>Explore More Programming Tutorials</h2>
-      <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-        <a href="c.html" class="neo-btn" title="Learn C Programming Tutorial">Learn C</a>
-        <a href="js.html" class="neo-btn" title="Learn JavaScript Tutorial">Learn JavaScript</a>
-        <a href="python.html" class="neo-btn" title="Learn Python Programming Tutorial">Learn Python</a>
-        <a href="cpp.html" class="neo-btn" title="Learn C++ Programming Tutorial">Learn C++</a>
+    <!-- RELATED COURSES -->
+    <section class="section">
+      <div class="info-box" style="margin-bottom: 0;">
+        <h2>Explore More Programming Tutorials</h2>
+        <div class="tags">
+          <a href="sql.html" class="btn btn-outline">Learn SQL</a>
+          <a href="java.html" class="btn btn-outline">Learn Java</a>
+          <a href="python.html" class="btn btn-outline">Learn Python</a>
+          <a href="js.html" class="btn btn-outline">Learn JavaScript</a>
+        </div>
       </div>
     </section>
   </main>
@@ -816,39 +849,41 @@
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <!-- ================= FOOTER ================= -->
+  <!-- FOOTER -->
   <footer>
-    <div class="footer-container">
-      <div class="footer-box">
-        <h3>CODECRAFT</h3>
-        <p>We create modern coding experiences for future developers.</p>
-      </div>
-      <div class="footer-box">
-        <h3>Quick Links</h3>
-        <a href="index.html" title="CodeCraft Home Page">Home</a>
-        <a href="index.html#languages" title="Programming Languages Tutorials">Languages</a>
-        <a href="contact.html" title="Contact CodeCraft">Contact</a>
-        <a href="about.html" title="About CodeCraft">About</a>
-      </div>
-      <div class="footer-box">
-        <h3>Follow Us</h3>
-        <div class="social-icons">
-          <a href="https://www.instagram.com/thecodecraft.dev?igsh=bjhzZzhnNmZrZ3l2" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://whatsapp.com/channel/0029VbCpE1Z0QeadMS6voR17" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <div class="logo">
+          <i class="fa-solid fa-code"></i> CodeCraft
         </div>
+        <p>Minimalist programming education for the modern developer.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <a href="index.html">Home</a>
+        <a href="index.html#notes">Notes</a>
+        <a href="index.html#handbook">Handbook</a>
+      </div>
+      <div class="footer-col">
+        <h4>More</h4>
+        <a href="index.html#blogs">Blogs</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      © 2026 CODECRAFT | All Rights Reserved
+    <div class="container">
+      <div class="footer-bottom">
+        &copy; 2026 CodeCraft. Minimalist design by choice.
+      </div>
     </div>
   </footer>
 
   <script>
-    // Scroll to Top logic
+    // Scroll to Top Logic
     const scrollBtn = document.getElementById("scrollTopBtn");
 
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 300) {
+      if (window.scrollY > 400) {
         scrollBtn.classList.add("show");
       } else {
         scrollBtn.classList.remove("show");
@@ -867,8 +902,7 @@
     const body = document.body;
     const themeIcon = themeToggleBtn.querySelector("i");
 
-    // Check localStorage for preferred theme
-    const savedTheme = localStorage.getItem("codecraft-theme");
+    const savedTheme = localStorage.getItem("codecraft-minimal-theme");
     if (savedTheme === "dark") {
       body.classList.add("dark-mode");
       themeIcon.classList.replace("fa-moon", "fa-sun");
@@ -876,14 +910,36 @@
 
     themeToggleBtn.addEventListener("click", () => {
       body.classList.toggle("dark-mode");
-      
       if (body.classList.contains("dark-mode")) {
         themeIcon.classList.replace("fa-moon", "fa-sun");
-        localStorage.setItem("codecraft-theme", "dark");
+        localStorage.setItem("codecraft-minimal-theme", "dark");
       } else {
         themeIcon.classList.replace("fa-sun", "fa-moon");
-        localStorage.setItem("codecraft-theme", "light");
+        localStorage.setItem("codecraft-minimal-theme", "light");
       }
+    });
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    const navLinks = document.getElementById("navLinks");
+    
+    mobileMenuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      const icon = mobileMenuBtn.querySelector("i");
+      if (navLinks.classList.contains("active")) {
+        icon.classList.replace("fa-bars", "fa-xmark");
+      } else {
+        icon.classList.replace("fa-xmark", "fa-bars");
+      }
+    });
+
+    // Close mobile menu when clicking a link
+    navLinks.querySelectorAll(".nav-link").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        const icon = mobileMenuBtn.querySelector("i");
+        icon.classList.replace("fa-xmark", "fa-bars");
+      });
     });
   </script>
 </body>
